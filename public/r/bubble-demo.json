@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bubble-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/bubble"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/bubble-demo.tsx",
+      "content": "import {\n  Bubble,\n  BubbleContent,\n  BubbleWrapper,\n} from \"@/registry/aoian-ui/bubble\"\n\nexport default function BubbleDemo() {\n  return (\n    <Bubble>\n      <BubbleWrapper>\n        <BubbleContent>hello world !</BubbleContent>\n      </BubbleWrapper>\n    </Bubble>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

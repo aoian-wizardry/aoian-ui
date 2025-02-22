@@ -1,0 +1,23 @@
+{
+  "title": "Changelog",
+  "description": "A history of changes for Aoian UI",
+  "published": false,
+  "featured": false,
+  "component": false,
+  "toc": true,
+  "body": {
+    "raw": "",
+    "code": "var Component=(()=>{var x=Object.create;var a=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var p=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),_=(t,e)=>{for(var n in e)a(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of d(e))!h.call(t,r)&&r!==n&&a(t,r,{get:()=>e[r],enumerable:!(s=l(e,r))||s.enumerable});return t};var j=(t,e,n)=>(n=t!=null?x(g(t)):{},i(e||!t||!t.__esModule?a(n,\"default\",{value:t,enumerable:!0}):n,t)),C=t=>i(a({},\"__esModule\",{value:!0}),t);var f=p((D,c)=>{c.exports=_jsx_runtime});var y={};_(y,{default:()=>m,frontmatter:()=>M});var o=j(f()),M={title:\"Changelog\",description:\"A history of changes for Aoian UI\",published:!1};function u(t){return(0,o.jsx)(o.Fragment,{})}function m(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(u,{...t})}):u(t)}return C(y);})();\n;return Component;"
+  },
+  "_id": "docs/changelog.mdx",
+  "_raw": {
+    "sourceFilePath": "docs/changelog.mdx",
+    "sourceFileName": "changelog.mdx",
+    "sourceFileDir": "docs",
+    "contentType": "mdx",
+    "flattenedPath": "docs/changelog"
+  },
+  "type": "Doc",
+  "slug": "/docs/changelog",
+  "slugAsParams": "changelog"
+}
