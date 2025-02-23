@@ -21,32 +21,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jonny/develop/aoian-ai/components&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/jonny/develop/aoian-ai/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jonny/develop/aoian-ai/app",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/jonny/develop/aoian-ai/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/registry" />
+      <recent name="$PROJECT_DIR$/registry/default/aoian-ui/hooks" />
+      <recent name="$PROJECT_DIR$/registry/examples" />
       <recent name="$PROJECT_DIR$/components" />
-      <recent name="$PROJECT_DIR$/lib" />
-      <recent name="$PROJECT_DIR$/app/(app)/docs/[[...slug]]" />
-      <recent name="$PROJECT_DIR$/app/(app)/docs" />
-      <recent name="$PROJECT_DIR$/app/(app)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/registry/aoian-ui" />
+      <recent name="$PROJECT_DIR$/registry/aoian-ui/bubble" />
+      <recent name="$PROJECT_DIR$/registry" />
+      <recent name="$PROJECT_DIR$/registry/default/aoian-ui" />
+      <recent name="$PROJECT_DIR$/registry/default" />
+      <recent name="$PROJECT_DIR$/registry/aoian-ui/bubble/components" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -69,11 +72,14 @@
       <workItem from="1740206272993" duration="3608000" />
       <workItem from="1740210555775" duration="13929000" />
       <workItem from="1740280731567" duration="1322000" />
-      <workItem from="1740282066175" duration="7188000" />
+      <workItem from="1740282066175" duration="27979000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 import {Metadata} from "next"
 import Link from "next/link"
-import {ArrowRight, Github, Twitter} from 'lucide-react';
+import {ArrowRight} from 'lucide-react';
 import {Button} from "@/components/ui/button"
 import React from "react";
 
