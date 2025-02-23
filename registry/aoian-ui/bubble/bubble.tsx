@@ -10,9 +10,9 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar"
 import { Loading } from "@/registry/aoian-ui/loading"
-import { useTypingConfig } from '@/registry/aoian-ui/bubble/hooks/use-typing-config'
-import { useTypedEffect } from '@/registry/aoian-ui/bubble/hooks/use-typed-effect'
-import { useBubbleList } from '@/registry/aoian-ui/bubble/components/bubble-list'
+import { useTypingConfig } from '@/registry/aoian-ui/hooks/use-typing-config'
+import { useTypedEffect } from '@/registry/aoian-ui/hooks/use-typed-effect'
+import { useBubbleList } from '@/registry/aoian-ui/bubble/bubble-list'
 
 
 const BubbleContext = React.createContext<BubbleProps | null>(null)

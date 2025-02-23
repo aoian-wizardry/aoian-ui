@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-event",
+  "type": "registry:hook",
+  "files": [
+    {
+      "path": "registry/aoian-ui/hooks/use-event.ts",
+      "content": "import * as React from \"react\";\n\nexport function useEvent<T extends Function>(callback: T): T {\n  // @ts-ignore\n  const fnRef = React.useRef<any>()\n  fnRef.current = callback\n\n  const memoFn = React.useCallback<T>(\n    ((...args: any) => fnRef.current?.(...args)) as any,\n    []\n  )\n\n  return memoFn\n}\n",
+      "type": "registry:hook",
+      "target": "components/aoian-ui/hooks/use-event.ts"
+    }
+  ]
+}

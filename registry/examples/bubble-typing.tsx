@@ -6,7 +6,7 @@ import {
   BubbleAvatar,
   BubbleContent,
   BubbleWrapper,
-} from "@/registry/aoian-ui/bubble/components/bubble"
+} from "@/registry/aoian-ui/bubble/bubble"
 import { Button } from "@/components/ui/button"
 
 const text = "Aoian UI love you! "

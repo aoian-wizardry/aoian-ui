@@ -4,7 +4,7 @@ import {
   Bubble,
   BubbleContent,
   BubbleWrapper,
-} from "@/registry/aoian-ui/bubble/components/bubble"
+} from "@/registry/aoian-ui/bubble/bubble"
 
 const longText =
   "This is a long text message to show the multiline view of the bubble component. ".repeat(

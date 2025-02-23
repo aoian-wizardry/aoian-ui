@@ -1,7 +1,7 @@
 import * as React from "react"
 import markdownit from "markdown-it"
 
-import {Bubble, BubbleContent, BubbleWrapper} from "@/registry/aoian-ui/bubble/components/bubble";
+import {Bubble, BubbleContent, BubbleWrapper} from "@/registry/aoian-ui/bubble/bubble";
 
 const md = markdownit({ html: true, breaks: true })
 

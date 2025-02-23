@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { ListItemType } from '@/registry/aoian-ui/bubble/hooks/use-list-data';
-import { useEvent } from '@/registry/hooks/use-event';
+import { ListItemType } from '@/registry/aoian-ui/hooks/use-list-data';
+import { useEvent } from '@/registry/aoian-ui/hooks/use-event';
 
 
 export function useDisplayData(items: ListItemType[]) {

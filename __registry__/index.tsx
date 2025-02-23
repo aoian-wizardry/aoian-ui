@@ -18,38 +18,38 @@ export const Index: Record<string, any> = {
     name: "bubble",
     description: "A bubble component for chat.",
     type: "registry:component",
-    registryDependencies: ["avatar","https://ui.aoian.chat/r/loading"],
+    registryDependencies: ["avatar","https://ui.aoian.chat/r/loading","https://ui.aoian.chat/r/use-event"],
     files: [{
-      path: "registry/aoian-ui/bubble/components/bubble.tsx",
+      path: "registry/aoian-ui/bubble/bubble.tsx",
       type: "registry:component",
-      target: ""
+      target: "components/aoian-ui/bubble/bubble.tsx"
     },{
-      path: "registry/aoian-ui/bubble/components/bubble-list.tsx",
+      path: "registry/aoian-ui/bubble/bubble-list.tsx",
       type: "registry:component",
-      target: ""
+      target: "components/aoian-ui/bubble/bubble-list.tsx"
     },{
-      path: "registry/aoian-ui/bubble/hooks/use-display-data.ts",
+      path: "registry/aoian-ui/hooks/use-display-data.ts",
       type: "registry:hook",
-      target: ""
+      target: "components/aoian-ui/hooks/use-display-data.ts"
     },{
-      path: "registry/aoian-ui/bubble/hooks/use-list-data.ts",
+      path: "registry/aoian-ui/hooks/use-list-data.ts",
       type: "registry:hook",
-      target: ""
+      target: "components/aoian-ui/hooks/use-list-data.ts"
     },{
-      path: "registry/aoian-ui/bubble/hooks/use-typed-effect.ts",
+      path: "registry/aoian-ui/hooks/use-typed-effect.ts",
       type: "registry:hook",
-      target: ""
+      target: "components/aoian-ui/hooks/use-typed-effect.ts"
     },{
-      path: "registry/aoian-ui/bubble/hooks/use-typing-config.ts",
+      path: "registry/aoian-ui/hooks/use-typing-config.ts",
       type: "registry:hook",
-      target: ""
+      target: "components/aoian-ui/hooks/use-typing-config.ts"
     },{
       path: "registry/aoian-ui/bubble/types.ts",
       type: "registry:file",
-      target: "components/types/bubble-types.tsx"
+      target: "components/aoian-ui/bubble/types.ts"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/aoian-ui/bubble/components/bubble.tsx")
+      const mod = await import("@/registry/aoian-ui/bubble/bubble.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -63,7 +63,7 @@ export const Index: Record<string, any> = {
     files: [{
       path: "registry/aoian-ui/loading.tsx",
       type: "registry:ui",
-      target: ""
+      target: "components/aoian-ui/loading.tsx"
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/aoian-ui/loading.tsx")
@@ -225,18 +225,18 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
-  "bubble-list": {
-    name: "bubble-list",
+  "bubble-list-demo": {
+    name: "bubble-list-demo",
     description: "",
     type: "registry:example",
     registryDependencies: ["https://ui.aoian.chat/r/bubble"],
     files: [{
-      path: "registry/examples/bubble-list.tsx",
+      path: "registry/examples/bubble-list-demo.tsx",
       type: "registry:example",
       target: ""
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/examples/bubble-list.tsx")
+      const mod = await import("@/registry/examples/bubble-list-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -254,6 +254,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/loading-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "use-event": {
+    name: "use-event",
+    description: "",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/aoian-ui/hooks/use-event.ts",
+      type: "registry:hook",
+      target: "components/aoian-ui/hooks/use-event.ts"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/aoian-ui/hooks/use-event.ts")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

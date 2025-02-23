@@ -8,6 +8,7 @@ import { z } from "zod"
 import { lib } from "@/registry/registry-lib"
 import { ui } from "@/registry/registry-ui"
 import { examples } from "@/registry/registry-examples";
+import { hooks } from "@/registry/registry-hooks";
 
 
 const DEPRECATED_ITEMS = ["toast"]
@@ -37,6 +38,7 @@ const registry = {
       ...ui,
       ...lib,
       ...examples,
+      ...hooks
     ].filter((item) => {
       return !DEPRECATED_ITEMS.includes(item.name)
     })
@@ -129,7 +131,8 @@ async function buildRegistryJsonFile() {
 }
 
 async function buildRegistry() {
-  return new Promise((resolve, reject) => {
+  // 1. Build the registry
+  await new Promise((resolve, reject) => {
     const process = exec(
       `pnpm dlx shadcn build registry.json --output ./public/r/`
     )
@@ -142,6 +145,37 @@ async function buildRegistry() {
       }
     })
   })
+
+  // 2. Replace `@/registry/aoian-ui/` with `@/components/aoian-ui/` in all files
+  const files = await fs.readdir(path.join(process.cwd(), "public/r"));
+  await Promise.all(
+    files.map(async (file) => {
+      const content = await fs.readFile(
+        path.join(process.cwd(), "public/r", file),
+        "utf-8",
+      );
+
+      const registryItem = JSON.parse(content);
+
+      // Replace `@/registry/aoian-ui/` in files
+      registryItem.files = registryItem.files?.map((file) => {
+        if (file.content?.includes("@/registry/aoian-ui")) {
+          file.content = file.content?.replaceAll(
+            "@/registry/aoian-ui",
+            "@/components/aoian-ui",
+          );
+        }
+        return file;
+      });
+
+      // Write the file back
+      await fs.writeFile(
+        path.join(process.cwd(), "public/r", file),
+        JSON.stringify(registryItem, null, 2),
+      );
+    }),
+  );
+
 }
 
 try {

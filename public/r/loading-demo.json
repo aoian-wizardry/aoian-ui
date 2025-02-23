@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/examples/loading-demo.tsx",
-      "content": "import { Loading } from \"@/registry/aoian-ui/loading\"\n\nexport default function LoadingDemo() {\n  return <Loading size=\"default\" />\n}\n",
+      "content": "import { Loading } from \"@/components/aoian-ui/loading\"\n\nexport default function LoadingDemo() {\n  return <Loading size=\"default\" />\n}\n",
       "type": "registry:example"
     }
   ]

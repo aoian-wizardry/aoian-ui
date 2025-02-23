@@ -92,12 +92,12 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "bubble-list",
+    name: "bubble-list-demo",
     type: "registry:example",
     registryDependencies: [registryUrl("bubble")],
     files: [
       {
-        path: "registry/examples/bubble-list.tsx",
+        path: "registry/examples/bubble-list-demo.tsx",
         type: "registry:example",
       },
     ],

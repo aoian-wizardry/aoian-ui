@@ -6,7 +6,7 @@ import {
   BubbleAvatar,
   BubbleContent,
   BubbleWrapper,
-} from "@/registry/aoian-ui/bubble/components/bubble"
+} from "@/registry/aoian-ui/bubble/bubble"
 import { Switch } from "@/components/ui/switch"
 
 export default function BubbleLoading() {

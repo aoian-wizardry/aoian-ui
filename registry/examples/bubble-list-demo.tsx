@@ -4,8 +4,8 @@ import { Bot } from "lucide-react"
 import type { BubbleListProps, BubbleListRef } from '@/registry/aoian-ui/bubble/types'
 import {
   BubbleAvatar,
-} from "@/registry/aoian-ui/bubble/components/bubble"
-import { BubbleList } from '@/registry/aoian-ui/bubble/components/bubble-list'
+} from "@/registry/aoian-ui/bubble/bubble"
+import { BubbleList } from '@/registry/aoian-ui/bubble/bubble-list'
 import { Button } from "@/components/ui/button"
 
 const roles: BubbleListProps["roles"] = {

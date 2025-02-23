@@ -2,10 +2,10 @@ import * as React from "react";
 import {cn} from "@/lib/utils";
 import type {BubbleListProps, BubbleRef, BubbleListRef} from "@/registry/aoian-ui/bubble/types";
 
-import {Bubble, BubbleContent, BubbleWrapper} from "@/registry/aoian-ui/bubble/components/bubble";
-import {useDisplayData} from "@/registry/aoian-ui/bubble/hooks/use-display-data";
-import {useListData} from "@/registry/aoian-ui/bubble/hooks/use-list-data";
-import {useEvent} from "@/registry/hooks/use-event";
+import {Bubble, BubbleContent, BubbleWrapper} from "@/registry/aoian-ui/bubble/bubble";
+import {useDisplayData} from "@/registry/aoian-ui/hooks/use-display-data";
+import {useListData} from "@/registry/aoian-ui/hooks/use-list-data";
+import {useEvent} from "@/registry/aoian-ui/hooks/use-event";
 
 
 interface BubbleListContextProps {
