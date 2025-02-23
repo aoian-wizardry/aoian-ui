@@ -5,26 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fde2a55-aa36-4280-ab5d-a9bceebd615b" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/complex-component.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/example-form.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/hello-world.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/complex-component/components/pokemon-card.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/complex-component/components/pokemon-image.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/complex-component/hooks/use-pokemon.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/complex-component/lib/pokemon.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/complex-component/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/example-form/example-form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/hello-world/hello-world.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/aoian-ui/hello-world.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(app)/docs/[[...slug]]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(app)/docs/[[...slug]]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/registry/[name]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/registry/[name]/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/component-example.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/component-preview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/component-preview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/component-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/component-wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/copy-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/copy-button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/mdx-components.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/mdx-components.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/mode-switcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/mode-switcher.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/open-in-v0-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/open-in-v0-button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/pager.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pager.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/toc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/toc.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/docs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/docs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-colors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/use-config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-copy-to-clipboard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-lift-mode.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-lock-body.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-media-query.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-meta-color.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-mutation-observer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-project.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-themes-config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rehype-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rehype-component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry/aoian-ui/bubble.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/aoian-ui/bubble.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.scripts.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.scripts.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,21 +51,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jonny/develop/aoian-ai/components",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Users/jonny/develop/aoian-ai/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jonny/develop/aoian-ai/components&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/jonny/develop/aoian-ai/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/components" />
@@ -89,6 +98,8 @@
       <workItem from="1740201176762" duration="3367000" />
       <workItem from="1740206272993" duration="3608000" />
       <workItem from="1740210555775" duration="13929000" />
+      <workItem from="1740280731567" duration="1322000" />
+      <workItem from="1740282066175" duration="6787000" />
     </task>
     <servers />
   </component>

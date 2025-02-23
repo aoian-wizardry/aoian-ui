@@ -14,14 +14,14 @@ import { DashboardTableOfContents } from "@/components/toc"
 import { badgeVariants } from "@/components/ui/badge"
 
 interface DocPageProps {
-  params: {
+  params: Promise<{
     slug: string[]
-  }
+  }>
 }
 
-async function getDocFromParams({ params }: DocPageProps) {
-  const slug = params.slug?.join("/") || ""
-  const doc = allDocs.find((doc) => doc.slugAsParams === slug)
+async function getDocFromParams(slug: string[]) {
+  const slugStr = slug?.join("/") || ""
+  const doc = allDocs.find((doc) => doc.slugAsParams === slugStr)
 
   if (!doc) {
     return null
@@ -30,10 +30,9 @@ async function getDocFromParams({ params }: DocPageProps) {
   return doc
 }
 
-export async function generateMetadata({
-  params,
-}: DocPageProps): Promise<Metadata> {
-  const doc = await getDocFromParams({ params })
+export async function generateMetadata(props: DocPageProps): Promise<Metadata> {
+  const params = await props.params
+  const doc = await getDocFromParams(params.slug)
 
   if (!doc) {
     return {}
@@ -71,16 +70,15 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams(): Promise<
-  DocPageProps["params"][]
-> {
+export async function generateStaticParams() {
   return allDocs.map((doc) => ({
     slug: doc.slugAsParams.split("/"),
   }))
 }
 
-export default async function DocPage({ params }: DocPageProps) {
-  const doc = await getDocFromParams({ params })
+export default async function DocPage(props: DocPageProps) {
+  const params = await props.params
+  const doc = await getDocFromParams(params.slug)
 
   if (!doc) {
     notFound()

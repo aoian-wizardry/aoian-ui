@@ -69,29 +69,6 @@
     "slugAsParams": ""
   },
   {
-    "title": "Story",
-    "description": "Learn about how Aoian UI started",
-    "published": false,
-    "featured": false,
-    "component": false,
-    "toc": true,
-    "body": {
-      "raw": "\nAoian UI started because of an annoying problem I faced in the summer of 2023.\n\nI built my [first SaaS app](https://automatic.chat) a few months earlier and was trying to redesign the landing page for it. However, none of the code I wrote matched my expectations in my head for how it would turn out. I was irritated by the process and I especially didn't like having to deal with responsiveness, and animations in particular. Both were really time consuming for me and I felt like I wasn't making progress on actually delivering value to my SaaS users.\n\nI was trying to make landing pages like https://linear.app, https://wope.com and https://reflect.app but they were instead turning out like websites designed in 1995.\n\n**I tried to search the web for good tutorials, code examples, or guides on how to make a landing page like https://linear.app but I found nothing.**\n\nThat same week I tweeted that I would just build it myself.\n\n<Tweet id=\"1668408059125702661\" />\n\nThis tweet immediately went viral and it seemed like there were others like me who resonated!\n\nI started building the foundations of this site as well as a few components and within 10 days, Aoian UI was in the hands of users.\n\nPeople seem to love it and we're just getting started.\n\n<div className=\"columns-3 gap-4 [&>*]:mb-4\">\n  <Tweet id=\"1722659583464968612\" />\n  <Tweet id=\"1668442365625790465\" />\n  <Tweet id=\"1684613797984800768\" />\n  <Tweet id=\"1722690049374830639\" />\n  <Tweet id=\"1684676668445622272\" />\n  <Tweet id=\"1668640878225764354\" />\n  <Tweet id=\"1668506160620769280\" />\n  <Tweet id=\"1681477151042797568\" />\n</div>\n",
-      "code": "var Component=(()=>{var c=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),y=(n,e)=>{for(var i in e)r(n,i,{get:e[i],enumerable:!0})},s=(n,e,i,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!w.call(n,a)&&a!==i&&r(n,a,{get:()=>e[a],enumerable:!(o=m(e,a))||o.enumerable});return n};var I=(n,e,i)=>(i=n!=null?c(f(n)):{},s(e||!n||!n.__esModule?r(i,\"default\",{value:n,enumerable:!0}):i,n)),b=n=>s(r({},\"__esModule\",{value:!0}),n);var l=g((_,d)=>{d.exports=_jsx_runtime});var v={};y(v,{default:()=>p,frontmatter:()=>x});var t=I(l()),x={title:\"Story\",description:\"Learn about how Aoian UI started\",published:!1};function h(n){let e={a:\"a\",p:\"p\",strong:\"strong\",...n.components},{Tweet:i}=e;return i||k(\"Tweet\",!0),(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Aoian UI started because of an annoying problem I faced in the summer of 2023.\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"I built my \",(0,t.jsx)(e.a,{href:\"https://automatic.chat\",children:\"first SaaS app\"}),\" a few months earlier and was trying to redesign the landing page for it. However, none of the code I wrote matched my expectations in my head for how it would turn out. I was irritated by the process and I especially didn't like having to deal with responsiveness, and animations in particular. Both were really time consuming for me and I felt like I wasn't making progress on actually delivering value to my SaaS users.\"]}),`\n`,(0,t.jsxs)(e.p,{children:[\"I was trying to make landing pages like \",(0,t.jsx)(e.a,{href:\"https://linear.app\",children:\"https://linear.app\"}),\", \",(0,t.jsx)(e.a,{href:\"https://wope.com\",children:\"https://wope.com\"}),\" and \",(0,t.jsx)(e.a,{href:\"https://reflect.app\",children:\"https://reflect.app\"}),\" but they were instead turning out like websites designed in 1995.\"]}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsxs)(e.strong,{children:[\"I tried to search the web for good tutorials, code examples, or guides on how to make a landing page like \",(0,t.jsx)(e.a,{href:\"https://linear.app\",children:\"https://linear.app\"}),\" but I found nothing.\"]})}),`\n`,(0,t.jsx)(e.p,{children:\"That same week I tweeted that I would just build it myself.\"}),`\n`,(0,t.jsx)(i,{id:\"1668408059125702661\"}),`\n`,(0,t.jsx)(e.p,{children:\"This tweet immediately went viral and it seemed like there were others like me who resonated!\"}),`\n`,(0,t.jsx)(e.p,{children:\"I started building the foundations of this site as well as a few components and within 10 days, Aoian UI was in the hands of users.\"}),`\n`,(0,t.jsx)(e.p,{children:\"People seem to love it and we're just getting started.\"}),`\n`,(0,t.jsxs)(\"div\",{className:\"columns-3 gap-4 [&>*]:mb-4\",children:[(0,t.jsx)(i,{id:\"1722659583464968612\"}),(0,t.jsx)(i,{id:\"1668442365625790465\"}),(0,t.jsx)(i,{id:\"1684613797984800768\"}),(0,t.jsx)(i,{id:\"1722690049374830639\"}),(0,t.jsx)(i,{id:\"1684676668445622272\"}),(0,t.jsx)(i,{id:\"1668640878225764354\"}),(0,t.jsx)(i,{id:\"1668506160620769280\"}),(0,t.jsx)(i,{id:\"1681477151042797568\"})]})]})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(h,{...n})}):h(n)}function k(n,e){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+n+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return b(v);})();\n;return Component;"
-    },
-    "_id": "docs/story.mdx",
-    "_raw": {
-      "sourceFilePath": "docs/story.mdx",
-      "sourceFileName": "story.mdx",
-      "sourceFileDir": "docs",
-      "contentType": "mdx",
-      "flattenedPath": "docs/story"
-    },
-    "type": "Doc",
-    "slug": "/docs/story",
-    "slugAsParams": "story"
-  },
-  {
     "title": "Bubble",
     "description": "A bubble component for chat.",
     "published": true,

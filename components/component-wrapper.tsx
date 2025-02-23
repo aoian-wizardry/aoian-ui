@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { RotateCcw } from "lucide-react";
 import React from "react";
+import { registryUrl } from '@/lib/utils'
 
 interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -33,7 +34,7 @@ export const ComponentWrapper = ({
         )}
       /> */}
       <div className="flex items-center justify-end gap-2 p-4">
-        <OpenInV0Button url={`https://magicui.design/r/${name}.json`} />
+        <OpenInV0Button url={registryUrl(`${name}.json`)} />
         <Button
           onClick={() => setKey((prev) => prev + 1)}
           className="flex items-center rounded-lg px-3 py-1"

@@ -5,7 +5,6 @@ import * as React from "react"
 
 import { TableOfContents } from "@/lib/toc"
 import { cn } from "@/lib/utils"
-import { useMounted } from "@/hooks/use-mounted"
 
 interface TocProps {
   toc: TableOfContents
@@ -24,7 +23,6 @@ export function DashboardTableOfContents({ toc }: TocProps) {
     [toc]
   )
   const activeHeading = useActiveItem(itemIds)
-  const mounted = useMounted()
 
   if (!toc?.items?.length) {
     return null

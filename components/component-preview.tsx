@@ -15,7 +15,6 @@ export function ComponentPreview({
   name,
   children,
   className,
-  align = "center",
   preview = false,
   ...props
 }: ComponentPreviewProps) {

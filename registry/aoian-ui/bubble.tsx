@@ -502,6 +502,7 @@ function isString(str: any): str is string {
 }
 
 function useEvent<T extends Function>(callback: T): T {
+  // @ts-ignore
   const fnRef = React.useRef<any>()
   fnRef.current = callback
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client"
 
 import * as React from "react"
@@ -9,12 +8,10 @@ import { NpmCommands } from "types/unist"
 
 import { Event } from "@/lib/events"
 import { cn } from "@/lib/utils"
-import { useConfig } from "@/hooks/use-config"
 import { Callout } from "@/components/callout"
 import { CodeBlockCommand } from "@/components/code-block-command"
 import { CodeBlockWrapper } from "@/components/code-block-wrapper"
 import { CodeTabs } from "@/components/code-tabs"
-import { ComponentExample } from "@/components/component-example"
 import { ComponentPreview } from "@/components/component-preview"
 import { ComponentSource } from "@/components/component-source"
 import { CopyButton } from "@/components/copy-button"
@@ -237,7 +234,6 @@ const components = {
   Image,
   Callout,
   ComponentPreview,
-  ComponentExample,
   ComponentSource,
   AspectRatio,
   CodeBlockWrapper: ({ ...props }) => (
@@ -320,11 +316,7 @@ interface MdxProps {
 }
 
 export function Mdx({ code }: MdxProps) {
-  const [config] = useConfig()
-  const Component = useMDXComponent(code, {
-    style: config.style,
-  })
-
+  const Component = useMDXComponent(code)
   return (
     <div className="mdx">
       <Component components={components} />
