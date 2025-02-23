@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bubble-shape",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/bubble"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/bubble-shape.tsx",
+      "content": "import React from \"react\"\n\nimport {\n  Bubble,\n  BubbleContent,\n  BubbleWrapper,\n} from \"@/registry/aoian-ui/bubble/components/bubble\"\n\nconst longText =\n  \"This is a long text message to show the multiline view of the bubble component. \".repeat(\n    3\n  )\n\nexport default function BubbleShape() {\n  return (\n    <div className={\"grow space-y-4 self-start\"}>\n      <Bubble>\n        <BubbleWrapper>\n          <BubbleContent>shape: default</BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n      <Bubble placement=\"end\">\n        <BubbleWrapper>\n          <BubbleContent className={\"max-w-[500px]\"}>{longText}</BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n      <Bubble>\n        <BubbleWrapper>\n          <BubbleContent shape=\"round\">shape: round</BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n      <Bubble placement=\"end\">\n        <BubbleWrapper>\n          <BubbleContent shape=\"round\" className={\"max-w-[500px]\"}>\n            {longText}\n          </BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n      <Bubble>\n        <BubbleWrapper>\n          <BubbleContent shape=\"corner\">variant: corner</BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n      <Bubble placement=\"end\">\n        <BubbleWrapper>\n          <BubbleContent shape=\"corner\" className={\"max-w-[500px]\"}>\n            {longText}\n          </BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

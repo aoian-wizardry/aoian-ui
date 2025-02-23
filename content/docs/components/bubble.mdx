@@ -7,6 +7,129 @@ component: true
 
 <ComponentPreview name="bubble-demo" description="A bubble" />
 
+## Installation
+
+<Tabs defaultValue="cli">
+
+    <TabsList>
+        <TabsTrigger value="cli">CLI</TabsTrigger>
+        <TabsTrigger value="manual">Manual</TabsTrigger>
+    </TabsList>
+    <TabsContent value="cli">
+
+        ```bash
+        npx aoian@latest add bubble
+        ```
+
+    </TabsContent>
+
+    <TabsContent value="manual">
+
+        <Steps>
+
+            <Step>Copy and paste the following code into your project.</Step>
+
+            <ComponentSource name="bubble" />
+
+            <Step>Update the import paths to match your project setup.</Step>
+
+        </Steps>
+
+    </TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  Bubble,
+  BubbleContent,
+  BubbleWrapper,
+} from "@/registry/default/ui/bubble"
+```
+
+```tsx
+<Bubble>
+  <BubbleWrapper>
+    <BubbleContent>hello world !</BubbleContent>
+  </BubbleWrapper>
+</Bubble>
+```
+
+## Examples
+
+### Placement and avatar
+
+Set custom avatar by avatar prop, set the placement of the message by placement prop, which has two preset values: start and end.
+
+<ComponentPreview
+    name="bubble-placement-avatar"
+    description="Set custom avatar by avatar prop, set the placement of the message by placement prop, which has two preset values: start and end."
+/>
+
+### Header and footer
+
+Use header and footer properties to set the header and footer of the bubble content.
+
+<ComponentPreview
+    name="bubble-layout"
+    description="Use header and footer properties to set the header and footer of the bubble content."
+/>
+
+### Loading
+
+Control the loading state by loading prop.
+
+<ComponentPreview
+    name="bubble-loading"
+    description="Control the loading state by loading prop."
+/>
+
+### Typing effect
+
+Enable typing output by setting the typing prop. If the updated content is a subset of the previous content, it will continue to output, otherwise it will output again.
+
+<ComponentPreview
+    name="bubble-typing"
+    description="Enable typing output by setting the typing prop. If the updated content is a subset of the previous content, it will continue to output, otherwise it will output again."
+/>
+
+### Content render
+
+Cooperate with markdown-it to achieve customized rendering content.
+
+<ComponentPreview
+    name="bubble-content-render"
+    description="Cooperate with markdown-it to achieve customized rendering content."
+/>
+
+### Variant
+
+Set the style variant of the bubble through the variant property.
+
+<ComponentPreview
+    name="bubble-variant"
+    description="Set the style variant of the bubble through the variant property."
+/>
+
+### Shape
+
+Set the shape of bubble through shape.
+
+<ComponentPreview
+    name="bubble-shape"
+    description="Set the shape of bubble through shape"
+/>
+
+### Bubble List
+
+Preset Bubble list. Support auto scroll. Use roles to set default properties of Bubble.
+
+<ComponentPreview
+    name="bubble-list"
+    description="Preset Bubble list. Support auto scroll. Use roles to set default properties of Bubble"
+/>
 
 
 ## Props

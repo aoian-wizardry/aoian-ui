@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bubble-variant",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/bubble"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/bubble-variant.tsx",
+      "content": "import React from \"react\"\nimport { Bot } from \"lucide-react\"\n\nimport {\n  Bubble,\n  BubbleAvatar,\n  BubbleContent,\n  BubbleWrapper,\n} from \"@/registry/aoian-ui/bubble/components/bubble\"\n\nexport default function BubbleVariant() {\n  return (\n    <div className={\"space-y-4\"}>\n      <Bubble>\n        <BubbleAvatar>\n          <Bot size={18} />\n        </BubbleAvatar>\n        <BubbleWrapper>\n          <BubbleContent variant=\"filled\">variant: filled</BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n      <Bubble>\n        <BubbleAvatar>\n          <Bot size={18} />\n        </BubbleAvatar>\n        <BubbleWrapper>\n          <BubbleContent variant=\"outlined\">variant: outlined</BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n      <Bubble>\n        <BubbleAvatar>\n          <Bot size={18} />\n        </BubbleAvatar>\n        <BubbleWrapper>\n          <BubbleContent variant=\"shadow\">variant: shadow</BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n      <Bubble>\n        <BubbleAvatar>\n          <Bot size={18} />\n        </BubbleAvatar>\n        <BubbleWrapper>\n          <BubbleContent variant=\"borderless\">\n            variant: borderless to customize\n          </BubbleContent>\n        </BubbleWrapper>\n      </Bubble>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

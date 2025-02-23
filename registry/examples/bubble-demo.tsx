@@ -2,7 +2,7 @@ import {
   Bubble,
   BubbleContent,
   BubbleWrapper,
-} from "@/registry/aoian-ui/bubble"
+} from "@/registry/aoian-ui/bubble/components/bubble"
 
 export default function BubbleDemo() {
   return (

@@ -32,6 +32,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.1.1
         version: 1.1.1(@types/react@19.0.6)(react@19.0.0)
+      '@radix-ui/react-switch':
+        specifier: ^1.1.3
+        version: 1.1.3(@types/react-dom@19.0.3(@types/react@19.0.6))(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-tabs':
         specifier: ^1.1.3
         version: 1.1.3(@types/react-dom@19.0.3(@types/react@19.0.6))(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -62,6 +65,9 @@ importers:
       lucide-react:
         specifier: ^0.471.1
         version: 0.471.1(react@19.0.0)
+      markdown-it:
+        specifier: ^14.1.0
+        version: 14.1.0
       next:
         specifier: 15.1.4
         version: 15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1503,6 +1509,19 @@ packages:
       '@types/react':
         optional: true
 
+  '@radix-ui/react-switch@1.1.3':
+    resolution: {integrity: sha512-1nc+vjEOQkJVsJtWPSiISGT6OKm4SiOdjMo+/icLxo2G4vxz1GntC5MzfL4v8ey9OEfw787QCD1y3mUv0NiFEQ==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+
   '@radix-ui/react-tabs@1.1.3':
     resolution: {integrity: sha512-9mFyI30cuRDImbmFF6O2KUJdgEOsGh9Vmx9x/Dh9tOhL7BngmQPQfwW4aejKm5OHpfWIdmeV6ySyuxoOGjtNng==}
     peerDependencies:
@@ -1581,6 +1600,15 @@ packages:
 
   '@radix-ui/react-use-layout-effect@1.1.0':
     resolution: {integrity: sha512-+FPE0rOdziWSrH9athwI1R0HDVbWlEhd+FR+aSDk4uWGmSJ9Z54sdZVDQPZAinJhJXwfT+qnj969mCsT2gfm5w==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  '@radix-ui/react-use-previous@1.1.0':
+    resolution: {integrity: sha512-Z/e78qg2YFnnXcW88A4JmTtm4ADckLno6F7OXotmkQfeuCVaKuYzqAATPhVzl3delXE7CxIV8shofPn3jPc5Og==}
     peerDependencies:
       '@types/react': '*'
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
@@ -2225,6 +2253,10 @@ packages:
   enhanced-resolve@5.18.0:
     resolution: {integrity: sha512-0/r0MySGYG8YqlayBZ6MuCfECmHFdJ5qyPh8s8wa5Hnm6SaFLSK1VYCbj+NKp090Nm1caZhD+QTnmxO7esYGyQ==}
     engines: {node: '>=10.13.0'}
+
+  entities@4.5.0:
+    resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
+    engines: {node: '>=0.12'}
 
   error-ex@1.3.2:
     resolution: {integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==}
@@ -3049,6 +3081,9 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
+  linkify-it@5.0.0:
+    resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
+
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
@@ -3094,6 +3129,10 @@ packages:
   markdown-extensions@2.0.0:
     resolution: {integrity: sha512-o5vL7aDWatOTX8LzaS1WMoaoxIiLRQJuIKKe2wAw6IeULDHaqbiqiggmx+pKvZDb1Sj+pE46Sn1T7lCqfFtg1Q==}
     engines: {node: '>=16'}
+
+  markdown-it@14.1.0:
+    resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
+    hasBin: true
 
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
@@ -3188,6 +3227,9 @@ packages:
 
   mdast-util-toc@7.1.0:
     resolution: {integrity: sha512-2TVKotOQzqdY7THOdn2gGzS9d1Sdd66bvxUyw3aNpWfcPXCLYSJCCgfPy30sEtuzkDraJgqF35dzgmz6xlvH/w==}
+
+  mdurl@2.0.0:
+    resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
 
   mdx-bundler@10.1.0:
     resolution: {integrity: sha512-HtyVyqzBz/rG3hjca2ZggI5Ghx8YdBeAfnDIgqiMVOZyum1WcmBsdPKYN0AhV4SNaxyohASIrwC8DiXtU55FUA==}
@@ -3753,6 +3795,10 @@ packages:
   protobufjs@7.4.0:
     resolution: {integrity: sha512-mRUWCc3KUU4w1jU8sGxICXH/gNS94DvI1gxqDvBzhj1JpcsimQkYiOJfwsPUykUI5ZaspFbSgmBLER8IrQ3tqw==}
     engines: {node: '>=12.0.0'}
+
+  punycode.js@2.3.1:
+    resolution: {integrity: sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==}
+    engines: {node: '>=6'}
 
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
@@ -4347,6 +4393,9 @@ packages:
     resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  uc.micro@2.1.0:
+    resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
 
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
@@ -5985,6 +6034,21 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.0.6
 
+  '@radix-ui/react-switch@1.1.3(@types/react-dom@19.0.3(@types/react@19.0.6))(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@radix-ui/primitive': 1.1.1
+      '@radix-ui/react-compose-refs': 1.1.1(@types/react@19.0.6)(react@19.0.0)
+      '@radix-ui/react-context': 1.1.1(@types/react@19.0.6)(react@19.0.0)
+      '@radix-ui/react-primitive': 2.0.2(@types/react-dom@19.0.3(@types/react@19.0.6))(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@radix-ui/react-use-controllable-state': 1.1.0(@types/react@19.0.6)(react@19.0.0)
+      '@radix-ui/react-use-previous': 1.1.0(@types/react@19.0.6)(react@19.0.0)
+      '@radix-ui/react-use-size': 1.1.0(@types/react@19.0.6)(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+    optionalDependencies:
+      '@types/react': 19.0.6
+      '@types/react-dom': 19.0.3(@types/react@19.0.6)
+
   '@radix-ui/react-tabs@1.1.3(@types/react-dom@19.0.3(@types/react@19.0.6))(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@radix-ui/primitive': 1.1.1
@@ -6052,6 +6116,12 @@ snapshots:
       '@types/react': 19.0.6
 
   '@radix-ui/react-use-layout-effect@1.1.0(@types/react@19.0.6)(react@19.0.0)':
+    dependencies:
+      react: 19.0.0
+    optionalDependencies:
+      '@types/react': 19.0.6
+
+  '@radix-ui/react-use-previous@1.1.0(@types/react@19.0.6)(react@19.0.0)':
     dependencies:
       react: 19.0.0
     optionalDependencies:
@@ -6742,6 +6812,8 @@ snapshots:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.2.1
+
+  entities@4.5.0: {}
 
   error-ex@1.3.2:
     dependencies:
@@ -7838,6 +7910,10 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
+  linkify-it@5.0.0:
+    dependencies:
+      uc.micro: 2.1.0
+
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
@@ -7876,6 +7952,15 @@ snapshots:
   markdown-extensions@1.1.1: {}
 
   markdown-extensions@2.0.0: {}
+
+  markdown-it@14.1.0:
+    dependencies:
+      argparse: 2.0.1
+      entities: 4.5.0
+      linkify-it: 5.0.0
+      mdurl: 2.0.0
+      punycode.js: 2.3.1
+      uc.micro: 2.1.0
 
   markdown-table@3.0.4: {}
 
@@ -8171,6 +8256,8 @@ snapshots:
       mdast-util-to-string: 4.0.0
       unist-util-is: 6.0.0
       unist-util-visit: 5.0.0
+
+  mdurl@2.0.0: {}
 
   mdx-bundler@10.1.0(acorn@8.14.0)(esbuild@0.25.0):
     dependencies:
@@ -9070,6 +9157,8 @@ snapshots:
       '@types/node': 20.17.12
       long: 5.3.1
 
+  punycode.js@2.3.1: {}
+
   punycode@2.3.1: {}
 
   queue-microtask@1.2.3: {}
@@ -9906,6 +9995,8 @@ snapshots:
       reflect.getprototypeof: 1.0.10
 
   typescript@5.7.3: {}
+
+  uc.micro@2.1.0: {}
 
   unbox-primitive@1.1.0:
     dependencies:

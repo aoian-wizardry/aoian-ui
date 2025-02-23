@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fde2a55-aa36-4280-ab5d-a9bceebd615b" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.contentlayer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(app)/docs/[[...slug]]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(app)/docs/[[...slug]]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/registry/[name]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/registry/[name]/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/component-example.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/component-preview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/component-preview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/component-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/component-wrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/copy-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/copy-button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/mdx-components.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/mdx-components.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/mode-switcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/mode-switcher.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/open-in-v0-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/open-in-v0-button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pager.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/pager.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/toc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/toc.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/docs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/docs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-colors.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/use-config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-copy-to-clipboard.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-lift-mode.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-lock-body.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-media-query.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-meta-color.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-mutation-observer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-project.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-themes-config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/rehype-component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rehype-component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/aoian-ui/bubble.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/aoian-ui/bubble.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.scripts.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.scripts.json" afterDir="false" />
-    </list>
+    <list default="true" id="6fde2a55-aa36-4280-ab5d-a9bceebd615b" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +69,7 @@
       <workItem from="1740206272993" duration="3608000" />
       <workItem from="1740210555775" duration="13929000" />
       <workItem from="1740280731567" duration="1322000" />
-      <workItem from="1740282066175" duration="6787000" />
+      <workItem from="1740282066175" duration="7188000" />
     </task>
     <servers />
   </component>

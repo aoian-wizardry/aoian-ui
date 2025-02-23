@@ -16,16 +16,40 @@ export const Index: Record<string, any> = {
   },
   "bubble": {
     name: "bubble",
-    description: "",
-    type: "registry:ui",
+    description: "A bubble component for chat.",
+    type: "registry:component",
     registryDependencies: ["avatar","https://ui.aoian.chat/r/loading"],
     files: [{
-      path: "registry/aoian-ui/bubble.tsx",
-      type: "registry:ui",
+      path: "registry/aoian-ui/bubble/components/bubble.tsx",
+      type: "registry:component",
       target: ""
+    },{
+      path: "registry/aoian-ui/bubble/components/bubble-list.tsx",
+      type: "registry:component",
+      target: ""
+    },{
+      path: "registry/aoian-ui/bubble/hooks/use-display-data.ts",
+      type: "registry:hook",
+      target: ""
+    },{
+      path: "registry/aoian-ui/bubble/hooks/use-list-data.ts",
+      type: "registry:hook",
+      target: ""
+    },{
+      path: "registry/aoian-ui/bubble/hooks/use-typed-effect.ts",
+      type: "registry:hook",
+      target: ""
+    },{
+      path: "registry/aoian-ui/bubble/hooks/use-typing-config.ts",
+      type: "registry:hook",
+      target: ""
+    },{
+      path: "registry/aoian-ui/bubble/types.ts",
+      type: "registry:file",
+      target: "components/types/bubble-types.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/aoian-ui/bubble.tsx")
+      const mod = await import("@/registry/aoian-ui/bubble/components/bubble.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -77,6 +101,159 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/bubble-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "bubble-placement-avatar": {
+    name: "bubble-placement-avatar",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/bubble"],
+    files: [{
+      path: "registry/examples/bubble-placement-avatar.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/bubble-placement-avatar.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "bubble-layout": {
+    name: "bubble-layout",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/bubble","button"],
+    files: [{
+      path: "registry/examples/bubble-layout.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/bubble-layout.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "bubble-loading": {
+    name: "bubble-loading",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/bubble"],
+    files: [{
+      path: "registry/examples/bubble-loading.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/bubble-loading.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "bubble-typing": {
+    name: "bubble-typing",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/bubble","button"],
+    files: [{
+      path: "registry/examples/bubble-typing.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/bubble-typing.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "bubble-content-render": {
+    name: "bubble-content-render",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/bubble"],
+    files: [{
+      path: "registry/examples/bubble-content-render.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/bubble-content-render.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "bubble-variant": {
+    name: "bubble-variant",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/bubble"],
+    files: [{
+      path: "registry/examples/bubble-variant.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/bubble-variant.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "bubble-shape": {
+    name: "bubble-shape",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/bubble"],
+    files: [{
+      path: "registry/examples/bubble-shape.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/bubble-shape.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "bubble-list": {
+    name: "bubble-list",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/bubble"],
+    files: [{
+      path: "registry/examples/bubble-list.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/bubble-list.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "loading-demo": {
+    name: "loading-demo",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/loading"],
+    files: [{
+      path: "registry/examples/loading-demo.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/loading-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
