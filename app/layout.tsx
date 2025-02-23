@@ -32,14 +32,15 @@ export const metadata: Metadata = {
     "Tailwind CSS",
     "Server Components",
     "Radix UI",
+    "Aoian UI"
   ],
   authors: [
     {
-      name: "shadcn",
-      url: "https://shadcn.com",
+      name: "petitspois",
+      url: "https://ui.aoian.chat",
     },
   ],
-  creator: "shadcn",
+  creator: "petitspois",
   openGraph: {
     type: "website",
     locale: "en_US",

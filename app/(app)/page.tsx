@@ -1,12 +1,12 @@
-import { Metadata } from "next"
+import {Metadata} from "next"
 import Link from "next/link"
-import { ArrowRight, Github, Twitter } from 'lucide-react';
-import { Button } from "@/components/ui/button"
+import {ArrowRight, Github, Twitter} from 'lucide-react';
+import {Button} from "@/components/ui/button"
 import React from "react";
 
-const title = "Build your component library"
+const title = "Aoian AI UI library"
 const description =
-  "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code."
+  "Exquisite and comprehensive AI UI library, meticulous in every detail. Open Source. Open Code."
 
 export const metadata: Metadata = {
   title,
@@ -36,35 +36,11 @@ export default function IndexPage() {
   return (
     <>
       <div className="relative h-[calc(100vh-64px)] w-full px-6 md:px-8 lg:px-12">
-        <div className="absolute inset-0 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
-        <div className="container-wrapper">
-          <header className="flex items-center justify-between py-8">
-            <div/>
-            <nav className="flex gap-6">
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex"
-              >
-                <Twitter
-                  className="h-6 w-6 text-neutral-800 transition-colors hover:text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-400"
-                  strokeWidth={1.5}
-                />
-              </a>
-              <a
-                href="https://github.com/petitspois/aoian-ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex"
-              >
-                <Github
-                  className="h-6 w-6 text-neutral-800 transition-colors hover:text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-400"
-                  strokeWidth={1.5}
-                />
-              </a>
-            </nav>
-          </header>
+        <div
+          className="dark:hidden absolute -top-[64px] inset-0 h-full w-full bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+        <div
+          className="hidden dark:flex absolute inset-0 h-full w-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+        <div className="container-wrapper mt-20">
           <div className="pt-8">
             <div className="relative mx-auto flex flex-col items-center">
               <div className="mb-8 flex">

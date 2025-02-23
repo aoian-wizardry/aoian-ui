@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-black/80 backdrop-blur">
+    <header className="sticky top-0 z-50 w-full dark:bg-black/80 backdrop-blur">
       <div className="container-wrapper">
         <div className="container flex h-16 items-center">
           <MainNav />
