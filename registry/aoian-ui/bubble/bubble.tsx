@@ -1,19 +1,15 @@
 "use client"
 
 import * as React from "react"
-import type { BubbleProps, BubbleRef } from '@/registry/aoian-ui/bubble/types'
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
-import { Loading } from "@/registry/aoian-ui/loading"
-import { useTypingConfig } from '@/registry/aoian-ui/hooks/use-typing-config'
-import { useTypedEffect } from '@/registry/aoian-ui/hooks/use-typed-effect'
-import { useBubbleList } from '@/registry/aoian-ui/bubble/bubble-list'
 
+import { cn } from "@/lib/utils"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useBubbleList } from "@/registry/aoian-ui/bubble/bubble-list"
+import type { BubbleProps, BubbleRef } from "@/registry/aoian-ui/bubble/types"
+import { useTypedEffect } from "@/registry/aoian-ui/hooks/use-typed-effect"
+import { useTypingConfig } from "@/registry/aoian-ui/hooks/use-typing-config"
+import { Loading } from "@/registry/aoian-ui/loading"
 
 const BubbleContext = React.createContext<BubbleProps | null>(null)
 
@@ -24,7 +20,6 @@ function useBubble() {
   }
   return context
 }
-
 
 const Bubble = React.forwardRef<
   BubbleRef,
@@ -151,7 +146,7 @@ const BubbleHeader = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("text-chat-foreground mb-1 text-sm", className)}
+      className={cn("mb-1 text-sm text-chat-foreground", className)}
       {...props}
     />
   )
@@ -211,7 +206,7 @@ const BubbleContent = React.forwardRef<HTMLDivElement, BubbleContentProps>(
     const { placement, typing, onTypingComplete, messageRender } = useBubble()
     const [typingEnabled, typingStep, typingInterval, customSuffix] =
       useTypingConfig(typing)
-     const { onUpdate } = useBubbleList()
+    const { onUpdate } = useBubbleList()
     // ============================ Typing ============================
     const [typedContent, isTyping] = useTypedEffect(
       children,
@@ -268,7 +263,6 @@ const BubbleContent = React.forwardRef<HTMLDivElement, BubbleContentProps>(
 )
 BubbleContent.displayName = "BubbleContent"
 
-
 const AvatarTrigger = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div">
@@ -276,7 +270,7 @@ const AvatarTrigger = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "absolute bg-[#e3b341] -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full [&>svg]:size-3",
+      "absolute -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#e3b341] [&>svg]:size-3",
       className
     )}
     {...props}

@@ -1,4 +1,4 @@
-import type { ReactNode, ReactElement } from "react";
+import type { ReactElement, ReactNode } from "react"
 
 export interface TypingOption {
   /**
@@ -29,15 +29,14 @@ export type BubbleDataType = BubbleProps & {
   content?: ReactNode
   key?: string | number
   role?: string
-  header?: ReactNode;
-  footer?: ReactNode;
-  avatar?: ReactElement;
-  variant?: 'filled' | 'borderless' | 'outlined' | 'shadow';
-  shape?: 'round' | 'corner';
+  header?: ReactNode
+  footer?: ReactNode
+  avatar?: ReactElement
+  variant?: "filled" | "borderless" | "outlined" | "shadow"
+  shape?: "round" | "corner"
 }
 
-
-type RoleType = Partial<Omit<BubbleDataType, 'content' | 'key' | 'role'>>
+type RoleType = Partial<Omit<BubbleDataType, "content" | "key" | "role">>
 
 type RolesType =
   | Record<string, RoleType>

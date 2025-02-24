@@ -51,7 +51,21 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+				chat: {
+					DEFAULT: "hsl(var(--chat-background))",
+					foreground: "hsl(var(--chat-foreground))",
+					secondary: "hsl(var(--chat-secondary-background))",
+					"secondary-foreground": "hsl(var(--chat-secondary-foreground))",
+					primary: "hsl(var(--chat-primary-background))",
+					"primary-foreground": "hsl(var(--chat-primary-foreground))",
+					border: "hsl(var(--chat-border))",
+					bubble: {
+						DEFAULT: "hsl(var(--chat-bubble-background))",
+						foreground: "hsl(var(--chat-bubble-foreground))",
+						border: "hsl(var(--chat-bubble-border))",
+					},
+				},
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

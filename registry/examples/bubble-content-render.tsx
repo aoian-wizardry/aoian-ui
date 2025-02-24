@@ -1,7 +1,11 @@
 import * as React from "react"
 import markdownit from "markdown-it"
 
-import {Bubble, BubbleContent, BubbleWrapper} from "@/registry/aoian-ui/bubble/bubble";
+import {
+  Bubble,
+  BubbleContent,
+  BubbleWrapper,
+} from "@/registry/aoian-ui/bubble/bubble"
 
 const md = markdownit({ html: true, breaks: true })
 
@@ -19,9 +23,12 @@ export default function BubbleContentRender() {
   const [renderKey, setRenderKey] = React.useState(0)
 
   React.useEffect(() => {
-    const id = setTimeout(() => {
-      setRenderKey((prev) => prev + 1)
-    }, text.length * 100 + 2000)
+    const id = setTimeout(
+      () => {
+        setRenderKey((prev) => prev + 1)
+      },
+      text.length * 100 + 2000
+    )
 
     return () => {
       clearTimeout(id)

@@ -163,12 +163,57 @@ var registry_default = {
       files: [],
       tailwind: {
         config: {
+          theme: {
+            extend: {
+              colors: {
+                chat: {
+                  DEFAULT: "hsl(var(--chat-background))",
+                  foreground: "hsl(var(--chat-foreground))",
+                  secondary: "hsl(var(--chat-secondary-background))",
+                  "secondary-foreground": "hsl(var(--chat-secondary-foreground))",
+                  primary: "hsl(var(--chat-primary-background))",
+                  "primary-foreground": "hsl(var(--chat-primary-foreground))",
+                  border: "hsl(var(--chat-border))",
+                  bubble: {
+                    DEFAULT: "hsl(var(--chat-bubble-background))",
+                    foreground: "hsl(var(--chat-bubble-foreground))",
+                    border: "hsl(var(--chat-bubble-border))"
+                  }
+                }
+              }
+            }
+          },
           plugins: [
             'require("tailwindcss-animate")'
           ]
         }
       },
-      cssVars: {}
+      cssVars: {
+        light: {
+          "--chat-background": "225 40% 96%",
+          "--chat-foreground": "235 44% 15%",
+          "--chat-secondary-background": "0 0% 100%",
+          "--chat-secondary-foreground": "78 89% 105%",
+          "--chat-primary-background": "0 0% 100%",
+          "--chat-primary-foreground": "217 71% 15%",
+          "--chat-border": "217 71% 15%",
+          "--chat-bubble-background": "220 13% 95%",
+          "--chat-bubble-foreground": "216 15% 36%",
+          "--chat-bubble-border": "230 13% 91%"
+        },
+        dark: {
+          "--chat-background": "210 8% 9%",
+          "--chat-foreground": "300 2% 92%",
+          "--chat-secondary-background": "240 1% 14%",
+          "--chat-secondary-foreground": "0 1% 74%",
+          "--chat-primary-background": "0 0% 18%",
+          "--chat-primary-foreground": "0 0% 100%",
+          "--chat-border": "0 1% 28%",
+          "--chat-bubble-background": "0 0% 20%",
+          "--chat-bubble-foreground": "0 1% 79%",
+          "--chat-bubble-border": "0 1% 28%"
+        }
+      }
     },
     {
       name: "bubble",
@@ -177,8 +222,8 @@ var registry_default = {
       description: "A bubble component for chat.",
       registryDependencies: [
         "avatar",
-        "https://ui.aoian.chat/r/loading",
-        "https://ui.aoian.chat/r/use-event"
+        "http://localhost:3000/r/loading",
+        "http://localhost:3000/r/use-event"
       ],
       files: [
         {
@@ -247,7 +292,7 @@ var registry_default = {
       name: "bubble-demo",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/bubble"
+        "http://localhost:3000/r/bubble"
       ],
       files: [
         {
@@ -260,7 +305,7 @@ var registry_default = {
       name: "bubble-placement-avatar",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/bubble"
+        "http://localhost:3000/r/bubble"
       ],
       files: [
         {
@@ -273,7 +318,7 @@ var registry_default = {
       name: "bubble-layout",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/bubble",
+        "http://localhost:3000/r/bubble",
         "button"
       ],
       files: [
@@ -287,7 +332,7 @@ var registry_default = {
       name: "bubble-loading",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/bubble"
+        "http://localhost:3000/r/bubble"
       ],
       files: [
         {
@@ -300,7 +345,7 @@ var registry_default = {
       name: "bubble-typing",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/bubble",
+        "http://localhost:3000/r/bubble",
         "button"
       ],
       files: [
@@ -317,7 +362,7 @@ var registry_default = {
         "markdown-it"
       ],
       registryDependencies: [
-        "https://ui.aoian.chat/r/bubble"
+        "http://localhost:3000/r/bubble"
       ],
       files: [
         {
@@ -330,7 +375,7 @@ var registry_default = {
       name: "bubble-variant",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/bubble"
+        "http://localhost:3000/r/bubble"
       ],
       files: [
         {
@@ -343,7 +388,7 @@ var registry_default = {
       name: "bubble-shape",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/bubble"
+        "http://localhost:3000/r/bubble"
       ],
       files: [
         {
@@ -356,7 +401,7 @@ var registry_default = {
       name: "bubble-list-demo",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/bubble"
+        "http://localhost:3000/r/bubble"
       ],
       files: [
         {
@@ -369,7 +414,7 @@ var registry_default = {
       name: "loading-demo",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/loading"
+        "http://localhost:3000/r/loading"
       ],
       files: [
         {
@@ -730,4 +775,4 @@ export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-UFKT5KQF.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-GREHB4CQ.mjs.map

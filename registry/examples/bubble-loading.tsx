@@ -1,13 +1,13 @@
 import React from "react"
 import { Bot } from "lucide-react"
 
+import { Switch } from "@/components/ui/switch"
 import {
   Bubble,
   BubbleAvatar,
   BubbleContent,
   BubbleWrapper,
 } from "@/registry/aoian-ui/bubble/bubble"
-import { Switch } from "@/components/ui/switch"
 
 export default function BubbleLoading() {
   const [loading, setLoading] = React.useState<boolean>(true)

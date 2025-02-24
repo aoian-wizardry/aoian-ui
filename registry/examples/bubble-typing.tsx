@@ -1,13 +1,13 @@
 import React from "react"
 import { Bot } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
 import {
   Bubble,
   BubbleAvatar,
   BubbleContent,
   BubbleWrapper,
 } from "@/registry/aoian-ui/bubble/bubble"
-import { Button } from "@/components/ui/button"
 
 const text = "Aoian UI love you! "
 

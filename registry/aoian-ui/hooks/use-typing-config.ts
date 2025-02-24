@@ -1,5 +1,6 @@
-import * as React from "react";
-import type { TypingOption } from "@/registry/aoian-ui/bubble/types";
+import * as React from "react"
+
+import type { TypingOption } from "@/registry/aoian-ui/bubble/types"
 
 export function useTypingConfig(typing?: boolean | TypingOption) {
   return React.useMemo<
@@ -7,7 +8,7 @@ export function useTypingConfig(typing?: boolean | TypingOption) {
       enableTyping: boolean,
       step: number,
       interval: number,
-      suffix: React.ReactNode
+      suffix: React.ReactNode,
     ]
   >(() => {
     if (!typing) {

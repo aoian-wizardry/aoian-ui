@@ -1,12 +1,13 @@
 import * as React from "react"
 import { Bot } from "lucide-react"
 
-import type { BubbleListProps, BubbleListRef } from '@/registry/aoian-ui/bubble/types'
-import {
-  BubbleAvatar,
-} from "@/registry/aoian-ui/bubble/bubble"
-import { BubbleList } from '@/registry/aoian-ui/bubble/bubble-list'
 import { Button } from "@/components/ui/button"
+import { BubbleAvatar } from "@/registry/aoian-ui/bubble/bubble"
+import { BubbleList } from "@/registry/aoian-ui/bubble/bubble-list"
+import type {
+  BubbleListProps,
+  BubbleListRef,
+} from "@/registry/aoian-ui/bubble/types"
 
 const roles: BubbleListProps["roles"] = {
   ai: {

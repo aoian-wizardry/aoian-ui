@@ -1,12 +1,19 @@
-import * as React from "react";
-import {cn} from "@/lib/utils";
-import type {BubbleListProps, BubbleRef, BubbleListRef} from "@/registry/aoian-ui/bubble/types";
+import * as React from "react"
 
-import {Bubble, BubbleContent, BubbleWrapper} from "@/registry/aoian-ui/bubble/bubble";
-import {useDisplayData} from "@/registry/aoian-ui/hooks/use-display-data";
-import {useListData} from "@/registry/aoian-ui/hooks/use-list-data";
-import {useEvent} from "@/registry/aoian-ui/hooks/use-event";
-
+import { cn } from "@/lib/utils"
+import {
+  Bubble,
+  BubbleContent,
+  BubbleWrapper,
+} from "@/registry/aoian-ui/bubble/bubble"
+import type {
+  BubbleListProps,
+  BubbleListRef,
+  BubbleRef,
+} from "@/registry/aoian-ui/bubble/types"
+import { useDisplayData } from "@/registry/aoian-ui/hooks/use-display-data"
+import { useEvent } from "@/registry/aoian-ui/hooks/use-event"
+import { useListData } from "@/registry/aoian-ui/hooks/use-list-data"
 
 interface BubbleListContextProps {
   onUpdate?: VoidFunction
@@ -25,7 +32,7 @@ function useBubbleList() {
 }
 
 const BubbleList = React.forwardRef<BubbleListRef, BubbleListProps>(
-  ({className, items, autoScroll = true, roles, ...props}, ref) => {
+  ({ className, items, autoScroll = true, roles, ...props }, ref) => {
     // ============================= Refs =============================
     const listRef = React.useRef<HTMLDivElement>(null)
 
@@ -56,9 +63,9 @@ const BubbleList = React.forwardRef<BubbleListRef, BubbleListProps>(
 
       setScrollReachEnd(
         target.scrollHeight -
-        Math.abs(target.scrollTop) -
-        target.clientHeight <=
-        TOLERANCE
+          Math.abs(target.scrollTop) -
+          target.clientHeight <=
+          TOLERANCE
       )
     }
 
@@ -73,19 +80,16 @@ const BubbleList = React.forwardRef<BubbleListRef, BubbleListProps>(
     // Always scroll to bottom when data change
     React.useEffect(() => {
       if (autoScroll) {
-
         // New date come, the origin last one is the second last one
         const lastItemKey = displayData[displayData.length - 2]?.key
         const bubbleInst = bubbleRefs.current[lastItemKey!]
 
-
         // Auto scroll if last 2 item is visible
         if (bubbleInst) {
-          const {nativeElement} = bubbleInst
-          const {top, bottom} = nativeElement.getBoundingClientRect()
-          const {top: listTop, bottom: listBottom} =
+          const { nativeElement } = bubbleInst
+          const { top, bottom } = nativeElement.getBoundingClientRect()
+          const { top: listTop, bottom: listBottom } =
             listRef.current!.getBoundingClientRect()
-
 
           const isVisible = top < listBottom && bottom > listTop
           if (isVisible) {
@@ -99,7 +103,7 @@ const BubbleList = React.forwardRef<BubbleListRef, BubbleListProps>(
     // ========================== Outer Ref ===========================
     React.useImperativeHandle(ref, () => ({
       nativeElement: listRef.current!,
-      scrollTo: ({key, offset, behavior = "smooth", block}) => {
+      scrollTo: ({ key, offset, behavior = "smooth", block }) => {
         if (typeof offset === "number") {
           // Offset scroll
           listRef.current!.scrollTo({
@@ -150,33 +154,51 @@ const BubbleList = React.forwardRef<BubbleListRef, BubbleListProps>(
           className={cn("flex flex-col gap-4 overflow-y-auto", className)}
           onScroll={onInternalScroll}
         >
-          {displayData.map(({key, content, loading, avatar, header, footer, shape, variant, ...bubble}) => (
-            <Bubble
-              {...bubble}
-              key={key}
-              ref={(node) => {
-                if (node) {
-                  bubbleRefs.current[key] = node
-                } else {
-                  delete bubbleRefs.current[key]
-                }
-              }}
-              typing={initialized ? bubble.typing : false}
-              onTypingComplete={() => {
-                bubble.onTypingComplete?.()
-                onTypingComplete(key)
-              }}
-            >
-              <>
-                {avatar}
-                <BubbleWrapper>
-                  {header}
-                  <BubbleContent shape={shape} variant={variant} loading={loading}>{content}</BubbleContent>
-                  {footer}
-                </BubbleWrapper>
-              </>
-            </Bubble>
-          ))}
+          {displayData.map(
+            ({
+              key,
+              content,
+              loading,
+              avatar,
+              header,
+              footer,
+              shape,
+              variant,
+              ...bubble
+            }) => (
+              <Bubble
+                {...bubble}
+                key={key}
+                ref={(node) => {
+                  if (node) {
+                    bubbleRefs.current[key] = node
+                  } else {
+                    delete bubbleRefs.current[key]
+                  }
+                }}
+                typing={initialized ? bubble.typing : false}
+                onTypingComplete={() => {
+                  bubble.onTypingComplete?.()
+                  onTypingComplete(key)
+                }}
+              >
+                <>
+                  {avatar}
+                  <BubbleWrapper>
+                    {header}
+                    <BubbleContent
+                      shape={shape}
+                      variant={variant}
+                      loading={loading}
+                    >
+                      {content}
+                    </BubbleContent>
+                    {footer}
+                  </BubbleWrapper>
+                </>
+              </Bubble>
+            )
+          )}
         </div>
       </BubbleListContext.Provider>
     )
@@ -184,4 +206,4 @@ const BubbleList = React.forwardRef<BubbleListRef, BubbleListProps>(
 )
 BubbleList.displayName = "BubbleList"
 
-export {BubbleList, useBubbleList}
+export { BubbleList, useBubbleList }

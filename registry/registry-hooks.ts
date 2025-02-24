@@ -8,7 +8,7 @@ export const hooks: Registry["items"] = [
       {
         path: "registry/aoian-ui/hooks/use-event.ts",
         type: "registry:hook",
-        target: "components/aoian-ui/hooks/use-event.ts"
+        target: "components/aoian-ui/hooks/use-event.ts",
       },
     ],
   },

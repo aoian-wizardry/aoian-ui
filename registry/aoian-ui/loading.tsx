@@ -25,7 +25,7 @@ const Loading = React.forwardRef<
 >(({ className, itemClassName, size, ...props }, ref) => {
   return (
     <span
-      className={cn("relative h-full flex items-center gap-2 p-1", className)}
+      className={cn("relative flex h-full items-center gap-2 p-1", className)}
       ref={ref}
       {...props}
     >

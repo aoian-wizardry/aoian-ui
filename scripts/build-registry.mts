@@ -1,14 +1,14 @@
-import { exec } from "child_process"
-import { promises as fs } from "fs"
+import {exec} from "child_process"
+import {promises as fs} from "fs"
 import path from "path"
-import { rimraf } from "rimraf"
-import { registryItemSchema, type Registry } from "shadcn/registry"
-import { z } from "zod"
+import {rimraf} from "rimraf"
+import {registryItemSchema, type Registry} from "shadcn/registry"
+import {z} from "zod"
 
-import { lib } from "@/registry/registry-lib"
-import { ui } from "@/registry/registry-ui"
-import { examples } from "@/registry/registry-examples";
-import { hooks } from "@/registry/registry-hooks";
+import {lib} from "@/registry/registry-lib"
+import {ui} from "@/registry/registry-ui"
+import {examples} from "@/registry/registry-examples";
+import {hooks} from "@/registry/registry-hooks";
 
 
 const DEPRECATED_ITEMS = ["toast"]
@@ -30,9 +30,54 @@ const registry = {
         tailwind: {
           config: {
             plugins: [`require("tailwindcss-animate")`],
+            theme: {
+              extend: {
+                colors: {
+                  chat: {
+                    "DEFAULT": "hsl(var(--chat-background))",
+                    "foreground": "hsl(var(--chat-foreground))",
+                    "secondary": "hsl(var(--chat-secondary-background))",
+                    "secondary-foreground": "hsl(var(--chat-secondary-foreground))",
+                    "primary": "hsl(var(--chat-primary-background))",
+                    "primary-foreground": "hsl(var(--chat-primary-foreground))",
+                    "border": "hsl(var(--chat-border))",
+                    "bubble": {
+                      "DEFAULT": "hsl(var(--chat-bubble-background))",
+                      "foreground": "hsl(var(--chat-bubble-foreground))",
+                      "border": "hsl(var(--chat-bubble-border))",
+                    },
+                  },
+                }
+              }
+            }
           },
         },
-        cssVars: {},
+        cssVars: {
+          "light": {
+            "--chat-background": "225 40% 96%",
+            "--chat-foreground": "235 44% 15%",
+            "--chat-secondary-background": "0 0% 100%",
+            "--chat-secondary-foreground": "78 89% 105%",
+            "--chat-primary-background": "0 0% 100%",
+            "--chat-primary-foreground": "217 71% 15%",
+            "--chat-border": "217 71% 15%",
+            "--chat-bubble-background": "220 13% 95%",
+            "--chat-bubble-foreground": "216 15% 36%",
+            "--chat-bubble-border": "230 13% 91%"
+          },
+          "dark": {
+            "--chat-background": "210 8% 9%",
+            "--chat-foreground": "300 2% 92%",
+            "--chat-secondary-background": "240 1% 14%",
+            "--chat-secondary-foreground": "0 1% 74%",
+            "--chat-primary-background": "0 0% 18%",
+            "--chat-primary-foreground": "0 0% 100%",
+            "--chat-border": "0 1% 28%",
+            "--chat-bubble-background": "0 0% 20%",
+            "--chat-bubble-foreground": "0 1% 79%",
+            "--chat-bubble-border": "0 1% 28%"
+          }
+        },
         files: [],
       },
       ...ui,

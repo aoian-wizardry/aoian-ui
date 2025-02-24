@@ -1,8 +1,12 @@
-import * as React from "react";
-import type {BubbleProps, BubbleListProps, BubbleDataType} from "@/registry/aoian-ui/bubble/types";
+import * as React from "react"
 
-export type ListItemType = ReturnType<typeof useListData>[number];
+import type {
+  BubbleDataType,
+  BubbleListProps,
+  BubbleProps,
+} from "@/registry/aoian-ui/bubble/types"
 
+export type ListItemType = ReturnType<typeof useListData>[number]
 
 export function useListData(
   items: BubbleListProps["items"],

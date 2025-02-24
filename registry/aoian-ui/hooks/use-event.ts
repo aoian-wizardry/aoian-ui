@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from "react"
 
 export function useEvent<T extends Function>(callback: T): T {
   // @ts-ignore

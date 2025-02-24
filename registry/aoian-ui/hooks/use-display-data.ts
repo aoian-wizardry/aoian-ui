@@ -1,8 +1,7 @@
-import * as React from "react";
+import * as React from "react"
 
-import { ListItemType } from '@/registry/aoian-ui/hooks/use-list-data';
-import { useEvent } from '@/registry/aoian-ui/hooks/use-event';
-
+import { useEvent } from "@/registry/aoian-ui/hooks/use-event"
+import { ListItemType } from "@/registry/aoian-ui/hooks/use-list-data"
 
 export function useDisplayData(items: ListItemType[]) {
   const [displayCount, setDisplayCount] = React.useState(items.length)
