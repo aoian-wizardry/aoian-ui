@@ -1,17 +1,16 @@
-import { notFound } from "next/navigation"
-import { allDocs } from "contentlayer/generated"
-
 import type { Metadata } from "next"
 import Link from "next/link"
+import { notFound } from "next/navigation"
+import { allDocs } from "contentlayer/generated"
 import { ChevronRight, ExternalLink } from "lucide-react"
 import Balancer from "react-wrap-balancer"
 
 import { getTableOfContents } from "@/lib/toc"
 import { absoluteUrl, cn } from "@/lib/utils"
+import { badgeVariants } from "@/components/ui/badge"
 import { Mdx } from "@/components/mdx-components"
 import { DocsPager } from "@/components/pager"
 import { DashboardTableOfContents } from "@/components/toc"
-import { badgeVariants } from "@/components/ui/badge"
 
 interface DocPageProps {
   params: Promise<{
@@ -88,7 +87,7 @@ export default async function DocPage(props: DocPageProps) {
 
   return (
     <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
-      <div className="mx-auto w-full min-w-0 max-w-2xl">
+      <div className="mx-auto w-full min-w-0 max-w-3xl">
         <div className="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground">
           <div className="truncate">Docs</div>
           <ChevronRight className="h-3.5 w-3.5" />

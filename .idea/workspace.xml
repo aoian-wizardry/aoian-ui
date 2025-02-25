@@ -5,29 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fde2a55-aa36-4280-ab5d-a9bceebd615b" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/compiled-contentlayer-config-UFKT5KQF.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/compiled-contentlayer-config-UFKT5KQF.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/data-UFKT5KQF.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/data-UFKT5KQF.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/Doc/docs__components__bubble.mdx.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/Doc/docs__components__bubble.mdx.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.contentlayer/generated/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/index.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.contentlayer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__registry__/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/__registry__/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble-content-render.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble-content-render.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble-demo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble-demo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble-layout.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble-layout.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble-list-demo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble-list-demo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble-loading.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble-loading.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble-placement-avatar.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble-placement-avatar.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble-shape.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble-shape.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble-typing.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble-typing.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble-variant.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble-variant.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/bubble.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/bubble.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/loading-demo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/loading-demo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry.json" beforeDir="false" afterPath="$PROJECT_DIR$/registry.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/build-registry.mts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/build-registry.mts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,24 +30,25 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jonny/develop/aoian-ai/app",
+    "last_opened_file_path": "/Users/jonny/github/aoian-ui",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "prettierjs.PrettierConfiguration.Package": "/Users/jonny/github/aoian-ui/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "/Users/jonny/github/aoian-ui/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/registry" />
       <recent name="$PROJECT_DIR$/registry/default/aoian-ui/hooks" />
       <recent name="$PROJECT_DIR$/registry/examples" />
-      <recent name="$PROJECT_DIR$/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/registry/aoian-ui/bubble" />
@@ -97,7 +79,7 @@
       <workItem from="1740210555775" duration="13929000" />
       <workItem from="1740280731567" duration="1322000" />
       <workItem from="1740282066175" duration="27979000" />
-      <workItem from="1740388482872" duration="1892000" />
+      <workItem from="1740388482872" duration="3429000" />
     </task>
     <servers />
   </component>

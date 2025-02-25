@@ -11,31 +11,31 @@ component: true
 
 <Tabs defaultValue="cli">
 
-    <TabsList>
-        <TabsTrigger value="cli">CLI</TabsTrigger>
-        <TabsTrigger value="manual">Manual</TabsTrigger>
-    </TabsList>
-    <TabsContent value="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
 
-        ```bash
-        npx aoian@latest add bubble
-        ```
+    ```bash
+    npx shadcn@latest add https://ui.aoian.chat/r/bubble
+    ```
 
-    </TabsContent>
+  </TabsContent>
 
-    <TabsContent value="manual">
+  <TabsContent value="manual">
 
-        <Steps>
+    <Steps>
 
-            <Step>Copy and paste the following code into your project.</Step>
+      <Step>Copy and paste the following code into your project.</Step>
 
-            <ComponentSource name="bubble" />
+      <ComponentSource name="bubble" />
 
-            <Step>Update the import paths to match your project setup.</Step>
+      <Step>Update the import paths to match your project setup.</Step>
 
-        </Steps>
+    </Steps>
 
-    </TabsContent>
+  </TabsContent>
 
 </Tabs>
 
@@ -46,7 +46,7 @@ import {
   Bubble,
   BubbleContent,
   BubbleWrapper,
-} from "@/registry/default/ui/bubble"
+} from "@/components/aoian-ui/bubble/bubble"
 ```
 
 ```tsx
@@ -64,8 +64,8 @@ import {
 Set custom avatar by avatar prop, set the placement of the message by placement prop, which has two preset values: start and end.
 
 <ComponentPreview
-    name="bubble-placement-avatar"
-    description="Set custom avatar by avatar prop, set the placement of the message by placement prop, which has two preset values: start and end."
+  name="bubble-placement-avatar"
+  description="Set custom avatar by avatar prop, set the placement of the message by placement prop, which has two preset values: start and end."
 />
 
 ### Header and footer
@@ -73,8 +73,8 @@ Set custom avatar by avatar prop, set the placement of the message by placement 
 Use header and footer properties to set the header and footer of the bubble content.
 
 <ComponentPreview
-    name="bubble-layout"
-    description="Use header and footer properties to set the header and footer of the bubble content."
+  name="bubble-layout"
+  description="Use header and footer properties to set the header and footer of the bubble content."
 />
 
 ### Loading
@@ -82,8 +82,8 @@ Use header and footer properties to set the header and footer of the bubble cont
 Control the loading state by loading prop.
 
 <ComponentPreview
-    name="bubble-loading"
-    description="Control the loading state by loading prop."
+  name="bubble-loading"
+  description="Control the loading state by loading prop."
 />
 
 ### Typing effect
@@ -91,8 +91,8 @@ Control the loading state by loading prop.
 Enable typing output by setting the typing prop. If the updated content is a subset of the previous content, it will continue to output, otherwise it will output again.
 
 <ComponentPreview
-    name="bubble-typing"
-    description="Enable typing output by setting the typing prop. If the updated content is a subset of the previous content, it will continue to output, otherwise it will output again."
+  name="bubble-typing"
+  description="Enable typing output by setting the typing prop. If the updated content is a subset of the previous content, it will continue to output, otherwise it will output again."
 />
 
 ### Content render
@@ -100,8 +100,8 @@ Enable typing output by setting the typing prop. If the updated content is a sub
 Cooperate with markdown-it to achieve customized rendering content.
 
 <ComponentPreview
-    name="bubble-content-render"
-    description="Cooperate with markdown-it to achieve customized rendering content."
+  name="bubble-content-render"
+  description="Cooperate with markdown-it to achieve customized rendering content."
 />
 
 ### Variant
@@ -109,8 +109,8 @@ Cooperate with markdown-it to achieve customized rendering content.
 Set the style variant of the bubble through the variant property.
 
 <ComponentPreview
-    name="bubble-variant"
-    description="Set the style variant of the bubble through the variant property."
+  name="bubble-variant"
+  description="Set the style variant of the bubble through the variant property."
 />
 
 ### Shape
@@ -118,8 +118,8 @@ Set the style variant of the bubble through the variant property.
 Set the shape of bubble through shape.
 
 <ComponentPreview
-    name="bubble-shape"
-    description="Set the shape of bubble through shape"
+  name="bubble-shape"
+  description="Set the shape of bubble through shape"
 />
 
 ### Bubble List
@@ -127,18 +127,59 @@ Set the shape of bubble through shape.
 Preset Bubble list. Support auto scroll. Use roles to set default properties of Bubble.
 
 <ComponentPreview
-    name="bubble-list-demo"
-    description="Preset Bubble list. Support auto scroll. Use roles to set default properties of Bubble"
+  name="bubble-list-demo"
+  description="Preset Bubble list. Support auto scroll. Use roles to set default properties of Bubble"
 />
 
 
 ## Props
 
-| Prop       | Type     | Default | Description                        |
-| ---------- | -------- | ------- | ---------------------------------- |
-| `width`    | `number` | `433`   | The width of the Android window    |
-| `height`   | `number` | `882`   | The height of the Android window   |
-| `src`      | `string` | `-`     | The source of the image to display |
-| `videoSrc` | `string` | `-`     | The source of the video to display |
+### Bubble
 
-The `Android` component also accepts all properties of the `SVGElement` type.
+| Prop                | Type                                                | Default | Description                                                                                                      |
+|---------------------|-----------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------|
+| `placement`         | `start` \| `end`                                    | `start` | Direction of Message                                                                                             |
+| `loading`           | `boolean`                                           | `false` | Loading state of Message                                                                                         |
+| `typing`            | `boolean` \| `{ step?: number, interval?: number }` | `false` | Show message with typing motion                                                                                  |
+| `avatarPlaceholder` | `boolean`                                           | `false` | Whether to display the empty avatar                                                                              |
+| `messageRender`     | `(content?: string) => ReactNode`                   | `-`     | Customize display content                                                                                        |
+| `onTypingComplete`  | `() => void`                                        | `-`     | Callback when typing effect is completed. If typing is not set, it will be triggered immediately when rendering. |
+
+### BubbleAvatar
+
+| Prop               | Type      | Default | Description                                                               |
+|--------------------|-----------|---------|---------------------------------------------------------------------------|
+| `textClassName`    | `string`  | `-`     | Text class name                                                           |
+| `triggerClassName` | `string`  | `-`     | Trigger class name                                                        |
+| `src`              | `string`  | `-`     | Avatar image path                                                         |
+| `alt`              | `string`  | `false` | Avatar image alt                                                          |
+| `loading`          | `boolean` | `false` | Loading state of Trigger                                                  |
+| `placeholder`      | `boolean` | `-`     | Whether to display the empty avatar， The same as Bubble avatarPlaceholder |
+
+### BubbleHeader
+
+| Prop        | Type     | Default | Description |
+|-------------|----------|---------|-------------|
+| `className` | `string` | `-`     | Class name  |
+
+### BubbleFooter
+
+| Prop        | Type     | Default | Description |
+|-------------|----------|---------|-------------|
+| `className` | `string` | `-`     | Class name  |
+
+
+### BubbleContent
+
+| Prop      | Type                                               | Default   | Description     |
+|-----------|----------------------------------------------------|-----------|-----------------|
+| `variant` | `filled` \| `borderless` \| `outlined` \| `shadow` | `filled`  | Style variant   |
+| `shape`   | `round` \| `corner` \| `default`                   | `default` | Shape of bubble |
+
+### BubbleList
+
+| Prop         | Type                                                                           | Default | Description                                                                                |
+|--------------|--------------------------------------------------------------------------------|---------|--------------------------------------------------------------------------------------------|
+| `autoScroll` | `boolean`                                                                      | `true`  | Bubble items list                                                                          |
+| `items`      | `(BubbleProps & { key?: string \| number, role?: string, content: string })[]` | `-`     | Bubble items list                                                                          |
+| `roles`      | `Record<string, BubbleProps> \| (bubble) => BubbleProps`                       | `-`     | Set the default properties of the bubble. The role in items will be automatically matched. |
