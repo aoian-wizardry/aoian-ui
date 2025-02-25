@@ -1,20 +1,37 @@
-# registry-template
+# Aoian UI
 
-You can use the `shadcn` CLI to run your own component registry. Running your own
-component registry allows you to distribute your custom components, hooks, pages, and
-other files to any React project.
+Exquisite and comprehensive AI UI library, meticulous in every detail. Open Source. Open Code.
 
-## Getting Started
+Aoian UI is a collection of re-usable components that you can copy and paste into your web apps.
 
-This is a template for creating a custom registry using Next.js.
+It primarily features components, blocks, and templates geared towards creating chat interfaces marketing materials.
 
-- The template uses a `registry.json` file to define components and their files.
-- The `shadcn build` command is used to build the registry.
-- The registry items are served as static files under `public/r/[name].json`.
-- The template also includes a route handler for serving registry items.
-- Every registry item are compatible with the `shadcn` CLI.
-- We have also added v0 integration using the `Open in v0` api.
+## Features
+
+* **Conversation-Centric Design** - Components specifically designed for chat and conversational interfaces
+* **Modern UX Patterns** - Implements patterns seen in leading AI chat applications
+* **Copy and Paste** - Use components directly in your app and customize them to your needs
+* **Dark Mode** - Built-in dark mode support
+* **TypeScript** - Written in TypeScript for better developer experience
+
+## Installation
+
+```bash
+# Install shadcn/ui first
+npx shadcn-ui@latest init
+
+#Initialize aoian ui. It will install CSS variables and modify the Tailwind CSS configuration.
+npx shadcn@latest add https://ui.aoian.chat/r/index
+
+
+# Then you can add aoian ui components
+npx shadcn@latest add https://ui.aoian.chat/r/bubble
+```
 
 ## Documentation
 
-Visit the [shadcn documentation](https://ui.shadcn.com/docs/registry) to view the full documentation.
+Visit the [aoian ui documentation](https://ui.aoian.chat) to view the full documentation.
+
+## License
+
+Licensed under the MIT License.
