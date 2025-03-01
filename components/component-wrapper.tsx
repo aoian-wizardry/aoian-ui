@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { OpenInV0Button } from "@/components/open-in-v0-button";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { RotateCcw } from "lucide-react";
-import React from "react";
-import { registryUrl } from '@/lib/utils'
+import React from "react"
+import { RotateCcw } from "lucide-react"
+
+import { cn, registryUrl } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { OpenInV0Button } from "@/components/open-in-v0-button"
 
 interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
-  name: string;
+  name: string
 }
 
 export const ComponentWrapper = ({
@@ -16,13 +16,13 @@ export const ComponentWrapper = ({
   children,
   name,
 }: ComponentWrapperProps) => {
-  const [key, setKey] = React.useState(0);
+  const [key, setKey] = React.useState(0)
 
   return (
     <div
       className={cn(
         "max-w-screen relative rounded-xl border bg-background",
-        className,
+        className
       )}
       key={key}
     >
@@ -48,5 +48,5 @@ export const ComponentWrapper = ({
         {children}
       </div>
     </div>
-  );
-};
+  )
+}

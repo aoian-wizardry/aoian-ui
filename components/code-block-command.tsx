@@ -5,10 +5,9 @@ import { CheckIcon, ClipboardIcon } from "lucide-react"
 
 import { NpmCommands } from "@/types/unist"
 import { useConfig } from "@/hooks/use-config"
-import { copyToClipboardWithMeta } from "@/components/copy-button"
-import { Tabs } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { copyToClipboardWithMeta } from "@/components/copy-button"
 
 export function CodeBlockCommand({
   __npmCommand__,

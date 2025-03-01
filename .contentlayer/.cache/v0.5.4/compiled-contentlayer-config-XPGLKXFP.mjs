@@ -275,6 +275,17 @@ var registry_default = {
       ]
     },
     {
+      name: "prompt",
+      type: "registry:ui",
+      files: [
+        {
+          path: "registry/aoian-ui/prompt/prompt.tsx",
+          type: "registry:ui",
+          target: "components/aoian-ui/prompt.tsx"
+        }
+      ]
+    },
+    {
       name: "utils",
       type: "registry:lib",
       dependencies: [
@@ -419,6 +430,71 @@ var registry_default = {
       files: [
         {
           path: "registry/examples/loading-demo.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "prompt-demo",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/prompt"
+      ],
+      files: [
+        {
+          path: "registry/examples/prompt-demo.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "prompt-disabled",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/prompt"
+      ],
+      files: [
+        {
+          path: "registry/examples/prompt-disabled.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "prompt-vertical",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/prompt"
+      ],
+      files: [
+        {
+          path: "registry/examples/prompt-vertical.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "prompt-wrap",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/prompt"
+      ],
+      files: [
+        {
+          path: "registry/examples/prompt-wrap.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "prompt-variant",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/prompt"
+      ],
+      files: [
+        {
+          path: "registry/examples/prompt-variant.tsx",
           type: "registry:example"
         }
       ]
@@ -775,4 +851,4 @@ export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-VO6FQPOM.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-XPGLKXFP.mjs.map

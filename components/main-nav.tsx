@@ -18,7 +18,7 @@ export function MainNav() {
           {siteConfig.name}
         </span>
       </Link>
-      <nav className="flex items-center gap-4 text-sm xl:gap-6 hidden">
+      <nav className="flex hidden items-center gap-4 text-sm xl:gap-6">
         <Link
           href="/docs"
           className={cn(

@@ -1,0 +1,108 @@
+---
+title: Prompt
+description: Display a predefined set of questions or suggestion..
+featured: true
+component: true
+---
+
+<ComponentPreview name="prompt-demo" description="A Prompt" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+
+    ```bash
+    npx shadcn@latest add https://ui.aoian.chat/r/prompt
+    ```
+
+  </TabsContent>
+
+  <TabsContent value="manual">
+
+    <Steps>
+
+      <Step>Copy and paste the following code into your project.</Step>
+
+      <ComponentSource name="prompt" />
+
+      <Step>Update the import paths to match your project setup.</Step>
+
+    </Steps>
+
+  </TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  Prompt,
+  PromptContent,
+  PromptDescription,
+  PromptIcon,
+  PromptItem,
+  PromptLabel,
+} from "@/components/aoian-ui/prompt/prompt"
+```
+
+```tsx
+<Prompt>
+  <PromptItem>
+    <PromptIcon>
+      <Lightbulb className="text-yellow-300" />
+    </PromptIcon>
+    <PromptContent>
+      <PromptLabel>Ignite Your Creativity</PromptLabel>
+      <PromptDescription>
+        Got any sparks for a new project?
+      </PromptDescription>
+    </PromptContent>
+  </PromptItem>
+</Prompt>
+```
+
+## Examples
+
+### Disabled
+
+To mark a prompt as disabled, add the disabled property to the prompt item.
+
+<ComponentPreview
+  name="prompt-disabled"
+  description="To mark a prompt as disabled, add the disabled property to the prompt item."
+/>
+
+### Vertical
+
+Use the vertical property to control the Prompts' display direction.
+
+<ComponentPreview
+  name="prompt-vertical"
+  description="Use the vertical property to control the Prompts' display direction."
+/>
+
+
+### Wrap
+
+Use the wrap attribute to control the layout of the Prompts.
+
+<ComponentPreview
+  name="prompt-wrap"
+  description="Use the wrap attribute to control the layout of the Prompts."
+/>
+
+### Variant
+
+Set the style variant of the prompt through the variant property.
+
+<ComponentPreview
+  name="prompt-variant"
+  description="Set the style variant of the prompt through the variant property."
+/>

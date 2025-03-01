@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prompt-vertical",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/prompt"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/prompt-vertical.tsx",
+      "content": "import { Info, Lightbulb, Rocket, Smile, TriangleAlert } from \"lucide-react\"\n\nimport {\n  Prompt,\n  PromptContent,\n  PromptDescription,\n  PromptIcon,\n  PromptItem,\n} from \"@/components/aoian-ui/prompt/prompt\"\n\nexport default function PromptVertical() {\n  return (\n    <Prompt vertical>\n      <PromptItem disabled>\n        <PromptIcon>\n          <Lightbulb className=\"text-yellow-300\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>\n            Got any sparks for a new project?\n          </PromptDescription>\n        </PromptContent>\n      </PromptItem>\n      <PromptItem>\n        <PromptIcon>\n          <Info className=\"text-blue-400\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>\n            Help me understand the background of this topic.\n          </PromptDescription>\n        </PromptContent>\n      </PromptItem>\n      <PromptItem>\n        <PromptIcon>\n          <Rocket className=\"text-purple-500\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>\n            How can I work faster and better?\n          </PromptDescription>\n        </PromptContent>\n      </PromptItem>\n      <PromptItem>\n        <PromptIcon>\n          <Smile className=\"text-green-400\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>\n            Why do not ants get sick? Because they have tiny ant-bodies!\n          </PromptDescription>\n        </PromptContent>\n      </PromptItem>\n      <PromptItem>\n        <PromptIcon>\n          <TriangleAlert className=\"text-red-400\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>\n            How to solve common issues? Share some tips!\n          </PromptDescription>\n        </PromptContent>\n      </PromptItem>\n    </Prompt>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

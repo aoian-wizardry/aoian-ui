@@ -13,4 +13,3 @@ export function registryUrl(path: string) {
   console.log(process.env.NEXT_PUBLIC_REGISTRY_URL)
   return `${process.env.NEXT_PUBLIC_REGISTRY_URL}/r/${path}`
 }
-

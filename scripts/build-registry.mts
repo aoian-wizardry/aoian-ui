@@ -1,15 +1,14 @@
-import {exec} from "child_process"
-import {promises as fs} from "fs"
+import { exec } from "child_process"
+import { promises as fs } from "fs"
 import path from "path"
-import {rimraf} from "rimraf"
-import {registryItemSchema, type Registry} from "shadcn/registry"
-import {z} from "zod"
+import { rimraf } from "rimraf"
+import { registryItemSchema, type Registry } from "shadcn/registry"
+import { z } from "zod"
 
-import {lib} from "@/registry/registry-lib"
-import {ui} from "@/registry/registry-ui"
-import {examples} from "@/registry/registry-examples";
-import {hooks} from "@/registry/registry-hooks";
-
+import { examples } from "@/registry/registry-examples"
+import { hooks } from "@/registry/registry-hooks"
+import { lib } from "@/registry/registry-lib"
+import { ui } from "@/registry/registry-ui"
 
 const DEPRECATED_ITEMS = ["toast"]
 
@@ -34,26 +33,27 @@ const registry = {
               extend: {
                 colors: {
                   chat: {
-                    "DEFAULT": "hsl(var(--chat-background))",
-                    "foreground": "hsl(var(--chat-foreground))",
-                    "secondary": "hsl(var(--chat-secondary-background))",
-                    "secondary-foreground": "hsl(var(--chat-secondary-foreground))",
-                    "primary": "hsl(var(--chat-primary-background))",
+                    DEFAULT: "hsl(var(--chat-background))",
+                    foreground: "hsl(var(--chat-foreground))",
+                    secondary: "hsl(var(--chat-secondary-background))",
+                    "secondary-foreground":
+                      "hsl(var(--chat-secondary-foreground))",
+                    primary: "hsl(var(--chat-primary-background))",
                     "primary-foreground": "hsl(var(--chat-primary-foreground))",
-                    "border": "hsl(var(--chat-border))",
-                    "bubble": {
-                      "DEFAULT": "hsl(var(--chat-bubble-background))",
-                      "foreground": "hsl(var(--chat-bubble-foreground))",
-                      "border": "hsl(var(--chat-bubble-border))",
+                    border: "hsl(var(--chat-border))",
+                    bubble: {
+                      DEFAULT: "hsl(var(--chat-bubble-background))",
+                      foreground: "hsl(var(--chat-bubble-foreground))",
+                      border: "hsl(var(--chat-bubble-border))",
                     },
                   },
-                }
-              }
-            }
+                },
+              },
+            },
           },
         },
         cssVars: {
-          "light": {
+          light: {
             "--chat-background": "225 40% 96%",
             "--chat-foreground": "235 44% 15%",
             "--chat-secondary-background": "0 0% 100%",
@@ -63,9 +63,9 @@ const registry = {
             "--chat-border": "217 71% 15%",
             "--chat-bubble-background": "220 13% 95%",
             "--chat-bubble-foreground": "216 15% 36%",
-            "--chat-bubble-border": "230 13% 91%"
+            "--chat-bubble-border": "230 13% 91%",
           },
-          "dark": {
+          dark: {
             "--chat-background": "210 8% 9%",
             "--chat-foreground": "300 2% 92%",
             "--chat-secondary-background": "240 1% 14%",
@@ -75,15 +75,15 @@ const registry = {
             "--chat-border": "0 1% 28%",
             "--chat-bubble-background": "0 0% 20%",
             "--chat-bubble-foreground": "0 1% 79%",
-            "--chat-bubble-border": "0 1% 28%"
-          }
+            "--chat-bubble-border": "0 1% 28%",
+          },
         },
         files: [],
       },
       ...ui,
       ...lib,
       ...examples,
-      ...hooks
+      ...hooks,
     ].filter((item) => {
       return !DEPRECATED_ITEMS.includes(item.name)
     })
@@ -99,16 +99,12 @@ async function buildRegistryIndex() {
 import * as React from "react"
 export const Index: Record<string, any> = {`
   for (const item of registry.items) {
-    const resolveFiles = item.files?.map(
-      (file) => `${file.path}`
-    )
+    const resolveFiles = item.files?.map((file) => `${file.path}`)
     if (!resolveFiles) {
       continue
     }
 
-    const componentPath = item.files?.[0]?.path
-      ? `@/${item.files[0].path}`
-      : ""
+    const componentPath = item.files?.[0]?.path ? `@/${item.files[0].path}` : ""
 
     index += `
   "${item.name}": {
@@ -192,35 +188,34 @@ async function buildRegistry() {
   })
 
   // 2. Replace `@/registry/aoian-ui/` with `@/components/aoian-ui/` in all files
-  const files = await fs.readdir(path.join(process.cwd(), "public/r"));
+  const files = await fs.readdir(path.join(process.cwd(), "public/r"))
   await Promise.all(
     files.map(async (file) => {
       const content = await fs.readFile(
         path.join(process.cwd(), "public/r", file),
-        "utf-8",
-      );
+        "utf-8"
+      )
 
-      const registryItem = JSON.parse(content);
+      const registryItem = JSON.parse(content)
 
       // Replace `@/registry/aoian-ui/` in files
       registryItem.files = registryItem.files?.map((file) => {
         if (file.content?.includes("@/registry/aoian-ui")) {
           file.content = file.content?.replaceAll(
             "@/registry/aoian-ui",
-            "@/components/aoian-ui",
-          );
+            "@/components/aoian-ui"
+          )
         }
-        return file;
-      });
+        return file
+      })
 
       // Write the file back
       await fs.writeFile(
         path.join(process.cwd(), "public/r", file),
-        JSON.stringify(registryItem, null, 2),
-      );
-    }),
-  );
-
+        JSON.stringify(registryItem, null, 2)
+      )
+    })
+  )
 }
 
 try {

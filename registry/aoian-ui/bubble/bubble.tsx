@@ -178,9 +178,9 @@ BubbleWrapper.displayName = "BubbleWrapper"
 const bubbleContentVariants = cva("text-chat-foreground px-4 py-3 text-sm", {
   variants: {
     variant: {
-      filled: "bg-chat-bubble text-chat-bubble-foreground",
-      outlined: "border-chat-bubble-border border",
-      shadow: "dark:bg-chat-bubble shadow",
+      filled: "bg-chat-muted text-chat-foreground",
+      outlined: "border-chat-muted-border border",
+      shadow: "dark:bg-chat-muted shadow",
       borderless: "border-none px-0 py-0",
     },
     shape: {
@@ -250,7 +250,7 @@ const BubbleContent = React.forwardRef<HTMLDivElement, BubbleContentProps>(
         {...props}
       >
         {loading ? (
-          <Loading itemClassName="bg-chat-bubble-foreground" className="h-5" />
+          <Loading itemClassName="bg-chat-muted-foreground" className="h-5" />
         ) : (
           <>
             {mergedContent}

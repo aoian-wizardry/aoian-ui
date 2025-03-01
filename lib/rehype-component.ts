@@ -1,22 +1,21 @@
 import fs from "fs"
 import path from "path"
-import {UnistNode, UnistTree} from "types/unist"
-import {u} from "unist-builder"
-import {visit} from "unist-util-visit"
+import { UnistNode, UnistTree } from "types/unist"
+import { u } from "unist-builder"
+import { visit } from "unist-util-visit"
 
-import Registry from "../registry.json";
-
+import Registry from "../registry.json"
 
 export function rehypeComponent() {
   return async (tree: UnistTree) => {
     visit(tree, (node: UnistNode) => {
       // src prop overrides both name and fileName.
-      const {value: srcPath} =
-      (getNodeAttributeByName(node, "src") as {
-        name: string
-        value?: string
-        type?: string
-      }) || {}
+      const { value: srcPath } =
+        (getNodeAttributeByName(node, "src") as {
+          name: string
+          value?: string
+          type?: string
+        }) || {}
 
       if (node.name === "ComponentSource") {
         const name = getNodeAttributeByName(node, "name")?.value as string
@@ -34,20 +33,19 @@ export function rehypeComponent() {
           if (srcPath) {
             src = path.join(process.cwd(), srcPath)
           } else {
-
-            const component = Registry.items.find((item) => item.name === name);
+            const component = Registry.items.find((item) => item.name === name)
 
             if (!component) {
-              return null;
+              return null
             }
 
             src = fileName
               ? component.files.find((file) => {
-              return (
-                file.path.endsWith(`${fileName}.tsx`) ||
-                file.path.endsWith(`${fileName}.ts`)
-              )
-            })?.path || component.files[0]?.path
+                  return (
+                    file.path.endsWith(`${fileName}.tsx`) ||
+                    file.path.endsWith(`${fileName}.ts`)
+                  )
+                })?.path || component.files[0]?.path
               : component.files[0]?.path
           }
 
@@ -93,10 +91,10 @@ export function rehypeComponent() {
         }
 
         try {
-          const component = Registry.items.find((item) => item.name === name);
+          const component = Registry.items.find((item) => item.name === name)
 
           if (!component) {
-            return null;
+            return null
           }
 
           const src = component.files[0]?.path
@@ -137,7 +135,6 @@ export function rehypeComponent() {
           console.error(error)
         }
       }
-
     })
   }
 }
@@ -145,5 +142,3 @@ export function rehypeComponent() {
 function getNodeAttributeByName(node: UnistNode, name: string) {
   return node.attributes?.find((attribute) => attribute.name === name)
 }
-
-

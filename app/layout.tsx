@@ -1,12 +1,12 @@
-import type {Metadata, Viewport} from "next"
-import {GeistMono} from "geist/font/mono"
-import {GeistSans} from "geist/font/sans"
+import type { Metadata, Viewport } from "next"
+import { GeistMono } from "geist/font/mono"
+import { GeistSans } from "geist/font/sans"
 
-import {cn} from "@/lib/utils"
-import {Analytics} from "@/components/analytics"
-import {ThemeProvider} from "@/components/theme-provider"
-import {Toaster} from "@/components/ui/sonner"
-import {siteConfig} from "@/config/site"
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/sonner"
+import { Analytics } from "@/components/analytics"
+import { ThemeProvider } from "@/components/theme-provider"
 
 import "./globals.css"
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "Tailwind CSS",
     "Server Components",
     "Radix UI",
-    "Aoian UI"
+    "Aoian UI",
   ],
   authors: [
     {
@@ -77,45 +77,45 @@ export const viewport: Viewport = {
 }
 
 export default function RootLayout({
-                                     children,
-                                   }: Readonly<{
+  children,
+}: Readonly<{
   children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-    <head>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
               try {
                 if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                   document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
                 }
               } catch (_) {}
             `,
-        }}
-      />
-    </head>
-    <body
-      className={cn(
-        "bg-background overscroll-none font-sans antialiased",
-        fontSans.variable,
-        fontMono.variable
-      )}
-    >
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <div className="relative flex min-h-svh flex-col bg-background">
-        {children}
-      </div>
-      <Toaster/>
-      <Analytics/>
-    </ThemeProvider>
-    </body>
+          }}
+        />
+      </head>
+      <body
+        className={cn(
+          "overscroll-none bg-background font-sans antialiased",
+          fontSans.variable,
+          fontMono.variable
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative flex min-h-svh flex-col bg-background">
+            {children}
+          </div>
+          <Toaster />
+          <Analytics />
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

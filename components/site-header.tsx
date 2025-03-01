@@ -1,15 +1,15 @@
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
+import { Button } from "@/components/ui/button"
 import { CommandMenu } from "@/components/command-menu"
 import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
-import { Button } from "@/components/ui/button"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full dark:bg-black/80 backdrop-blur">
+    <header className="sticky top-0 z-50 w-full backdrop-blur dark:bg-black/80">
       <div className="container-wrapper">
         <div className="container flex h-16 items-center">
           <MainNav />

@@ -1,14 +1,15 @@
-import { Index } from "@/__registry__";
-import { ComponentWrapper } from "@/components/component-wrapper";
-import { Icons } from "@/components/icons";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { cn } from "@/lib/utils";
-import * as React from "react";
+import * as React from "react"
+import { Index } from "@/__registry__"
+
+import { cn } from "@/lib/utils"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { ComponentWrapper } from "@/components/component-wrapper"
+import { Icons } from "@/components/icons"
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
-  name: string;
-  align?: "center" | "start" | "end";
-  preview?: boolean;
+  name: string
+  align?: "center" | "start" | "end"
+  preview?: boolean
 }
 
 export function ComponentPreview({
@@ -18,14 +19,14 @@ export function ComponentPreview({
   preview = false,
   ...props
 }: ComponentPreviewProps) {
-  const Codes = React.Children.toArray(children) as React.ReactElement[];
-  const Code = Codes[0];
+  const Codes = React.Children.toArray(children) as React.ReactElement[]
+  const Code = Codes[0]
 
   const Preview = React.useMemo(() => {
-    const Component = Index[name]?.component;
+    const Component = Index[name]?.component
 
     if (!Component) {
-      console.error(`Component with name "${name}" not found in registry.`);
+      console.error(`Component with name "${name}" not found in registry.`)
       return (
         <p className="text-sm text-muted-foreground">
           Component{" "}
@@ -34,17 +35,17 @@ export function ComponentPreview({
           </code>{" "}
           not found in registry.
         </p>
-      );
+      )
     }
 
-    return <Component />;
-  }, [name]);
+    return <Component />
+  }, [name])
 
   return (
     <div
       className={cn(
         "relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]",
-        className,
+        className
       )}
       {...props}
     >
@@ -90,5 +91,5 @@ export function ComponentPreview({
         </TabsContent>
       </Tabs>
     </div>
-  );
+  )
 }

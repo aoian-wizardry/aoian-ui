@@ -60,6 +60,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/bubble",
           items: [],
         },
+        {
+          title: "Prompt",
+          href: "/docs/components/prompt",
+          items: [],
+        },
       ],
     },
   ],

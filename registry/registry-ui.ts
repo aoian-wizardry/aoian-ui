@@ -62,4 +62,15 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "prompt",
+    type: "registry:ui",
+    files: [
+      {
+        path: "registry/aoian-ui/prompt/prompt.tsx",
+        type: "registry:ui",
+        target: "components/aoian-ui/prompt.tsx",
+      },
+    ],
+  },
 ]

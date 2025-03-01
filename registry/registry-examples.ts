@@ -114,4 +114,59 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "prompt-demo",
+    type: "registry:example",
+    registryDependencies: [registryUrl("prompt")],
+    files: [
+      {
+        path: "registry/examples/prompt-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "prompt-disabled",
+    type: "registry:example",
+    registryDependencies: [registryUrl("prompt")],
+    files: [
+      {
+        path: "registry/examples/prompt-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "prompt-vertical",
+    type: "registry:example",
+    registryDependencies: [registryUrl("prompt")],
+    files: [
+      {
+        path: "registry/examples/prompt-vertical.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "prompt-wrap",
+    type: "registry:example",
+    registryDependencies: [registryUrl("prompt")],
+    files: [
+      {
+        path: "registry/examples/prompt-wrap.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "prompt-variant",
+    type: "registry:example",
+    registryDependencies: [registryUrl("prompt")],
+    files: [
+      {
+        path: "registry/examples/prompt-variant.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

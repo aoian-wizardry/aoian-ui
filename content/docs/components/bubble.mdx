@@ -131,13 +131,12 @@ Preset Bubble list. Support auto scroll. Use roles to set default properties of 
   description="Preset Bubble list. Support auto scroll. Use roles to set default properties of Bubble"
 />
 
-
 ## Props
 
 ### Bubble
 
 | Prop                | Type                                                | Default | Description                                                                                                      |
-|---------------------|-----------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------|
+| ------------------- | --------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
 | `placement`         | `start` \| `end`                                    | `start` | Direction of Message                                                                                             |
 | `loading`           | `boolean`                                           | `false` | Loading state of Message                                                                                         |
 | `typing`            | `boolean` \| `{ step?: number, interval?: number }` | `false` | Show message with typing motion                                                                                  |
@@ -147,39 +146,38 @@ Preset Bubble list. Support auto scroll. Use roles to set default properties of 
 
 ### BubbleAvatar
 
-| Prop               | Type      | Default | Description                                                               |
-|--------------------|-----------|---------|---------------------------------------------------------------------------|
-| `textClassName`    | `string`  | `-`     | Text class name                                                           |
-| `triggerClassName` | `string`  | `-`     | Trigger class name                                                        |
-| `src`              | `string`  | `-`     | Avatar image path                                                         |
-| `alt`              | `string`  | `false` | Avatar image alt                                                          |
-| `loading`          | `boolean` | `false` | Loading state of Trigger                                                  |
+| Prop               | Type      | Default | Description                                                                |
+| ------------------ | --------- | ------- | -------------------------------------------------------------------------- |
+| `textClassName`    | `string`  | `-`     | Text class name                                                            |
+| `triggerClassName` | `string`  | `-`     | Trigger class name                                                         |
+| `src`              | `string`  | `-`     | Avatar image path                                                          |
+| `alt`              | `string`  | `false` | Avatar image alt                                                           |
+| `loading`          | `boolean` | `false` | Loading state of Trigger                                                   |
 | `placeholder`      | `boolean` | `-`     | Whether to display the empty avatar， The same as Bubble avatarPlaceholder |
 
 ### BubbleHeader
 
 | Prop        | Type     | Default | Description |
-|-------------|----------|---------|-------------|
+| ----------- | -------- | ------- | ----------- |
 | `className` | `string` | `-`     | Class name  |
 
 ### BubbleFooter
 
 | Prop        | Type     | Default | Description |
-|-------------|----------|---------|-------------|
+| ----------- | -------- | ------- | ----------- |
 | `className` | `string` | `-`     | Class name  |
-
 
 ### BubbleContent
 
 | Prop      | Type                                               | Default   | Description     |
-|-----------|----------------------------------------------------|-----------|-----------------|
+| --------- | -------------------------------------------------- | --------- | --------------- |
 | `variant` | `filled` \| `borderless` \| `outlined` \| `shadow` | `filled`  | Style variant   |
 | `shape`   | `round` \| `corner` \| `default`                   | `default` | Shape of bubble |
 
 ### BubbleList
 
 | Prop         | Type                                                                           | Default | Description                                                                                |
-|--------------|--------------------------------------------------------------------------------|---------|--------------------------------------------------------------------------------------------|
+| ------------ | ------------------------------------------------------------------------------ | ------- | ------------------------------------------------------------------------------------------ |
 | `autoScroll` | `boolean`                                                                      | `true`  | Bubble items list                                                                          |
 | `items`      | `(BubbleProps & { key?: string \| number, role?: string, content: string })[]` | `-`     | Bubble items list                                                                          |
 | `roles`      | `Record<string, BubbleProps> \| (bubble) => BubbleProps`                       | `-`     | Set the default properties of the bubble. The role in items will be automatically matched. |

@@ -22,19 +22,19 @@ export default function BubbleLayout() {
         <BubbleFooter className={"space-x-2"}>
           <Button
             variant="ghost"
-            className="h-6 w-6 !p-0 text-chat-bubble-foreground"
+            className="h-6 w-6 !p-0 text-chat-muted-foreground"
           >
             <Copy />
           </Button>
           <Button
             variant="ghost"
-            className="h-6 w-6 !p-0 text-chat-bubble-foreground"
+            className="h-6 w-6 !p-0 text-chat-muted-foreground"
           >
             <RefreshCw />
           </Button>{" "}
           <Button
             variant="ghost"
-            className="h-6 w-6 !p-0 text-chat-bubble-foreground"
+            className="h-6 w-6 !p-0 text-chat-muted-foreground"
           >
             <Ellipsis />
           </Button>

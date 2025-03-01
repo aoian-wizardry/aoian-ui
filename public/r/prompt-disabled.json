@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prompt-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/prompt"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/prompt-disabled.tsx",
+      "content": "import { Info, Lightbulb } from \"lucide-react\"\n\nimport {\n  Prompt,\n  PromptContent,\n  PromptDescription,\n  PromptIcon,\n  PromptItem,\n  PromptLabel,\n} from \"@/components/aoian-ui/prompt/prompt\"\n\nexport default function PromptDisabled() {\n  return (\n    <Prompt>\n      <PromptItem disabled>\n        <PromptIcon>\n          <Lightbulb className=\"text-yellow-300\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptLabel>Ignite Your Creativity</PromptLabel>\n          <PromptDescription>\n            Got any sparks for a new project?\n          </PromptDescription>\n        </PromptContent>\n      </PromptItem>\n      <PromptItem>\n        <PromptIcon>\n          <Info className=\"text-blue-400\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptLabel>Uncover Background Info</PromptLabel>\n          <PromptDescription>\n            Help me understand the background of this topic.\n          </PromptDescription>\n        </PromptContent>\n      </PromptItem>\n    </Prompt>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

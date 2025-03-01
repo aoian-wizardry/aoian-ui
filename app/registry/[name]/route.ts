@@ -1,12 +1,14 @@
-import { NextResponse } from "next/server"
-import path from "path"
 import { promises as fs } from "fs"
+import path from "path"
+import { NextResponse } from "next/server"
 import { registryItemSchema } from "shadcn/registry"
 
 // This route shows an example for serving a component using a route handler.
 export async function GET(
   request: Request,
-  { params }: {
+  {
+    params,
+  }: {
     params: Promise<{
       name: string
     }>
