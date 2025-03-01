@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sender-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/prompt"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/sender-demo.tsx",
+      "content": "import { Info, Lightbulb, Rocket, Smile, TriangleAlert } from \"lucide-react\"\n\nimport {\n  Prompt,\n  PromptContent,\n  PromptDescription,\n  PromptIcon,\n  PromptItem,\n} from \"@/components/aoian-ui/prompt/prompt\"\n\nexport default function PromptWrap() {\n  return (\n    <Prompt wrap>\n      <PromptItem disabled>\n        <PromptIcon>\n          <Lightbulb className=\"text-yellow-300\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>\n            Got any sparks for a new project?\n          </PromptDescription>\n        </PromptContent>\n      </PromptItem>\n      <PromptItem>\n        <PromptIcon>\n          <Info className=\"text-blue-400\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>Help me of this topic.</PromptDescription>\n        </PromptContent>\n      </PromptItem>\n      <PromptItem>\n        <PromptIcon>\n          <Rocket className=\"text-purple-500\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>\n            How can I work faster and better?\n          </PromptDescription>\n        </PromptContent>\n      </PromptItem>\n      <PromptItem>\n        <PromptIcon>\n          <Smile className=\"text-green-400\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>Why do not ants get sick?</PromptDescription>\n        </PromptContent>\n      </PromptItem>\n      <PromptItem>\n        <PromptIcon>\n          <TriangleAlert className=\"text-red-400\" />\n        </PromptIcon>\n        <PromptContent>\n          <PromptDescription>How to solve common issues?</PromptDescription>\n        </PromptContent>\n      </PromptItem>\n    </Prompt>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

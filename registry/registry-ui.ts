@@ -73,4 +73,16 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "sender",
+    type: "registry:ui",
+    dependencies: ["react-textarea-autosize"],
+    files: [
+      {
+        path: "registry/aoian-ui/sender/sender.tsx",
+        type: "registry:ui",
+        target: "components/aoian-ui/sender.tsx",
+      },
+    ],
+  },
 ]

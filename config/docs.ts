@@ -65,6 +65,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/prompt",
           items: [],
         },
+        {
+          title: "Sender",
+          href: "/docs/components/sender",
+          items: [],
+        },
       ],
     },
   ],

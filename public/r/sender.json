@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sender",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/aoian-ui/sender/sender.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/registry/lib/utils\"\n\nconst promptVariants = cva(\"flex flex-col gap-3 overflow-x-scroll\", {\n  variants: {\n    vertical: {\n      true: \"flex-col\",\n      false: \"flex-row\",\n    },\n    wrap: {\n      true: \"flex-wrap\",\n      false: \"flex-nowrap\",\n    },\n  },\n  defaultVariants: {\n    vertical: false,\n    wrap: false,\n  },\n})\n\nfunction Sender({\n  className,\n  ...props\n}: React.ComponentProps<\"div\"> & VariantProps<typeof promptVariants>) {\n  return <div {...props} className={cn(promptVariants(), className)} />\n}\n\nexport { Sender }\n",
+      "type": "registry:ui",
+      "target": "components/aoian-ui/sender.tsx"
+    }
+  ]
+}

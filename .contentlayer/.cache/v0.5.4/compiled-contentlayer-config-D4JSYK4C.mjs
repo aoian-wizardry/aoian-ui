@@ -286,6 +286,17 @@ var registry_default = {
       ]
     },
     {
+      name: "sender",
+      type: "registry:ui",
+      files: [
+        {
+          path: "registry/aoian-ui/sender/sender.tsx",
+          type: "registry:ui",
+          target: "components/aoian-ui/sender.tsx"
+        }
+      ]
+    },
+    {
       name: "utils",
       type: "registry:lib",
       dependencies: [
@@ -495,6 +506,19 @@ var registry_default = {
       files: [
         {
           path: "registry/examples/prompt-variant.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "sender-demo",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/prompt"
+      ],
+      files: [
+        {
+          path: "registry/examples/sender-demo.tsx",
           type: "registry:example"
         }
       ]
@@ -851,4 +875,4 @@ export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-XPGLKXFP.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-D4JSYK4C.mjs.map

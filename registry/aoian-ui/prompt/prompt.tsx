@@ -104,7 +104,7 @@ function PromptIcon({ className, ...props }: React.ComponentProps<"span">) {
     <span
       {...props}
       className={cn(
-        "text-chat-muted-foreground pt-1 [&>svg]:size-4",
+        "pt-1 text-chat-muted-foreground [&>svg]:size-4",
         className
       )}
     />

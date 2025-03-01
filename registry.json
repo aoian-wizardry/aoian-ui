@@ -139,6 +139,17 @@
       ]
     },
     {
+      "name": "sender",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/aoian-ui/sender/sender.tsx",
+          "type": "registry:ui",
+          "target": "components/aoian-ui/sender.tsx"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": [
@@ -348,6 +359,19 @@
       "files": [
         {
           "path": "registry/examples/prompt-variant.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "sender-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "https://ui.aoian.chat/r/prompt"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/sender-demo.tsx",
           "type": "registry:example"
         }
       ]

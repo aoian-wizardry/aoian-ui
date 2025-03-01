@@ -3,8 +3,9 @@
 import docs__changelogMdx from './docs__changelog.mdx.json' with { type: 'json' }
 import docs__cliMdx from './docs__cli.mdx.json' with { type: 'json' }
 import docs__indexMdx from './docs__index.mdx.json' with { type: 'json' }
-import docs__installation__indexMdx from './docs__installation__index.mdx.json' with { type: 'json' }
 import docs__components__bubbleMdx from './docs__components__bubble.mdx.json' with { type: 'json' }
 import docs__components__promptMdx from './docs__components__prompt.mdx.json' with { type: 'json' }
+import docs__components__senderMdx from './docs__components__sender.mdx.json' with { type: 'json' }
+import docs__installation__indexMdx from './docs__installation__index.mdx.json' with { type: 'json' }
 
-export const allDocs = [docs__changelogMdx, docs__cliMdx, docs__indexMdx, docs__installation__indexMdx, docs__components__bubbleMdx, docs__components__promptMdx]
+export const allDocs = [docs__changelogMdx, docs__cliMdx, docs__indexMdx, docs__components__bubbleMdx, docs__components__promptMdx, docs__components__senderMdx, docs__installation__indexMdx]

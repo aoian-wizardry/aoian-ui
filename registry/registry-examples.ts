@@ -169,4 +169,15 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "sender-demo",
+    type: "registry:example",
+    registryDependencies: [registryUrl("sender")],
+    files: [
+      {
+        path: "registry/examples/sender-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]
