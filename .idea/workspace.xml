@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fde2a55-aa36-4280-ab5d-a9bceebd615b" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/compiled-contentlayer-config-XPGLKXFP.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/compiled-contentlayer-config-XPGLKXFP.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/data-XPGLKXFP.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/data-XPGLKXFP.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/Doc/docs__components__prompt.mdx.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/Doc/docs__components__prompt.mdx.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/index.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.contentlayer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__registry__/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/__registry__/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/docs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/docs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/components/prompt.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/components/prompt.mdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/prompt-variant.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/prompt-variant.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/r/prompt.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/prompt.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry.json" beforeDir="false" afterPath="$PROJECT_DIR$/registry.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/aoian-ui/prompt/prompt.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/aoian-ui/prompt/prompt.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/registry-examples.ts" beforeDir="false" afterPath="$PROJECT_DIR$/registry/registry-examples.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/registry-ui.ts" beforeDir="false" afterPath="$PROJECT_DIR$/registry/registry-ui.ts" afterDir="false" />
-    </list>
+    <list default="true" id="6fde2a55-aa36-4280-ab5d-a9bceebd615b" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +77,7 @@
       <workItem from="1740388482872" duration="3429000" />
       <workItem from="1740445783149" duration="9364000" />
       <workItem from="1740807651723" duration="3130000" />
-      <workItem from="1740810858649" duration="7717000" />
+      <workItem from="1740810858649" duration="16774000" />
     </task>
     <servers />
   </component>
