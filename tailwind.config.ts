@@ -65,6 +65,13 @@ export default {
             foreground: "hsl(var(--chat-muted-foreground))",
             border: "hsl(var(--chat-muted-border))",
           },
+          accent: {
+            blue: {
+              DEFAULT: "hsl(var(--chat-accent-blue))",
+              foreground: "hsl(var(--chat-accent-blue-foreground))",
+              border: "hsl(var(--chat-accent-blue-border))",
+            },
+          },
         },
       },
       borderRadius: {

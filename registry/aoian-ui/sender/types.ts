@@ -5,6 +5,7 @@ export type SenderProps = {
   loading?: boolean
   readOnly?: boolean
   disabled?: boolean
+  vertical?: boolean
   submitType?: "enter" | "shiftEnter" | false
   onSubmit: VoidFunction
   onAbort?: () => void

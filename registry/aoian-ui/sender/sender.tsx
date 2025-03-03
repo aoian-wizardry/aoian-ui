@@ -2,10 +2,11 @@
 
 import * as React from "react"
 import { VariantProps, cva } from "class-variance-authority"
-import { ArrowUp, Square } from "lucide-react"
+import { ArrowUp, Globe, Square } from "lucide-react"
 import Textarea, { type TextareaAutosizeProps } from "react-textarea-autosize"
 
 import { Button } from "@/components/ui/button"
+import { Toggle } from "@/components/ui/toggle"
 import type { SenderProps } from "@/registry/aoian-ui/sender/types"
 import { cn } from "@/registry/lib/utils"
 
@@ -33,6 +34,7 @@ function Sender({
   onAbort,
   onKeyDown,
   value,
+  vertical = true,
   readOnly,
   disabled,
   submitType = "enter",
@@ -52,6 +54,7 @@ function Sender({
       onKeyDown,
       onAbort,
       onBlur,
+      vertical,
       loading,
       onFocus,
       onChange,
@@ -66,6 +69,7 @@ function Sender({
       onKeyDown,
       onAbort,
       onBlur,
+      vertical,
       loading,
       onFocus,
       onChange,
@@ -81,10 +85,17 @@ function Sender({
 }
 
 const senderContentVariants = cva(
-  "relative flex w-full flex-col gap-2 rounded-3xl border border-input bg-muted",
+  "relative flex px-4 py-3 w-full gap-2 rounded-2xl border border-input bg-chat-muted",
   {
-    variants: {},
-    defaultVariants: {},
+    variants: {
+      vertical: {
+        true: "flex-col",
+        false: "flex-row items-end",
+      },
+    },
+    defaultVariants: {
+      vertical: true,
+    },
   }
 )
 
@@ -93,7 +104,18 @@ function SenderContent({
   ...props
 }: React.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof senderContentVariants>) {
-  return <div className={cn(senderContentVariants(), className)} {...props} />
+  const { vertical } = useSender()
+  return (
+    <div
+      data-vertical={vertical}
+      className={cn(
+        "group/sender-content",
+        senderContentVariants({ vertical }),
+        className
+      )}
+      {...props}
+    />
+  )
 }
 
 function SenderTextArea({ className, ...props }: TextareaAutosizeProps) {
@@ -151,7 +173,6 @@ function SenderTextArea({ className, ...props }: TextareaAutosizeProps) {
   return (
     <Textarea
       name="sender"
-      rows={2}
       maxRows={5}
       tabIndex={0}
       onCompositionStart={handleCompositionStart}
@@ -162,7 +183,7 @@ function SenderTextArea({ className, ...props }: TextareaAutosizeProps) {
       readOnly={readOnly}
       disabled={disabled}
       className={cn(
-        "min-h-12 w-full resize-none border-0 bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+        "min-h-12 w-full resize-none self-center border-0 bg-transparent text-sm placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 group-data-[vertical=false]/sender-content:min-h-[22px]",
         className
       )}
       onChange={onChange}
@@ -180,7 +201,10 @@ function SenderOperation({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("flex items-center justify-between p-3", className)}
+      className={cn(
+        "flex justify-between gap-2 group-data-[vertical=false]/sender-content:self-end",
+        className
+      )}
       {...props}
     />
   )
@@ -190,14 +214,14 @@ function SenderOperationBar({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("flex items-center gap-2", className)} {...props} />
+  return <div className={cn("inline-flex gap-2", className)} {...props} />
 }
 
 function SenderOperationBarExtra({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("flex items-center gap-2", className)} {...props} />
+  return <div className={cn("inline-flex gap-2", className)} {...props} />
 }
 
 function SenderButton({
@@ -219,6 +243,31 @@ function SenderButton({
   )
 }
 
+function SenderSearchToggle({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof Toggle>) {
+  return (
+    <Toggle
+      aria-label="Toggle search mode"
+      variant="outline"
+      className={cn(
+        "gap-1 border border-input bg-background px-3 text-muted-foreground",
+        "data-[state=on]:bg-chat-accent-blue",
+        "data-[state=on]:text-chat-accent-blue-foreground",
+        "data-[state=on]:border-chat-accent-blue-border",
+        "rounded-full hover:bg-accent hover:text-accent-foreground",
+        className
+      )}
+      {...props}
+    >
+      <Globe className="size-4" />
+      <span className="text-xs">{children}</span>
+    </Toggle>
+  )
+}
+
 export {
   Sender,
   SenderContent,
@@ -227,5 +276,6 @@ export {
   SenderOperationBar,
   SenderOperationBarExtra,
   SenderButton,
+  SenderSearchToggle,
   useSender,
 }

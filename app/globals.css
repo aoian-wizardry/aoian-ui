@@ -47,6 +47,9 @@
     --chat-muted-background: 0 0% 96%;
     --chat-muted-foreground: 0 0% 45%;
     --chat-muted-border: 230 13% 91%;
+    --chat-accent-blue: 210 100% 97%;
+    --chat-accent-blue-foreground: 210 100% 50%;
+    --chat-accent-blue-border: 210 100% 90%;
   }
   .dark {
     --background: 0 0% 0%;
@@ -91,6 +94,9 @@
     --chat-muted-background: 0 0% 15%;
     --chat-muted-foreground: 0 0% 64%;
     --chat-muted-border: 0 0% 15%;
+    --chat-accent-blue: 210 100% 10%;
+    --chat-accent-blue-foreground: 210 100% 80%;
+    --chat-accent-blue-border: 210 100% 25%;
   }
 }
 
