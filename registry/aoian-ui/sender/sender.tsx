@@ -228,13 +228,13 @@ function SenderButton({
   className,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { loading, value, onAbort, onSubmit } = useSender()
+  const { loading, value, onAbort, onSubmit, disabled } = useSender()
   return (
     <Button
       size={"icon"}
       variant={"outline"}
       className={cn("rounded-full", loading && "animate-pulse", className)}
-      disabled={value.length === 0 && !loading}
+      disabled={(value?.length === 0 && !loading) || disabled}
       onClick={loading ? onAbort : onSubmit}
       {...props}
     >

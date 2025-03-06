@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sender-horizontal",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/sender"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/sender-horizontal.tsx",
+      "content": "import * as React from \"react\"\nimport { toast } from \"sonner\"\n\nimport {\n  Sender,\n  SenderButton,\n  SenderContent,\n  SenderOperation,\n  SenderOperationBar,\n  SenderOperationBarExtra,\n  SenderSearchToggle,\n  SenderTextArea,\n} from \"@/components/aoian-ui/sender/sender\"\n\nexport default function SenderDemo() {\n  const [value, setValue] = React.useState(\"\")\n  const [isSearchMode, setIsSearchMode] = React.useState(true)\n  const [isLoading, setIsLoading] = React.useState(false)\n  return (\n    <Sender\n      vertical={false}\n      loading={isLoading}\n      value={value}\n      onChange={(e) => {\n        setValue(e?.target?.value)\n      }}\n      onSubmit={() => {\n        setIsLoading(true)\n        setTimeout(() => {\n          toast.success(value)\n          setValue(\"\")\n          setIsLoading(false)\n        }, 3000)\n      }}\n    >\n      <SenderContent>\n        <SenderTextArea />\n        <SenderOperation>\n          <SenderOperationBarExtra>\n            <SenderSearchToggle\n              pressed={isSearchMode}\n              onPressedChange={setIsSearchMode}\n            >\n              Search\n            </SenderSearchToggle>\n          </SenderOperationBarExtra>\n          <SenderOperationBar>\n            <SenderButton />\n          </SenderOperationBar>\n        </SenderOperation>\n      </SenderContent>\n    </Sender>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

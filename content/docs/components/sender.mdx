@@ -6,3 +6,99 @@ component: true
 ---
 
 <ComponentPreview name="sender-demo" description="A input component for chat." />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+
+    ```bash
+    npx shadcn@latest add https://ui.aoian.chat/r/sender
+    ```
+
+  </TabsContent>
+
+  <TabsContent value="manual">
+
+    <Steps>
+
+      <Step>Copy and paste the following code into your project.</Step>
+
+      <ComponentSource name="sender" />
+
+      <Step>Update the import paths to match your project setup.</Step>
+
+    </Steps>
+
+  </TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  Sender,
+  SenderButton,
+  SenderContent,
+  SenderOperation,
+  SenderOperationBar,
+  SenderOperationBarExtra,
+  SenderSearchToggle,
+  SenderTextArea,
+} from "@/components/aoian-ui/sender/sender"
+```
+
+```tsx
+   <Sender>
+      <SenderContent>
+        <SenderTextArea />
+        <SenderOperation>
+          <SenderOperationBarExtra>
+            <SenderSearchToggle>
+              Search
+            </SenderSearchToggle>
+          </SenderOperationBarExtra>
+          <SenderOperationBar>
+            <SenderButton />
+          </SenderOperationBar>
+        </SenderOperation>
+      </SenderContent>
+    </Sender>
+```
+
+## Examples
+
+### Horizontal effect
+
+For the horizontal effect, we will set the property vertical to false.
+
+<ComponentPreview
+  name="sender-horizontal"
+  description="For the horizontal effect, we will set the property vertical to false."
+/>
+
+
+### Submit type
+
+Control the newline and submit mode through submitType.
+
+<ComponentPreview
+  name="sender-submit-type"
+  description="Control the newline and submit mode through submitType."
+/>
+
+
+### Custom actions
+
+Add a custom button inside the SenderOperationBar.
+
+<ComponentPreview
+  name="sender-custom-button"
+  description="Add a custom button inside the SenderOperationBar."
+/>

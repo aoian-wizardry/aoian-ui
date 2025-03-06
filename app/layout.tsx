@@ -112,7 +112,7 @@ export default function RootLayout({
           <div className="relative flex min-h-svh flex-col bg-background">
             {children}
           </div>
-          <Toaster />
+          <Toaster richColors />
           <Analytics />
         </ThemeProvider>
       </body>

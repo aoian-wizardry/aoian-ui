@@ -382,7 +382,7 @@ export const Index: Record<string, any> = {
     name: "sender-demo",
     description: "",
     type: "registry:example",
-    registryDependencies: ["https://ui.aoian.chat/r/prompt"],
+    registryDependencies: ["https://ui.aoian.chat/r/sender"],
     files: [{
       path: "registry/examples/sender-demo.tsx",
       type: "registry:example",
@@ -390,6 +390,57 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/sender-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "sender-horizontal": {
+    name: "sender-horizontal",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/sender"],
+    files: [{
+      path: "registry/examples/sender-horizontal.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/sender-horizontal.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "sender-submit-type": {
+    name: "sender-submit-type",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/sender"],
+    files: [{
+      path: "registry/examples/sender-submit-type.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/sender-submit-type.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "sender-custom-button": {
+    name: "sender-custom-button",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/sender"],
+    files: [{
+      path: "registry/examples/sender-custom-button.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/sender-custom-button.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

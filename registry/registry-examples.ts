@@ -180,4 +180,37 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "sender-horizontal",
+    type: "registry:example",
+    registryDependencies: [registryUrl("sender")],
+    files: [
+      {
+        path: "registry/examples/sender-horizontal.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "sender-submit-type",
+    type: "registry:example",
+    registryDependencies: [registryUrl("sender")],
+    files: [
+      {
+        path: "registry/examples/sender-submit-type.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "sender-custom-button",
+    type: "registry:example",
+    registryDependencies: [registryUrl("sender")],
+    files: [
+      {
+        path: "registry/examples/sender-custom-button.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

@@ -288,6 +288,9 @@ var registry_default = {
     {
       name: "sender",
       type: "registry:ui",
+      dependencies: [
+        "react-textarea-autosize"
+      ],
       files: [
         {
           path: "registry/aoian-ui/sender/sender.tsx",
@@ -514,11 +517,50 @@ var registry_default = {
       name: "sender-demo",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/prompt"
+        "https://ui.aoian.chat/r/sender"
       ],
       files: [
         {
           path: "registry/examples/sender-demo.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "sender-horizontal",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/sender"
+      ],
+      files: [
+        {
+          path: "registry/examples/sender-horizontal.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "sender-submit-type",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/sender"
+      ],
+      files: [
+        {
+          path: "registry/examples/sender-submit-type.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "sender-custom-button",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/sender"
+      ],
+      files: [
+        {
+          path: "registry/examples/sender-custom-button.tsx",
           type: "registry:example"
         }
       ]
@@ -875,4 +917,4 @@ export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-D4JSYK4C.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-7WVAF5IH.mjs.map

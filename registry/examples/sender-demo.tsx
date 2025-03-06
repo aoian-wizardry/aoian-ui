@@ -17,38 +17,83 @@ export default function SenderDemo() {
   const [isSearchMode, setIsSearchMode] = React.useState(true)
   const [isLoading, setIsLoading] = React.useState(false)
   return (
-    <Sender
-      vertical={false}
-      loading={isLoading}
-      value={value}
-      onChange={(e) => {
-        setValue(e?.target?.value)
-      }}
-      onSubmit={() => {
-        setIsLoading(true)
-        setTimeout(() => {
-          toast(value)
-          setValue("")
-          setIsLoading(false)
-        }, 3000)
-      }}
-    >
-      <SenderContent>
-        <SenderTextArea />
-        <SenderOperation>
-          <SenderOperationBarExtra>
-            <SenderSearchToggle
-              pressed={isSearchMode}
-              onPressedChange={setIsSearchMode}
-            >
-              Search
-            </SenderSearchToggle>
-          </SenderOperationBarExtra>
-          <SenderOperationBar>
-            <SenderButton />
-          </SenderOperationBar>
-        </SenderOperation>
-      </SenderContent>
-    </Sender>
+    <div className="grow space-y-4 self-start">
+      <Sender
+        placeholder="Hello? this is Aoian UI Sender"
+        loading={isLoading}
+        value={value}
+        onChange={(e) => {
+          setValue(e?.target?.value)
+        }}
+        onSubmit={() => {
+          setIsLoading(true)
+          setTimeout(() => {
+            toast.success(value)
+            setValue("")
+            setIsLoading(false)
+          }, 3000)
+        }}
+      >
+        <SenderContent>
+          <SenderTextArea />
+          <SenderOperation>
+            <SenderOperationBarExtra>
+              <SenderSearchToggle
+                pressed={isSearchMode}
+                onPressedChange={setIsSearchMode}
+              >
+                Search
+              </SenderSearchToggle>
+            </SenderOperationBarExtra>
+            <SenderOperationBar>
+              <SenderButton />
+            </SenderOperationBar>
+          </SenderOperation>
+        </SenderContent>
+      </Sender>
+      <p className="pl-4">Force as loading</p>
+      <Sender onSubmit={() => null} loading={true} value={value}>
+        <SenderContent>
+          <SenderTextArea />
+          <SenderOperation>
+            <SenderOperationBarExtra>
+              <SenderSearchToggle
+                pressed={isSearchMode}
+                onPressedChange={setIsSearchMode}
+              >
+                Search
+              </SenderSearchToggle>
+            </SenderOperationBarExtra>
+            <SenderOperationBar>
+              <SenderButton />
+            </SenderOperationBar>
+          </SenderOperation>
+        </SenderContent>
+      </Sender>
+      <p className="pl-4">Set to disabled</p>
+      <Sender
+        onSubmit={() => null}
+        value={value}
+        disabled
+        placeholder="Set to disabled"
+      >
+        <SenderContent>
+          <SenderTextArea />
+          <SenderOperation>
+            <SenderOperationBarExtra>
+              <SenderSearchToggle
+                pressed={isSearchMode}
+                onPressedChange={setIsSearchMode}
+              >
+                Search
+              </SenderSearchToggle>
+            </SenderOperationBarExtra>
+            <SenderOperationBar>
+              <SenderButton />
+            </SenderOperationBar>
+          </SenderOperation>
+        </SenderContent>
+      </Sender>
+    </div>
   )
 }
