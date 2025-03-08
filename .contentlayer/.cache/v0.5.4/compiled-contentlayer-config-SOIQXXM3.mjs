@@ -300,6 +300,20 @@ var registry_default = {
       ]
     },
     {
+      name: "attachments",
+      type: "registry:ui",
+      dependencies: [
+        "react-dropzone"
+      ],
+      files: [
+        {
+          path: "registry/aoian-ui/attachments/attachments.tsx",
+          type: "registry:ui",
+          target: "components/aoian-ui/attachments.tsx"
+        }
+      ]
+    },
+    {
       name: "utils",
       type: "registry:lib",
       dependencies: [
@@ -561,6 +575,32 @@ var registry_default = {
       files: [
         {
           path: "registry/examples/sender-custom-button.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "sender-header",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/sender"
+      ],
+      files: [
+        {
+          path: "registry/examples/sender-header.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "attachments-demo",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/sender"
+      ],
+      files: [
+        {
+          path: "registry/examples/attachments-demo.tsx",
           type: "registry:example"
         }
       ]
@@ -917,4 +957,4 @@ export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-7WVAF5IH.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-SOIQXXM3.mjs.map

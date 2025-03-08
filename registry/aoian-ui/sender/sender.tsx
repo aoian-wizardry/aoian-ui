@@ -20,7 +20,7 @@ function useSender() {
   return context
 }
 
-const senderVariants = cva("mx-auto w-full max-w-3xl px-2 py-4", {
+const senderVariants = cva("mx-auto w-full max-w-3xl px-2 py-4 space-y-2", {
   variants: {},
   defaultVariants: {},
 })
@@ -85,7 +85,7 @@ function Sender({
 }
 
 const senderContentVariants = cva(
-  "relative flex px-4 py-3 w-full gap-2 rounded-2xl border border-input bg-chat-muted",
+  "relative flex px-4 py-3 w-full gap-2 rounded-2xl border border-input bg-input",
   {
     variants: {
       vertical: {
@@ -111,6 +111,22 @@ function SenderContent({
       className={cn(
         "group/sender-content",
         senderContentVariants({ vertical }),
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function SenderHeader({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof senderContentVariants>) {
+  return (
+    <div
+      className={cn(
+        "group/sender-header inline-flex items-center gap-2",
         className
       )}
       {...props}
@@ -214,7 +230,12 @@ function SenderOperationBar({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("inline-flex gap-2", className)} {...props} />
+  return (
+    <div
+      className={cn("inline-flex items-center gap-2", className)}
+      {...props}
+    />
+  )
 }
 
 function SenderOperationBarExtra({
@@ -233,7 +254,7 @@ function SenderButton({
     <Button
       size={"icon"}
       variant={"outline"}
-      className={cn("rounded-full", loading && "animate-pulse", className)}
+      className={cn("rounded-lg", loading && "animate-pulse", className)}
       disabled={(value?.length === 0 && !loading) || disabled}
       onClick={loading ? onAbort : onSubmit}
       {...props}
@@ -254,10 +275,10 @@ function SenderSearchToggle({
       variant="outline"
       className={cn(
         "gap-1 border border-input bg-background px-3 text-muted-foreground",
-        "data-[state=on]:bg-chat-accent-blue",
-        "data-[state=on]:text-chat-accent-blue-foreground",
-        "data-[state=on]:border-chat-accent-blue-border",
-        "rounded-full hover:bg-accent hover:text-accent-foreground",
+        "data-[state=on]:bg-primary/20",
+        "data-[state=on]:text-primary",
+        "data-[state=on]:border-primary/40",
+        "rounded-full",
         className
       )}
       {...props}
@@ -268,14 +289,33 @@ function SenderSearchToggle({
   )
 }
 
+function SenderAction({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof Button>) {
+  return (
+    <Button
+      size={"icon"}
+      variant={"ghost"}
+      {...props}
+      className={cn("rounded-lg", className)}
+    >
+      {children}
+    </Button>
+  )
+}
+
 export {
   Sender,
+  SenderHeader,
   SenderContent,
   SenderTextArea,
   SenderOperation,
   SenderOperationBar,
   SenderOperationBarExtra,
   SenderButton,
+  SenderAction,
   SenderSearchToggle,
   useSender,
 }

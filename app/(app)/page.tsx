@@ -74,8 +74,8 @@ export default function IndexPage() {
                 detail. Open Source. Open Code.
               </p>
               <div className="mt-10 flex gap-4">
-                <Button asChild>
-                  <Link href="/docs">
+                <Button asChild className={"bg-black dark:bg-white"}>
+                  <Link href="/docs" className="text-accent">
                     Get Started <ArrowRight className="pl-0.5" size={16} />
                   </Link>
                 </Button>{" "}

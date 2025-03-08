@@ -1,14 +1,13 @@
 import * as React from "react"
-import { Eraser } from "lucide-react"
+import { Ellipsis, Image } from "lucide-react"
 import { toast } from "sonner"
 
 import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
 import {
   Sender,
-  SenderAction,
   SenderButton,
   SenderContent,
+  SenderHeader,
   SenderOperation,
   SenderOperationBar,
   SenderOperationBarExtra,
@@ -16,7 +15,7 @@ import {
   SenderTextArea,
 } from "@/registry/aoian-ui/sender/sender"
 
-export default function SenderDemo() {
+export default function SenderHeaderDemo() {
   const [value, setValue] = React.useState("")
   const [isSearchMode, setIsSearchMode] = React.useState(true)
   const [isLoading, setIsLoading] = React.useState(false)
@@ -38,25 +37,27 @@ export default function SenderDemo() {
         }, 3000)
       }}
     >
+      <SenderHeader>
+        <SenderSearchToggle
+          pressed={isSearchMode}
+          onPressedChange={setIsSearchMode}
+        >
+          Search
+        </SenderSearchToggle>
+        <Button variant="outline">
+          <Image />
+          Image
+        </Button>
+        <Button variant="outline">
+          <Ellipsis />
+          More
+        </Button>
+      </SenderHeader>
       <SenderContent>
         <SenderTextArea />
         <SenderOperation>
-          <SenderOperationBarExtra>
-            <SenderSearchToggle
-              pressed={isSearchMode}
-              onPressedChange={setIsSearchMode}
-            >
-              Search
-            </SenderSearchToggle>
-          </SenderOperationBarExtra>
+          <SenderOperationBarExtra></SenderOperationBarExtra>
           <SenderOperationBar>
-            <SenderAction disabled={!value} onClick={() => setValue("")}>
-              <Eraser />
-            </SenderAction>
-            <Separator
-              orientation="vertical"
-              className="h-4 w-[2px] bg-accent"
-            />
             <SenderButton />
           </SenderOperationBar>
         </SenderOperation>

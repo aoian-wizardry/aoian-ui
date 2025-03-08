@@ -85,4 +85,17 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "attachments",
+    type: "registry:ui",
+    dependencies: ["react-dropzone"],
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "registry/aoian-ui/attachments/attachments.tsx",
+        type: "registry:ui",
+        target: "components/aoian-ui/attachments.tsx",
+      },
+    ],
+  },
 ]

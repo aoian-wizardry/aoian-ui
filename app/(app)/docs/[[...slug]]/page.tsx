@@ -94,7 +94,11 @@ export default async function DocPage(props: DocPageProps) {
           <div className="text-foreground">{doc.title}</div>
         </div>
         <div className="space-y-2">
-          <h1 className={cn("scroll-m-20 text-3xl font-bold tracking-tight")}>
+          <h1
+            className={cn(
+              "scroll-m-20 text-3xl font-bold tracking-tight text-accent-foreground"
+            )}
+          >
             {doc.title}
           </h1>
           {doc.description && (

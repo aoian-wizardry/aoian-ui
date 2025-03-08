@@ -213,4 +213,30 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "sender-header",
+    type: "registry:example",
+    registryDependencies: [registryUrl("sender")],
+    files: [
+      {
+        path: "registry/examples/sender-header.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "attachments-demo",
+    type: "registry:example",
+    registryDependencies: [
+      registryUrl("sender"),
+      registryUrl("attachments"),
+      "button",
+    ],
+    files: [
+      {
+        path: "registry/examples/attachments-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

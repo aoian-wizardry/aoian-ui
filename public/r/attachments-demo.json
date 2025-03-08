@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "attachments-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/sender"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/attachments-demo.tsx",
+      "content": "import * as React from \"react\"\nimport { Ellipsis, Image } from \"lucide-react\"\nimport { toast } from \"sonner\"\n\nimport {\n  Sender,\n  SenderButton,\n  SenderContent,\n  SenderOperation,\n  SenderOperationBar,\n  SenderOperationBarExtra,\n  SenderTextArea,\n} from \"@/components/aoian-ui/sender/sender\"\n\nexport default function AttachmentsDemo() {\n  const [value, setValue] = React.useState(\"\")\n  const [isLoading, setIsLoading] = React.useState(false)\n  return (\n    <Sender\n      submitType=\"shiftEnter\"\n      placeholder=\"Press Shift + Enter to send message\"\n      loading={isLoading}\n      value={value}\n      onChange={(e) => {\n        setValue(e?.target?.value)\n      }}\n      onSubmit={() => {\n        setIsLoading(true)\n        setTimeout(() => {\n          toast.success(value)\n          setValue(\"\")\n          setIsLoading(false)\n        }, 3000)\n      }}\n    >\n      <SenderContent>\n        <SenderTextArea />\n        <SenderOperation>\n          <SenderOperationBarExtra></SenderOperationBarExtra>\n          <SenderOperationBar>\n            <SenderButton />\n          </SenderOperationBar>\n        </SenderOperation>\n      </SenderContent>\n    </Sender>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

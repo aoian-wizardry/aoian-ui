@@ -153,6 +153,20 @@
       ]
     },
     {
+      "name": "attachments",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-dropzone"
+      ],
+      "files": [
+        {
+          "path": "registry/aoian-ui/attachments/attachments.tsx",
+          "type": "registry:ui",
+          "target": "components/aoian-ui/attachments.tsx"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": [
@@ -414,6 +428,32 @@
       "files": [
         {
           "path": "registry/examples/sender-custom-button.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "sender-header",
+      "type": "registry:example",
+      "registryDependencies": [
+        "https://ui.aoian.chat/r/sender"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/sender-header.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "attachments-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "https://ui.aoian.chat/r/sender"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/attachments-demo.tsx",
           "type": "registry:example"
         }
       ]

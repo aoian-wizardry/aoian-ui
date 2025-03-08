@@ -106,6 +106,23 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "attachments": {
+    name: "attachments",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/aoian-ui/attachments/attachments.tsx",
+      type: "registry:ui",
+      target: "components/aoian-ui/attachments.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/aoian-ui/attachments/attachments.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
   "utils": {
     name: "utils",
     description: "",
@@ -441,6 +458,40 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/sender-custom-button.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "sender-header": {
+    name: "sender-header",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/sender"],
+    files: [{
+      path: "registry/examples/sender-header.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/sender-header.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "attachments-demo": {
+    name: "attachments-demo",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/sender"],
+    files: [{
+      path: "registry/examples/attachments-demo.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/attachments-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

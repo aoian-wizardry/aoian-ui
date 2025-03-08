@@ -42,8 +42,8 @@ const promptItemVariants = cva(
   {
     variants: {
       variant: {
-        filled: "bg-chat-muted text-chat-foreground",
-        outlined: "border-chat-muted-border border",
+        filled: "bg-card text-card-foreground",
+        outlined: "border-border border",
         borderless: "border-none px-0 py-0",
       },
       disabled: {
@@ -88,15 +88,13 @@ function PromptLabel({ className, ...props }: React.ComponentProps<"h4">) {
   return (
     <h4
       {...props}
-      className={cn("text-sm font-medium text-chat-foreground", className)}
+      className={cn("text-sm font-medium text-accent-foreground", className)}
     />
   )
 }
 
 function PromptDescription({ className, ...props }: React.ComponentProps<"p">) {
-  return (
-    <p {...props} className={cn("text-chat-muted-foreground", className)} />
-  )
+  return <p {...props} className={cn("text-muted-foreground", className)} />
 }
 
 function PromptIcon({ className, ...props }: React.ComponentProps<"span">) {

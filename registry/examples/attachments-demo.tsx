@@ -1,25 +1,31 @@
 import * as React from "react"
-import { Eraser } from "lucide-react"
+import { Ellipsis, Image } from "lucide-react"
 import { toast } from "sonner"
 
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
+import { Attachments } from "@/registry/aoian-ui/attachments/attachments"
 import {
   Sender,
-  SenderAction,
   SenderButton,
   SenderContent,
   SenderOperation,
   SenderOperationBar,
   SenderOperationBarExtra,
-  SenderSearchToggle,
   SenderTextArea,
 } from "@/registry/aoian-ui/sender/sender"
 
-export default function SenderDemo() {
+export default function AttachmentsDemo() {
   const [value, setValue] = React.useState("")
-  const [isSearchMode, setIsSearchMode] = React.useState(true)
   const [isLoading, setIsLoading] = React.useState(false)
+
+  async function onUpload(files: File[]) {
+    try {
+      console.log("files", files)
+      toast.success(JSON.stringify(files))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   return (
     <Sender
       submitType="shiftEnter"
@@ -41,22 +47,9 @@ export default function SenderDemo() {
       <SenderContent>
         <SenderTextArea />
         <SenderOperation>
-          <SenderOperationBarExtra>
-            <SenderSearchToggle
-              pressed={isSearchMode}
-              onPressedChange={setIsSearchMode}
-            >
-              Search
-            </SenderSearchToggle>
-          </SenderOperationBarExtra>
+          <SenderOperationBarExtra></SenderOperationBarExtra>
           <SenderOperationBar>
-            <SenderAction disabled={!value} onClick={() => setValue("")}>
-              <Eraser />
-            </SenderAction>
-            <Separator
-              orientation="vertical"
-              className="h-4 w-[2px] bg-accent"
-            />
+            <Attachments fullScreenDrop onUpload={onUpload} />
             <SenderButton />
           </SenderOperationBar>
         </SenderOperation>

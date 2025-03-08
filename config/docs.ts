@@ -70,6 +70,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/sender",
           items: [],
         },
+        {
+          title: "Attachments",
+          href: "/docs/components/attachments",
+          items: [],
+        },
       ],
     },
   ],

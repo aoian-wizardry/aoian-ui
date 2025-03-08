@@ -127,9 +127,7 @@ const BubbleAvatar = React.forwardRef<
           {children}
         </AvatarFallback>
         {loading && (
-          <AvatarTrigger
-            className={cn("h-4 w-4 [&>svg]:size-2.5", triggerClassName)}
-          >
+          <AvatarTrigger className={cn("[&>svg]:size-4", triggerClassName)}>
             <Loading size="sm" className="gap-px" itemClassName="bg-white" />
           </AvatarTrigger>
         )}
@@ -146,7 +144,7 @@ const BubbleHeader = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("mb-1 text-sm text-chat-foreground", className)}
+      className={cn("mb-1 text-sm text-accent-foreground", className)}
       {...props}
     />
   )
@@ -175,12 +173,12 @@ const BubbleWrapper = React.forwardRef<
 })
 BubbleWrapper.displayName = "BubbleWrapper"
 
-const bubbleContentVariants = cva("text-chat-foreground px-4 py-3 text-sm", {
+const bubbleContentVariants = cva("px-4 py-3 text-sm", {
   variants: {
     variant: {
-      filled: "bg-chat-muted text-chat-foreground",
-      outlined: "border-chat-muted-border border",
-      shadow: "dark:bg-chat-muted shadow",
+      filled: "bg-card text-card-foreground",
+      outlined: "border-border border",
+      shadow: "dark:bg-muted shadow",
       borderless: "border-none px-0 py-0",
     },
     shape: {
@@ -250,7 +248,7 @@ const BubbleContent = React.forwardRef<HTMLDivElement, BubbleContentProps>(
         {...props}
       >
         {loading ? (
-          <Loading itemClassName="bg-chat-muted-foreground" className="h-5" />
+          <Loading className="h-5" />
         ) : (
           <>
             {mergedContent}
@@ -270,7 +268,7 @@ const AvatarTrigger = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "absolute -bottom-1 -right-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#e3b341] [&>svg]:size-3",
+      "absolute bottom-0 left-0 right-0 top-0 m-auto flex h-full w-full items-center justify-center rounded-full bg-black/60 [&>svg]:size-3",
       className
     )}
     {...props}

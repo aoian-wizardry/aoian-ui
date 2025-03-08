@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "attachments",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-dropzone"
+  ],
+  "files": [
+    {
+      "path": "registry/aoian-ui/attachments/attachments.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nfunction Attachments() {\n  return <div>Attachments</div>\n}\n\nexport { Attachments }\n",
+      "type": "registry:ui",
+      "target": "components/aoian-ui/attachments.tsx"
+    }
+  ]
+}
