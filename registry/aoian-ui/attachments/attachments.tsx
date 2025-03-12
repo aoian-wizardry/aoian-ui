@@ -2,14 +2,34 @@
 
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { Paperclip, Upload } from "lucide-react"
+import { Upload } from "lucide-react"
 import Dropzone, {
   type DropzoneProps,
   type FileRejection,
 } from "react-dropzone"
 import { toast } from "sonner"
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel"
 import { DropArea } from "@/registry/aoian-ui/attachments/drop-area"
+import {
+  AudioIcon,
+  ExcelIcon,
+  ImageIcon,
+  MarkdownIcon,
+  PdfIcon,
+  PptIcon,
+  TextIcon,
+  VideoIcon,
+  WordIcon,
+  ZipIcon,
+} from "@/registry/aoian-ui/attachments/icons"
 import { SilentUploader } from "@/registry/aoian-ui/attachments/silent-uploader"
 import { useControllableState } from "@/registry/aoian-ui/hooks/use-controllable-state"
 import { cn, formatBytes } from "@/registry/lib/utils"
@@ -38,14 +58,6 @@ interface AttachmentsProps extends React.HTMLAttributes<HTMLDivElement> {
    * @example onUpload={(files) => uploadFiles(files)}
    */
   onUpload?: (files: File[]) => Promise<void>
-
-  /**
-   * Progress of the uploaded files.
-   * @type Record<string, number> | undefined
-   * @default undefined
-   * @example progresses={{ "file1.png": 50 }}
-   */
-  progresses?: Record<string, number>
 
   /**
    * Accepted file types for the uploader.
@@ -102,7 +114,6 @@ function Attachments({
   value: valueProp,
   onValueChange,
   onUpload,
-  progresses,
   accept = {
     "image/*": [],
   },
@@ -255,4 +266,167 @@ function isFileWithPreview(file: File): file is File & { preview: string } {
   return "preview" in file && typeof file.preview === "string"
 }
 
-export { Attachments }
+// FileCard
+const IMG_EXTS = ["png", "jpg", "jpeg", "gif", "bmp", "webp", "svg"]
+
+const PRESET_FILE_ICONS: {
+  ext: string[]
+  icon: React.ReactElement
+}[] = [
+  {
+    icon: <ExcelIcon />,
+    ext: ["xlsx", "xls"],
+  },
+  {
+    icon: <ImageIcon />,
+    ext: IMG_EXTS,
+  },
+  {
+    icon: <MarkdownIcon />,
+    ext: ["md", "mdx"],
+  },
+  {
+    icon: <PdfIcon />,
+    ext: ["pdf"],
+  },
+  {
+    icon: <PptIcon />,
+    ext: ["ppt", "pptx"],
+  },
+  {
+    icon: <WordIcon />,
+    ext: ["doc", "docx"],
+  },
+  {
+    icon: <ZipIcon />,
+    ext: ["zip", "rar", "7z", "tar", "gz"],
+  },
+  {
+    icon: <VideoIcon />,
+    ext: ["mp4", "avi", "mov", "wmv", "flv", "mkv"],
+  },
+  {
+    icon: <AudioIcon />,
+    ext: ["mp3", "wav", "flac", "ape", "aac", "ogg"],
+  },
+]
+
+function matchExt(suffix: string, ext: string[]) {
+  return ext.some((e) => suffix.toLowerCase() === `.${e}`)
+}
+
+function FileCard({
+  className,
+  item,
+}: React.HTMLAttributes<HTMLDivElement> & {
+  item: { name: string; size: number; progress: number }
+}) {
+  const { name, size } = item
+
+  // ============================== Name ==============================
+  const [namePrefix, nameSuffix] = React.useMemo(() => {
+    const nameStr = name || ""
+    const match = nameStr.match(/^(.*)\.[^.]+$/)
+    return match ? [match[1], nameStr.slice(match[1].length)] : [nameStr, ""]
+  }, [name])
+
+  const isImg = React.useMemo(
+    () => matchExt(nameSuffix, IMG_EXTS),
+    [nameSuffix]
+  )
+
+  const [icon] = React.useMemo(() => {
+    for (const { ext, icon } of PRESET_FILE_ICONS) {
+      if (matchExt(nameSuffix, ext)) {
+        return [icon]
+      }
+    }
+    return [<TextIcon key="defaultIcon" />]
+  }, [nameSuffix])
+
+  console.log(namePrefix, nameSuffix, icon)
+
+  return (
+    <div
+      className={cn(
+        "flex min-w-[180px] items-center rounded-xl bg-background p-2",
+        className
+      )}
+    >
+      <span className="flex items-center justify-center [&>svg]:size-8">
+        {icon}
+      </span>
+      <div className="mt-[2px]">
+        <h4 className="text-sm">{item.name}</h4>
+        <p className="text-xs text-muted-foreground">{item.size}</p>
+      </div>
+    </div>
+  )
+}
+
+function FileListBox({
+  items,
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & {
+  items: { name: string; size: number; progress: number }[]
+}) {
+  const [api, setApi] = React.useState<CarouselApi>()
+  const [canScrollPrev, setCanScrollPrev] = React.useState(false)
+  const [canScrollNext, setCanScrollNext] = React.useState(false)
+
+  const onSelect = React.useCallback((api: CarouselApi) => {
+    if (!api) {
+      return
+    }
+
+    setCanScrollPrev(api.canScrollPrev())
+    setCanScrollNext(api.canScrollNext())
+  }, [])
+
+  React.useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    onSelect(api)
+    api.on("reInit", onSelect)
+    api.on("select", onSelect)
+
+    return () => {
+      api?.off("select", onSelect)
+    }
+  }, [api, onSelect])
+
+  return (
+    <div className={cn("", className)} {...props}>
+      <Carousel
+        setApi={setApi}
+        opts={{
+          align: "start",
+        }}
+        className={cn(
+          "w-full",
+          canScrollPrev &&
+            "[mask-image:linear-gradient(to_right,transparent,white_10%)]",
+          canScrollNext &&
+            "[mask-image:linear-gradient(to_right,white_90%,transparent)]"
+        )}
+      >
+        <CarouselContent className="ml-0 space-x-2">
+          {items.map((item, index) => (
+            <FileCard key={index} item={item} />
+          ))}
+        </CarouselContent>
+        {canScrollPrev && (
+          <CarouselPrevious className="left-2 size-6 rounded-lg" />
+        )}
+        {canScrollNext && (
+          <CarouselNext className="right-2 size-6 rounded-lg" />
+        )}
+      </Carousel>
+    </div>
+  )
+}
+
+export { Attachments, FileListBox }

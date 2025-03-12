@@ -2,7 +2,10 @@ import * as React from "react"
 import { Ellipsis, Image } from "lucide-react"
 import { toast } from "sonner"
 
-import { Attachments } from "@/registry/aoian-ui/attachments/attachments"
+import {
+  Attachments,
+  FileListBox,
+} from "@/registry/aoian-ui/attachments/attachments"
 import {
   Sender,
   SenderButton,
@@ -16,6 +19,58 @@ import {
 export default function AttachmentsDemo() {
   const [value, setValue] = React.useState("")
   const [isLoading, setIsLoading] = React.useState(false)
+  const [listBox, setListBox] = React.useState([
+    {
+      name: "123.png",
+      size: 1024,
+      progress: 0,
+    },
+    {
+      name: "123.aa",
+      size: 1024,
+      progress: 0,
+    },
+    {
+      name: "123.pdf",
+      size: 1024,
+      progress: 0,
+    },
+    {
+      name: "123.docx",
+      size: 1024,
+      progress: 0,
+    },
+    {
+      name: "123.ppt",
+      size: 1024,
+      progress: 0,
+    },
+    {
+      name: "123.xls",
+      size: 1024,
+      progress: 0,
+    },
+    {
+      name: "123.md",
+      size: 1024,
+      progress: 0,
+    },
+    {
+      name: "123.zip",
+      size: 1024,
+      progress: 0,
+    },
+    {
+      name: "123.mp4",
+      size: 1024,
+      progress: 0,
+    },
+    {
+      name: "123.mp3",
+      size: 1024,
+      progress: 0,
+    },
+  ])
 
   async function onUpload(files: File[]) {
     try {
@@ -45,6 +100,7 @@ export default function AttachmentsDemo() {
       }}
     >
       <SenderContent>
+        <FileListBox items={listBox} />
         <SenderTextArea />
         <SenderOperation>
           <SenderOperationBarExtra></SenderOperationBarExtra>
