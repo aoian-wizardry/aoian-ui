@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "attachments-file-card",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/sender",
+    "https://ui.aoian.chat/r/attachments",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/attachments-file-card.tsx",
+      "content": "import * as React from \"react\"\n\nimport { FileCard } from \"@/components/aoian-ui/attachments/attachments\"\n\nexport default function AttachmentsDemo() {\n  const [listBox, setListBox] = React.useState([\n    {\n      name: \"123.png\",\n      size: 1024,\n      progress: 0,\n    },\n    {\n      name: \"123.aa\",\n      size: 1024,\n      progress: 0,\n    },\n    {\n      name: \"123.pdf\",\n      size: 1024,\n      progress: 0,\n    },\n    {\n      name: \"123.docx\",\n      size: 1024,\n      progress: 0,\n    },\n    {\n      name: \"123.ppt\",\n      size: 1024,\n      progress: 0,\n    },\n    {\n      name: \"123.xls\",\n      size: 1024,\n      progress: 0,\n    },\n    {\n      name: \"123.md\",\n      size: 1024,\n      progress: 0,\n    },\n    {\n      name: \"123.zip\",\n      size: 1024,\n      progress: 0,\n    },\n    {\n      name: \"123.mp4\",\n      size: 1024,\n      progress: 0,\n    },\n    {\n      name: \"123.mp3\",\n      size: 1024,\n      progress: 0,\n    },\n  ])\n  return (\n    <div className={\"w-full space-y-4\"}>\n      {listBox.map((item, index) => {\n        return (\n          <div key={index}>\n            <FileCard item={item} />\n          </div>\n        )\n      })}\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

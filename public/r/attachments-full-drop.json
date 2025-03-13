@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "attachments-full-drop",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/sender",
+    "https://ui.aoian.chat/r/attachments",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/attachments-full-drop.tsx",
+      "content": "import * as React from \"react\"\nimport { toast } from \"sonner\"\n\nimport { Switch } from \"@/components/ui/switch\"\nimport { Attachments } from \"@/components/aoian-ui/attachments/attachments\"\nimport {\n  Sender,\n  SenderButton,\n  SenderContent,\n  SenderOperation,\n  SenderOperationBar,\n  SenderOperationBarExtra,\n  SenderTextArea,\n} from \"@/components/aoian-ui/sender/sender\"\n\nexport default function AttachmentsDemo() {\n  const [value, setValue] = React.useState(\"\")\n  const [isLoading, setIsLoading] = React.useState(false)\n  const [fullScreenDrop, setFullScreenDrop] = React.useState(false)\n\n  async function onUpload(files: File[]) {\n    try {\n      console.log(\"files\", files)\n      toast.success(JSON.stringify(files))\n    } catch (e) {\n      console.log(e)\n    }\n  }\n\n  return (\n    <div className={\"w-full space-y-4\"}>\n      <Sender\n        submitType=\"shiftEnter\"\n        placeholder=\"Press Shift + Enter to send message\"\n        loading={isLoading}\n        value={value}\n        onChange={(e) => {\n          setValue(e?.target?.value)\n        }}\n        onSubmit={() => {\n          setIsLoading(true)\n          setTimeout(() => {\n            toast.success(value)\n            setValue(\"\")\n            setIsLoading(false)\n          }, 3000)\n        }}\n      >\n        <SenderContent>\n          <SenderTextArea />\n          <SenderOperation>\n            <SenderOperationBarExtra></SenderOperationBarExtra>\n            <SenderOperationBar>\n              <Attachments\n                fullScreenDrop={fullScreenDrop}\n                onUpload={onUpload}\n              />\n              <SenderButton />\n            </SenderOperationBar>\n          </SenderOperation>\n        </SenderContent>\n      </Sender>\n      <div className=\"inline-flex items-center gap-2\">\n        <span>Full screen drop:</span>\n        <Switch checked={fullScreenDrop} onCheckedChange={setFullScreenDrop} />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

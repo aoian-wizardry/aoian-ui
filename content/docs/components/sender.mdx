@@ -122,3 +122,23 @@ Add a custom button inside the SenderOperationBar.
   name="sender-custom-button"
   description="Add a custom button inside the SenderOperationBar."
 />
+
+## Props
+
+### Sender
+
+| Prop          | Type                                                  | Default | Description                             |
+|---------------|-------------------------------------------------------|---------|-----------------------------------------|
+| `value`       | `string`                                              | `-`     | Input value                             |
+| `loading`     | `boolean`                                             | `-`     | Whether it is loading                   |
+| `readOnly`    | `boolean`                                             | `false` | Whether to make the input box read-only |
+| `disabled`    | `boolean`                                             | `false` | Whether to disable                      |
+| `vertical`    | `boolean`                                             | `true`  | Enable vertical display                 |
+| `submitType`  | `enter` \| `shiftEnter`                               | `enter` | Submit type                             |
+| `onSubmit`    | `(message: string) => void`                           | `-`     | Callback when click send button         |
+| `onAbort`     | `() => void`                                          | `-`     | Callback when click bort button         |
+| `onChange`    | `(e: React.ChangeEvent<HTMLTextAreaElement>) => void` | `-`     | Callback when input value changes       |
+| `onFocus`     | `React.FocusEventHandler<HTMLTextAreaElement>`        | `-`     | Callback when input focus               |
+| `onBlur`      | `React.FocusEventHandler<HTMLTextAreaElement>`        | `-`     | Callback when input blur                |
+| `onKeyDown`   | `React.KeyboardEventHandler<HTMLTextAreaElement>`     | `-`     | key press event                         |
+| `placeholder` | `string`                                              | `-`     | input placeholder                       |

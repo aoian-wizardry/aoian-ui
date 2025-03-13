@@ -344,8 +344,6 @@ function FileCard({
     return [<TextIcon key="defaultIcon" />]
   }, [nameSuffix])
 
-  console.log(namePrefix, nameSuffix, icon)
-
   return (
     <div
       className={cn(
@@ -358,7 +356,9 @@ function FileCard({
       </span>
       <div className="mt-[2px]">
         <h4 className="text-sm">{item.name}</h4>
-        <p className="text-xs text-muted-foreground">{item.size}</p>
+        <p className="text-xs text-muted-foreground">
+          {formatBytes(item.size)}
+        </p>
       </div>
     </div>
   )
@@ -429,4 +429,4 @@ function FileListBox({
   )
 }
 
-export { Attachments, FileListBox }
+export { Attachments, FileListBox, FileCard }

@@ -239,4 +239,34 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "attachments-full-drop",
+    type: "registry:example",
+    registryDependencies: [
+      registryUrl("sender"),
+      registryUrl("attachments"),
+      "button",
+    ],
+    files: [
+      {
+        path: "registry/examples/attachments-full-drop.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "attachments-file-card",
+    type: "registry:example",
+    registryDependencies: [
+      registryUrl("sender"),
+      registryUrl("attachments"),
+      "button",
+    ],
+    files: [
+      {
+        path: "registry/examples/attachments-file-card.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

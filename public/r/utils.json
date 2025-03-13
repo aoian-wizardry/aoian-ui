@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/lib/utils.ts",
-      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n\nexport function formatBytes(\n  bytes: number,\n  opts: {\n    decimals?: number\n    sizeType?: \"accurate\" | \"normal\"\n  } = {}\n) {\n  const { decimals = 0, sizeType = \"normal\" } = opts\n\n  const sizes = [\"Bytes\", \"KB\", \"MB\", \"GB\", \"TB\"]\n  const accurateSizes = [\"Bytes\", \"KiB\", \"MiB\", \"GiB\", \"TiB\"]\n  if (bytes === 0) return \"0 Byte\"\n  const i = Math.floor(Math.log(bytes) / Math.log(1024))\n  return `${(bytes / Math.pow(1024, i)).toFixed(decimals)} ${\n    sizeType === \"accurate\"\n      ? (accurateSizes[i] ?? \"Bytes\")\n      : (sizes[i] ?? \"Bytes\")\n  }`\n}\n",
       "type": "registry:lib"
     }
   ]

@@ -110,7 +110,7 @@ export const Index: Record<string, any> = {
     name: "attachments",
     description: "",
     type: "registry:ui",
-    registryDependencies: undefined,
+    registryDependencies: ["button"],
     files: [{
       path: "registry/aoian-ui/attachments/attachments.tsx",
       type: "registry:ui",
@@ -484,7 +484,7 @@ export const Index: Record<string, any> = {
     name: "attachments-demo",
     description: "",
     type: "registry:example",
-    registryDependencies: ["https://ui.aoian.chat/r/sender"],
+    registryDependencies: ["https://ui.aoian.chat/r/sender","https://ui.aoian.chat/r/attachments","button"],
     files: [{
       path: "registry/examples/attachments-demo.tsx",
       type: "registry:example",
@@ -492,6 +492,40 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/attachments-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "attachments-full-drop": {
+    name: "attachments-full-drop",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/sender","https://ui.aoian.chat/r/attachments","button"],
+    files: [{
+      path: "registry/examples/attachments-full-drop.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/attachments-full-drop.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "attachments-file-card": {
+    name: "attachments-file-card",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/sender","https://ui.aoian.chat/r/attachments","button"],
+    files: [{
+      path: "registry/examples/attachments-file-card.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/attachments-file-card.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

@@ -6,3 +6,69 @@ component: true
 ---
 
 <ComponentPreview name="attachments-demo" description="A Attachments" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+
+    ```bash
+    npx shadcn@latest add https://ui.aoian.chat/r/attachments
+    ```
+
+  </TabsContent>
+
+  <TabsContent value="manual">
+
+    <Steps>
+
+      <Step>Copy and paste the following code into your project.</Step>
+
+      <ComponentSource name="attachments" />
+
+      <Step>Update the import paths to match your project setup.</Step>
+
+    </Steps>
+
+  </TabsContent>
+
+</Tabs>
+
+
+## Usage
+
+```tsx
+import {
+  Attachments,
+} from "@/components/aoian-ui/attachments/attachments"
+```
+
+```tsx
+  <Attachments onUpload={onUpload} />
+```
+
+## Examples
+
+### Drag anywhere on screen
+
+Enable the full-screen drag-and-drop upload function, using the fullScreenDrop property.
+
+<ComponentPreview
+  name="attachments-full-drop"
+  description="Enable the full-screen drag-and-drop upload function, using the fullScreenDrop property."
+/>
+
+### File Card
+
+A single file card, used in some display scenarios.
+
+<ComponentPreview
+  name="attachments-file-card"
+  description="A single file card, used in some display scenarios."
+/>
+
