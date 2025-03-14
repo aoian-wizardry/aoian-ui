@@ -269,4 +269,34 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "attachments-card-sender",
+    type: "registry:example",
+    registryDependencies: [
+      registryUrl("sender"),
+      registryUrl("attachments"),
+      "button",
+    ],
+    files: [
+      {
+        path: "registry/examples/attachments-card-sender.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "attachments-uploadthing-upstash",
+    type: "registry:example",
+    registryDependencies: [
+      registryUrl("sender"),
+      registryUrl("attachments"),
+      "button",
+    ],
+    files: [
+      {
+        path: "registry/examples/attachments-uploadthing-upstash.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

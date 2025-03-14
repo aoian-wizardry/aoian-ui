@@ -531,6 +531,40 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "attachments-card-sender": {
+    name: "attachments-card-sender",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/sender","https://ui.aoian.chat/r/attachments","button"],
+    files: [{
+      path: "registry/examples/attachments-card-sender.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/attachments-card-sender.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "attachments-uploadthing-upstash": {
+    name: "attachments-uploadthing-upstash",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/sender","https://ui.aoian.chat/r/attachments","button"],
+    files: [{
+      path: "registry/examples/attachments-uploadthing-upstash.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/attachments-uploadthing-upstash.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
   "use-event": {
     name: "use-event",
     description: "",

@@ -13,7 +13,7 @@ import {
   SenderTextArea,
 } from "@/registry/aoian-ui/sender/sender"
 
-export default function AttachmentsDemo() {
+export default function AttachmentsFullDrop() {
   const [value, setValue] = React.useState("")
   const [isLoading, setIsLoading] = React.useState(false)
   const [fullScreenDrop, setFullScreenDrop] = React.useState(false)

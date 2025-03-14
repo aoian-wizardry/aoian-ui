@@ -641,6 +641,36 @@ var registry_default = {
       ]
     },
     {
+      name: "attachments-card-sender",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/sender",
+        "https://ui.aoian.chat/r/attachments",
+        "button"
+      ],
+      files: [
+        {
+          path: "registry/examples/attachments-card-sender.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "attachments-uploadthing-upstash",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/sender",
+        "https://ui.aoian.chat/r/attachments",
+        "button"
+      ],
+      files: [
+        {
+          path: "registry/examples/attachments-uploadthing-upstash.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
       name: "use-event",
       type: "registry:hook",
       files: [
@@ -992,4 +1022,4 @@ export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-MVFRM5ZF.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-JUWGK3VB.mjs.map

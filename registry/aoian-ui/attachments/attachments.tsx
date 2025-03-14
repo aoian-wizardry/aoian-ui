@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
 import { Upload } from "lucide-react"
 import Dropzone, {
   type DropzoneProps,
@@ -12,11 +11,11 @@ import { toast } from "sonner"
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel"
+import { Progress } from "@/components/ui/progress"
 import { DropArea } from "@/registry/aoian-ui/attachments/drop-area"
 import {
   AudioIcon,
@@ -116,6 +115,7 @@ function Attachments({
   onUpload,
   accept = {
     "image/*": [],
+    "application/pdf": [],
   },
   maxSize = 1024 * 1024 * 2,
   maxFileCount = 1,
@@ -319,9 +319,9 @@ function FileCard({
   className,
   item,
 }: React.HTMLAttributes<HTMLDivElement> & {
-  item: { name: string; size: number; progress: number }
+  item: { name: string; size: number; progress: number | boolean }
 }) {
-  const { name, size } = item
+  const { name, size, progress } = item
 
   // ============================== Name ==============================
   const [namePrefix, nameSuffix] = React.useMemo(() => {
@@ -329,6 +329,11 @@ function FileCard({
     const match = nameStr.match(/^(.*)\.[^.]+$/)
     return match ? [match[1], nameStr.slice(match[1].length)] : [nameStr, ""]
   }, [name])
+
+  const isShowProgress = React.useMemo(
+    () => typeof item.progress === "number",
+    [item.progress]
+  )
 
   const isImg = React.useMemo(
     () => matchExt(nameSuffix, IMG_EXTS),
@@ -354,11 +359,13 @@ function FileCard({
       <span className="flex items-center justify-center [&>svg]:size-8">
         {icon}
       </span>
-      <div className="mt-[2px]">
-        <h4 className="text-sm">{item.name}</h4>
-        <p className="text-xs text-muted-foreground">
-          {formatBytes(item.size)}
-        </p>
+      <div className="mt-[2px] w-full pr-1.5">
+        <h4 className="text-sm">{name}</h4>
+        {isShowProgress ? (
+          <Progress className={"mt-1 h-[3px]"} value={progress as number} />
+        ) : (
+          <p className="text-xs text-muted-foreground">{formatBytes(size)}</p>
+        )}
       </div>
     </div>
   )
@@ -369,7 +376,7 @@ function FileListBox({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
-  items: { name: string; size: number; progress: number }[]
+  items: { name: string; size: number; progress: number | boolean }[]
 }) {
   const [api, setApi] = React.useState<CarouselApi>()
   const [canScrollPrev, setCanScrollPrev] = React.useState(false)
@@ -408,9 +415,12 @@ function FileListBox({
         className={cn(
           "w-full",
           canScrollPrev &&
-            "[mask-image:linear-gradient(to_right,transparent,white_10%)]",
+            "[mask-image:linear-gradient(to_right,transparent,white_8%)]",
           canScrollNext &&
-            "[mask-image:linear-gradient(to_right,white_90%,transparent)]"
+            "[mask-image:linear-gradient(to_right,white_92%,transparent)]",
+          canScrollPrev &&
+            canScrollNext &&
+            "[mask-image:linear-gradient(to_right,transparent,white_8%,white_92%,transparent)]"
         )}
       >
         <CarouselContent className="ml-0 space-x-2">
