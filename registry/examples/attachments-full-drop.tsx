@@ -2,7 +2,10 @@ import * as React from "react"
 import { toast } from "sonner"
 
 import { Switch } from "@/components/ui/switch"
-import { Attachments } from "@/registry/aoian-ui/attachments/attachments"
+import {
+  Attachments,
+  type AttachmentsProps,
+} from "@/registry/aoian-ui/attachments/attachments"
 import {
   Sender,
   SenderButton,
@@ -18,10 +21,15 @@ export default function AttachmentsFullDrop() {
   const [isLoading, setIsLoading] = React.useState(false)
   const [fullScreenDrop, setFullScreenDrop] = React.useState(false)
 
-  async function onUpload(files: File[]) {
+  const handleFileChange: AttachmentsProps["onFileChange"] = (
+    acceptedFiles,
+    rejectedFiles
+  ) => {
     try {
-      console.log("files", files)
-      toast.success(JSON.stringify(files))
+      toast.success("Files:" + JSON.stringify(acceptedFiles))
+      if (rejectedFiles.length > 0) {
+        toast.error("Error:" + JSON.stringify(rejectedFiles))
+      }
     } catch (e) {
       console.log(e)
     }
@@ -30,8 +38,7 @@ export default function AttachmentsFullDrop() {
   return (
     <div className={"w-full space-y-4"}>
       <Sender
-        submitType="shiftEnter"
-        placeholder="Press Shift + Enter to send message"
+        placeholder="Send a message..."
         loading={isLoading}
         value={value}
         onChange={(e) => {
@@ -53,7 +60,7 @@ export default function AttachmentsFullDrop() {
             <SenderOperationBar>
               <Attachments
                 fullScreenDrop={fullScreenDrop}
-                onUpload={onUpload}
+                onFileChange={handleFileChange}
               />
               <SenderButton />
             </SenderOperationBar>

@@ -4,6 +4,7 @@ import { toast } from "sonner"
 import {
   Attachments,
   FileListBox,
+  type FileCardItem,
 } from "@/registry/aoian-ui/attachments/attachments"
 import {
   Sender,
@@ -18,67 +19,68 @@ import {
 export default function AttachmentsCardSender() {
   const [value, setValue] = React.useState("")
   const [isLoading, setIsLoading] = React.useState(false)
-  const [listBox, setListBox] = React.useState([
+  const [listBox] = React.useState<FileCardItem[]>([
     {
       name: "excel-file.xlsx",
       size: 111111,
-      progress: false,
+      status: "done",
+      percent: 0,
     },
     {
       name: "word-file.docx",
       size: 111111111,
-      progress: false,
+      status: "done",
+      percent: 0,
     },
     {
       name: "image-file.png",
       size: 1024,
-      progress: 6,
+      status: "done",
+      percent: 0,
     },
     {
       name: "pdf-file.pdf",
       size: 1024,
-      progress: 10,
+      status: "error",
+      percent: 0,
     },
     {
       name: "ppt-file.pptx",
       size: 10241,
-      progress: 20,
+      status: "uploading",
+      percent: 10,
     },
     {
       name: "video-file.mp4",
       size: 1024,
-      progress: 30,
+      status: "uploading",
+      percent: 20,
     },
     {
       name: "audio-file.mp3",
       size: 1024000,
-      progress: 40,
+      status: "uploading",
+      percent: 30,
     },
     {
       name: "zip-file.zip",
       size: 1024,
-      progress: 50,
+      status: "uploading",
+      percent: 40,
     },
     {
       name: "markdown-file.md",
       size: 1024,
-      progress: 60,
+      status: "uploading",
+      percent: 50,
     },
     {
       name: "python-file.py",
       size: 1024,
-      progress: 70,
+      status: "uploading",
+      percent: 60,
     },
   ])
-
-  async function onUpload(files: File[]) {
-    try {
-      console.log("files", files)
-      toast.success(JSON.stringify(files))
-    } catch (e) {
-      console.log(e)
-    }
-  }
 
   return (
     <Sender
@@ -105,7 +107,7 @@ export default function AttachmentsCardSender() {
         <SenderOperation>
           <SenderOperationBarExtra></SenderOperationBarExtra>
           <SenderOperationBar>
-            <Attachments onUpload={onUpload} />
+            <Attachments />
             <SenderButton />
           </SenderOperationBar>
         </SenderOperation>

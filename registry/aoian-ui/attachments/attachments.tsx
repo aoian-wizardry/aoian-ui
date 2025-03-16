@@ -1,12 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { Upload } from "lucide-react"
+import { CircleX, Info, Upload } from "lucide-react"
 import Dropzone, {
   type DropzoneProps,
   type FileRejection,
 } from "react-dropzone"
-import { toast } from "sonner"
 
 import {
   Carousel,
@@ -30,89 +29,20 @@ import {
   ZipIcon,
 } from "@/registry/aoian-ui/attachments/icons"
 import { SilentUploader } from "@/registry/aoian-ui/attachments/silent-uploader"
-import { useControllableState } from "@/registry/aoian-ui/hooks/use-controllable-state"
 import { cn, formatBytes } from "@/registry/lib/utils"
 
 interface AttachmentsProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Value of the uploader.
-   * @type File[]
-   * @default undefined
-   * @example value={files}
-   */
-  value?: File[]
-
-  /**
-   * Function to be called when the value changes.
-   * @type (files: File[]) => void
-   * @default undefined
-   * @example onValueChange={(files) => setFiles(files)}
-   */
-  onValueChange?: (files: File[]) => void
-
-  /**
-   * Function to be called when files are uploaded.
-   * @type (files: File[]) => Promise<void>
-   * @default undefined
-   * @example onUpload={(files) => uploadFiles(files)}
-   */
-  onUpload?: (files: File[]) => Promise<void>
-
-  /**
-   * Accepted file types for the uploader.
-   * @type { [key: string]: string[]}
-   * @default
-   * ```ts
-   * { "image/*": [] }
-   * ```
-   * @example accept={["image/png", "image/jpeg"]}
-   */
   accept?: DropzoneProps["accept"]
-
-  /**
-   * Maximum file size for the uploader.
-   * @type number | undefined
-   * @default 1024 * 1024 * 2 // 2MB
-   * @example maxSize={1024 * 1024 * 2} // 2MB
-   */
   maxSize?: DropzoneProps["maxSize"]
-
-  /**
-   * Maximum number of files for the uploader.
-   * @type number | undefined
-   * @default 1
-   * @example maxFileCount={4}
-   */
   maxFileCount?: DropzoneProps["maxFiles"]
-
-  /**
-   * Whether the uploader should accept multiple files.
-   * @type boolean
-   * @default false
-   * @example multiple
-   */
   multiple?: boolean
-
-  /**
-   * Whether the uploader is disabled.
-   * @type boolean
-   * @default false
-   * @example disabled
-   */
   disabled?: boolean
-  /**
-   * Whether to enable full-screen dragging
-   * @type boolean
-   * @default false
-   * @example disabled
-   */
   fullScreenDrop?: boolean
+  onFileChange?: (acceptedFiles: File[], rejectedFiles: FileRejection[]) => void
 }
 
 function Attachments({
-  value: valueProp,
-  onValueChange,
-  onUpload,
+  onFileChange,
   accept = {
     "image/*": [],
     "application/pdf": [],
@@ -125,82 +55,12 @@ function Attachments({
   className,
   ...dropzoneProps
 }: AttachmentsProps) {
-  const [files, setFiles] = useControllableState({
-    prop: valueProp,
-    onChange: onValueChange,
-  })
-
   const onDrop = React.useCallback(
     (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
-      if (!multiple && maxFileCount === 1 && acceptedFiles.length > 1) {
-        toast.error("Cannot upload more than 1 file at a time")
-        return
-      }
-
-      if ((files?.length ?? 0) + acceptedFiles.length > maxFileCount) {
-        toast.error(`Cannot upload more than ${maxFileCount} files`)
-        return
-      }
-
-      const newFiles = acceptedFiles.map((file) =>
-        Object.assign(file, {
-          preview: URL.createObjectURL(file),
-        })
-      )
-
-      const updatedFiles = files ? [...files, ...newFiles] : newFiles
-
-      setFiles(updatedFiles)
-
-      if (rejectedFiles.length > 0) {
-        rejectedFiles.forEach(({ file }) => {
-          toast.error(`File ${file.name} was rejected`)
-        })
-      }
-
-      if (
-        onUpload &&
-        updatedFiles.length > 0 &&
-        updatedFiles.length <= maxFileCount
-      ) {
-        const target =
-          updatedFiles.length > 0 ? `${updatedFiles.length} files` : `file`
-
-        toast.promise(onUpload(updatedFiles), {
-          loading: `Uploading ${target}...`,
-          success: () => {
-            setFiles([])
-            return `${target} uploaded`
-          },
-          error: `Failed to upload ${target}`,
-        })
-      }
+      onFileChange?.(acceptedFiles, rejectedFiles)
     },
-
-    [files, maxFileCount, multiple, onUpload, setFiles]
+    [maxFileCount, multiple]
   )
-
-  function onRemove(index: number) {
-    if (!files) return
-    const newFiles = files.filter((_, i) => i !== index)
-    setFiles(newFiles)
-    onValueChange?.(newFiles)
-  }
-
-  // Revoke preview url when component unmounts
-  React.useEffect(() => {
-    return () => {
-      if (!files) return
-      files.forEach((file) => {
-        if (isFileWithPreview(file)) {
-          URL.revokeObjectURL(file.preview)
-        }
-      })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const isDisabled = disabled || (files?.length ?? 0) >= maxFileCount
 
   return (
     <>
@@ -210,7 +70,7 @@ function Attachments({
         maxSize={maxSize}
         maxFiles={maxFileCount}
         multiple={maxFileCount > 1 || multiple}
-        disabled={isDisabled}
+        disabled={disabled}
       />
       {fullScreenDrop && (
         <DropArea getDropContainer={() => document.body}>
@@ -221,7 +81,7 @@ function Attachments({
               maxSize={maxSize}
               maxFiles={maxFileCount}
               multiple={maxFileCount > 1 || multiple}
-              disabled={isDisabled}
+              disabled={disabled}
             >
               {({ getRootProps, getInputProps, isDragActive }) => (
                 <div
@@ -230,7 +90,7 @@ function Attachments({
                     "group relative grid h-full w-full cursor-pointer place-items-center rounded-lg border-2 border-dashed border-primary/25 px-5 py-2.5 text-center transition hover:bg-muted/25",
                     "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                     isDragActive && "border-primary/50",
-                    isDisabled && "pointer-events-none opacity-60",
+                    disabled && "pointer-events-none opacity-60",
                     className
                   )}
                   {...dropzoneProps}
@@ -262,11 +122,16 @@ function Attachments({
   )
 }
 
-function isFileWithPreview(file: File): file is File & { preview: string } {
-  return "preview" in file && typeof file.preview === "string"
+// FileCard
+
+type FileCardItem = {
+  name: string
+  size: number
+  percent: number
+  url?: string
+  status: "error" | "done" | "uploading" | "removed"
 }
 
-// FileCard
 const IMG_EXTS = ["png", "jpg", "jpeg", "gif", "bmp", "webp", "svg"]
 
 const PRESET_FILE_ICONS: {
@@ -319,9 +184,9 @@ function FileCard({
   className,
   item,
 }: React.HTMLAttributes<HTMLDivElement> & {
-  item: { name: string; size: number; progress: number | boolean }
+  item: FileCardItem
 }) {
-  const { name, size, progress } = item
+  const { name, size, percent, status } = item
 
   // ============================== Name ==============================
   const [namePrefix, nameSuffix] = React.useMemo(() => {
@@ -329,11 +194,6 @@ function FileCard({
     const match = nameStr.match(/^(.*)\.[^.]+$/)
     return match ? [match[1], nameStr.slice(match[1].length)] : [nameStr, ""]
   }, [name])
-
-  const isShowProgress = React.useMemo(
-    () => typeof item.progress === "number",
-    [item.progress]
-  )
 
   const isImg = React.useMemo(
     () => matchExt(nameSuffix, IMG_EXTS),
@@ -352,18 +212,33 @@ function FileCard({
   return (
     <div
       className={cn(
-        "flex min-w-[180px] items-center rounded-xl bg-background p-2",
+        "group relative flex h-[54px] min-w-[180px] items-center gap-1 rounded-xl bg-background p-2",
         className
       )}
     >
-      <span className="flex items-center justify-center [&>svg]:size-8">
+      <span className="absolute right-0 top-0 cursor-pointer opacity-0 group-hover:opacity-100">
+        <CircleX className="size-4 text-muted-foreground hover:text-accent-foreground" />
+      </span>
+      <span
+        className={cn(
+          "flex items-center justify-center [&>svg]:size-8",
+          status === "uploading" && "grayscale"
+        )}
+      >
         {icon}
       </span>
-      <div className="mt-[2px] w-full pr-1.5">
+      <div className="inline-flex w-full flex-col pr-1.5">
         <h4 className="text-sm">{name}</h4>
-        {isShowProgress ? (
-          <Progress className={"mt-1 h-[3px]"} value={progress as number} />
-        ) : (
+        {status === "uploading" && (
+          <Progress className={"mb-2 mt-1 h-[3px]"} value={percent as number} />
+        )}
+        {status === "error" && (
+          <div className="inline-flex items-center gap-1">
+            <Info className={"size-3 text-destructive"} />
+            <p className="text-xs text-destructive">Upload failed</p>
+          </div>
+        )}
+        {status === "done" && (
           <p className="text-xs text-muted-foreground">{formatBytes(size)}</p>
         )}
       </div>
@@ -376,7 +251,7 @@ function FileListBox({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
-  items: { name: string; size: number; progress: number | boolean }[]
+  items: FileCardItem[]
 }) {
   const [api, setApi] = React.useState<CarouselApi>()
   const [canScrollPrev, setCanScrollPrev] = React.useState(false)
@@ -439,4 +314,10 @@ function FileListBox({
   )
 }
 
-export { Attachments, FileListBox, FileCard }
+export {
+  Attachments,
+  FileListBox,
+  FileCard,
+  type AttachmentsProps,
+  type FileCardItem,
+}

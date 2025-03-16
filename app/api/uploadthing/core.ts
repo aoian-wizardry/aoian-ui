@@ -6,6 +6,7 @@ import { ratelimit } from "@/lib/rate-limit"
 const f = createUploadthing()
 
 // Fake auth function
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function auth(_req: Request) {
   await new Promise((resolve) => setTimeout(resolve, 100))
   return { id: "fakeId" }

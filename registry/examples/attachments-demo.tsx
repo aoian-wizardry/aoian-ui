@@ -1,7 +1,10 @@
 import * as React from "react"
 import { toast } from "sonner"
 
-import { Attachments } from "@/registry/aoian-ui/attachments/attachments"
+import {
+  Attachments,
+  type AttachmentsProps,
+} from "@/registry/aoian-ui/attachments/attachments"
 import {
   Sender,
   SenderButton,
@@ -16,9 +19,15 @@ export default function AttachmentsDemo() {
   const [value, setValue] = React.useState("")
   const [isLoading, setIsLoading] = React.useState(false)
 
-  async function onUpload(files: File[]) {
+  const handleFileChange: AttachmentsProps["onFileChange"] = (
+    acceptedFiles,
+    rejectedFiles
+  ) => {
     try {
-      toast.success(JSON.stringify(files))
+      toast.success("Files:" + JSON.stringify(acceptedFiles))
+      if (rejectedFiles.length > 0) {
+        toast.error("Error:" + JSON.stringify(rejectedFiles))
+      }
     } catch (e) {
       console.log(e)
     }
@@ -26,8 +35,7 @@ export default function AttachmentsDemo() {
 
   return (
     <Sender
-      submitType="shiftEnter"
-      placeholder="Press Shift + Enter to send message"
+      placeholder="Send a message..."
       loading={isLoading}
       value={value}
       onChange={(e) => {
@@ -47,7 +55,7 @@ export default function AttachmentsDemo() {
         <SenderOperation>
           <SenderOperationBarExtra></SenderOperationBarExtra>
           <SenderOperationBar>
-            <Attachments onUpload={onUpload} />
+            <Attachments onFileChange={handleFileChange} />
             <SenderButton />
           </SenderOperationBar>
         </SenderOperation>
