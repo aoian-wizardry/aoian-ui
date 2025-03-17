@@ -13,14 +13,14 @@ async function auth(_req: Request) {
 }
 
 // FileRouter for your app, can contain multiple FileRoutes
-export const ourFileRouter = {
+export const uploadRouter = {
   // Define as many FileRoutes as you like, each with a unique routeSlug
   imageUploader: f({
     image: { maxFileSize: "4MB", maxFileCount: 8 },
     pdf: { maxFileSize: "4MB", maxFileCount: 2 },
   })
     // Set permissions and file types for this FileRoute
-    .middleware(async ({ req }) => {
+    .middleware(async ({ req, files }) => {
       // Rate limit the upload
       const ip = req.headers.get("x-forwarded-for") ?? "127.0.0.1"
 
@@ -30,7 +30,7 @@ export const ourFileRouter = {
         // eslint-disable-next-line @typescript-eslint/only-throw-error
         throw new UploadThingError("Rate limit exceeded")
       }
-
+      console.log("filesfilesfiles", files)
       // This code runs on your server before upload
       const user = await auth(req)
 
@@ -48,8 +48,8 @@ export const ourFileRouter = {
       console.log("file url", file.url)
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
-      return { uploadedBy: metadata.userId }
+      return { uploadedBy: metadata.userId, file }
     }),
 } satisfies FileRouter
 
-export type OurFileRouter = typeof ourFileRouter
+export type UploadRouter = typeof uploadRouter

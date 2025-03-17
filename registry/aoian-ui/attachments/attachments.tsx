@@ -38,14 +38,13 @@ interface AttachmentsProps extends React.HTMLAttributes<HTMLDivElement> {
   multiple?: boolean
   disabled?: boolean
   fullScreenDrop?: boolean
-  onFileChange?: (acceptedFiles: File[], rejectedFiles: FileRejection[]) => void
+  onFileChange: (acceptedFiles: File[], rejectedFiles: FileRejection[]) => void
 }
 
 function Attachments({
   onFileChange,
   accept = {
     "image/*": [],
-    "application/pdf": [],
   },
   maxSize = 1024 * 1024 * 2,
   maxFileCount = 1,
@@ -55,13 +54,9 @@ function Attachments({
   className,
   ...dropzoneProps
 }: AttachmentsProps) {
-  const onDrop = React.useCallback(
-    (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
-      onFileChange?.(acceptedFiles, rejectedFiles)
-    },
-    [maxFileCount, multiple]
-  )
-
+  const onDrop = (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
+    onFileChange?.(acceptedFiles, rejectedFiles)
+  }
   return (
     <>
       <SilentUploader
@@ -125,10 +120,12 @@ function Attachments({
 // FileCard
 
 type FileCardItem = {
+  uid?: string
   name: string
   size: number
   percent: number
   url?: string
+  contentType?: string
   status: "error" | "done" | "uploading" | "removed"
 }
 
@@ -212,13 +209,15 @@ function FileCard({
   return (
     <div
       className={cn(
-        "group relative flex h-[54px] min-w-[180px] items-center gap-1 rounded-xl bg-background p-2",
+        "group relative flex h-[54px] w-[200px] min-w-[200px] items-center gap-1 rounded-xl bg-background p-2",
         className
       )}
     >
-      <span className="absolute right-0 top-0 cursor-pointer opacity-0 group-hover:opacity-100">
-        <CircleX className="size-4 text-muted-foreground hover:text-accent-foreground" />
-      </span>
+      {status !== "uploading" && (
+        <span className="absolute right-px top-px cursor-pointer opacity-0 group-hover:opacity-100">
+          <CircleX className="size-4 text-muted-foreground hover:text-accent-foreground" />
+        </span>
+      )}
       <span
         className={cn(
           "flex items-center justify-center [&>svg]:size-8",
@@ -227,8 +226,8 @@ function FileCard({
       >
         {icon}
       </span>
-      <div className="inline-flex w-full flex-col pr-1.5">
-        <h4 className="text-sm">{name}</h4>
+      <div className="inline-flex w-full flex-col truncate pr-1.5">
+        <span className="min-w-0 truncate text-sm">{name}</span>
         {status === "uploading" && (
           <Progress className={"mb-2 mt-1 h-[3px]"} value={percent as number} />
         )}
