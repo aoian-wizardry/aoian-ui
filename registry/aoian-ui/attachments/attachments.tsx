@@ -38,7 +38,7 @@ interface AttachmentsProps extends React.HTMLAttributes<HTMLDivElement> {
   multiple?: boolean
   disabled?: boolean
   fullScreenDrop?: boolean
-  onFileChange: (acceptedFiles: File[], rejectedFiles: FileRejection[]) => void
+  onFileChange?: (acceptedFiles: File[], rejectedFiles: FileRejection[]) => void
 }
 
 function Attachments({
@@ -180,8 +180,10 @@ function matchExt(suffix: string, ext: string[]) {
 function FileCard({
   className,
   item,
+  onDelete,
 }: React.HTMLAttributes<HTMLDivElement> & {
   item: FileCardItem
+  onDelete?: (uid?: string) => void
 }) {
   const { name, size, percent, status } = item
 
@@ -214,7 +216,13 @@ function FileCard({
       )}
     >
       {status !== "uploading" && (
-        <span className="absolute right-px top-px cursor-pointer opacity-0 group-hover:opacity-100">
+        <span
+          onClick={(e) => {
+            e.stopPropagation()
+            onDelete?.(item?.uid)
+          }}
+          className="absolute right-px top-px cursor-pointer opacity-0 group-hover:opacity-100"
+        >
           <CircleX className="size-4 text-muted-foreground hover:text-accent-foreground" />
         </span>
       )}
@@ -248,9 +256,11 @@ function FileCard({
 function FileListBox({
   items,
   className,
+  onDelete,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
   items: FileCardItem[]
+  onDelete?: (uid?: string) => void
 }) {
   const [api, setApi] = React.useState<CarouselApi>()
   const [canScrollPrev, setCanScrollPrev] = React.useState(false)
@@ -299,7 +309,7 @@ function FileListBox({
       >
         <CarouselContent className="ml-0 space-x-2">
           {items.map((item, index) => (
-            <FileCard key={index} item={item} />
+            <FileCard onDelete={onDelete} key={index} item={item} />
           ))}
         </CarouselContent>
         {canScrollPrev && (

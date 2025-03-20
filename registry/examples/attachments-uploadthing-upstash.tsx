@@ -20,7 +20,7 @@ import {
 import { cn, generateUUID } from "@/registry/lib/utils"
 import type { UploadRouter } from "@/app/api/uploadthing/core"
 
-const { useUploadThing, uploadFiles } = generateReactHelpers<UploadRouter>()
+const { uploadFiles } = generateReactHelpers<UploadRouter>()
 
 const maxFileCount = 6
 
@@ -29,66 +29,102 @@ export default function AttachmentsUploadthingUpstash() {
   const [isLoading, setIsLoading] = React.useState(false)
   const [attachments, setAttachments] = React.useState<Array<FileCardItem>>([])
   const [uploadQueue, setUploadQueue] = React.useState<Array<FileCardItem>>([])
+  const [isUploading, setIsUploading] = React.useState(false)
 
   const fileItems = React.useMemo(() => {
     return [...attachments, ...uploadQueue]
   }, [attachments, uploadQueue])
 
-  const { startUpload, routeConfig } = useUploadThing("imageUploader", {
-    onClientUploadComplete: (props) => {
-      console.log("uploaded", props)
-      alert("uploaded successfully!")
-    },
-    onUploadProgress: (progress) => {
-      console.log("progress", progress)
-    },
-    onUploadError: () => {
-      alert("error occurred while uploading")
-    },
-    onUploadBegin: (fileName) => {
-      console.log("upload has begun for", fileName)
-    },
-  })
+  const updateUploadProgress = (uid: string, progress: number) => {
+    setUploadQueue((prevQueue) =>
+      prevQueue.map((item) =>
+        item.uid === uid
+          ? { ...item, percent: progress > 100 ? 100 : progress }
+          : item
+      )
+    )
+  }
 
-  console.log(routeConfig, "routeConfig")
+  const onUpload = async (files: File[], uids: string[]) => {
+    setIsUploading(true)
+    try {
+      const res = await uploadFiles("imageUploader", {
+        files,
+        input: uids,
+        onUploadProgress: ({ file, progress }) => {
+          const uid = uids[files.indexOf(file)]
+          console.log("uid:", uid, progress)
+          updateUploadProgress(uid, progress)
+        },
+      })
+      // 处理上传完成后的逻辑
+      const completedItems: FileCardItem[] = res.map((item) => ({
+        uid: item.customId as string,
+        name: item.name,
+        size: item.size,
+        contentType: item.type,
+        percent: 100,
+        status: "done",
+        url: item.ufsUrl,
+      }))
 
-  const handleFileChange = React.useCallback<AttachmentsProps["onFileChange"]>(
-    (acceptedFiles, rejectedFiles) => {
+      setAttachments((prev) => [...prev, ...completedItems])
+      setUploadQueue((prev) => {
+        const completedUids = new Set(completedItems.map((item) => item.uid))
+        return prev.filter((item) => !completedUids.has(item.uid))
+      })
+    } catch (err) {
+      // toast.error(getErrorMessage(err))
+    } finally {
+      setIsUploading(false)
+    }
+  }
+
+  const handleFileChange = React.useCallback<
+    NonNullable<AttachmentsProps["onFileChange"]>
+  >(
+    async (acceptedFiles, rejectedFiles) => {
       if ((fileItems?.length ?? 0) + acceptedFiles.length > maxFileCount) {
         toast.error(`Cannot upload more than ${maxFileCount} files`)
         return
       }
+
+      console.log(rejectedFiles)
       if (rejectedFiles.length > 0) {
         rejectedFiles.forEach(({ file }) => {
           toast.error(`File ${file.name} was rejected`)
         })
       }
-      const uid = generateUUID()
-      const files = (acceptedFiles || []).map((file) =>
-        Object.assign(file, { customId: uid })
-      )
-      const newItems = files.map((file) => ({
-        uid,
+      let uids: string[] = []
+      const files = (acceptedFiles || []).map((file) => {
+        const uid = generateUUID()
+        uids.push(uid)
+        return Object.assign(file, { uid })
+      })
+      const newItems = files.map((file, index) => ({
+        uid: uids[index],
         name: file.name,
         size: file.size,
         percent: 0,
         contentType: file.type,
         status: "uploading",
       })) as FileCardItem[]
-      console.log("files", files)
       setUploadQueue([...uploadQueue, ...newItems])
-      startUpload(files)
+      await onUpload(files, uids)
     },
     [uploadQueue, attachments]
   )
 
-  console.log("uploadQueue", uploadQueue)
+  const handleDelete = (uid?: string) => {
+    setAttachments((prev) => prev.filter((item) => item.uid !== uid))
+  }
 
   return (
     <Sender
       submitType="shiftEnter"
       placeholder="Press Shift + Enter to send message"
       loading={isLoading}
+      disabled={isUploading}
       value={value}
       onChange={(e) => {
         setValue(e?.target?.value)
@@ -105,6 +141,7 @@ export default function AttachmentsUploadthingUpstash() {
       <SenderContent>
         <FileListBox
           items={fileItems}
+          onDelete={handleDelete}
           className={cn(fileItems.length === 0 && "-mt-2")}
         />
         {fileItems.length > 0 && <div className="h-1"></div>}
@@ -113,6 +150,10 @@ export default function AttachmentsUploadthingUpstash() {
           <SenderOperationBarExtra></SenderOperationBarExtra>
           <SenderOperationBar>
             <Attachments
+              accept={{
+                "image/*": [],
+                "application/pdf": [],
+              }}
               multiple
               maxFileCount={maxFileCount}
               onFileChange={handleFileChange}
