@@ -37,6 +37,7 @@ import {
   ZipIcon,
 } from "@/registry/aoian-ui/attachments/icons"
 import { SilentUploader } from "@/registry/aoian-ui/attachments/silent-uploader"
+import { Lightbox, LightboxItem } from "@/registry/aoian-ui/lightbox/lightbox"
 import { cn, formatBytes } from "@/registry/lib/utils"
 
 interface AttachmentsProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -348,7 +349,7 @@ function FileListBox({
       api?.off("select", onSelect)
     }
   }, [api, onSelect])
-
+  const elementSize = 400
   return (
     <div className={cn("w-full", className)} {...props}>
       <Carousel
@@ -367,11 +368,44 @@ function FileListBox({
             "[mask-image:linear-gradient(to_right,transparent,white_8%,white_92%,transparent)]"
         )}
       >
-        <CarouselContent className="ml-0 space-x-2">
-          {items.map((item, index) => (
-            <FileCard mode={mode} onDelete={onDelete} key={index} item={item} />
-          ))}
-        </CarouselContent>
+        {mode === "image" ? (
+          <Lightbox>
+            <CarouselContent className="ml-0 space-x-2">
+              {items.map((item, index) =>
+                item.status === "done" ? (
+                  <LightboxItem key={index} src={item.url}>
+                    <div>
+                      <FileCard
+                        mode={mode}
+                        onDelete={onDelete}
+                        key={index}
+                        item={item}
+                      />
+                    </div>
+                  </LightboxItem>
+                ) : (
+                  <FileCard
+                    mode={mode}
+                    onDelete={onDelete}
+                    key={index}
+                    item={item}
+                  />
+                )
+              )}
+            </CarouselContent>
+          </Lightbox>
+        ) : (
+          <CarouselContent className="ml-0 space-x-2">
+            {items.map((item, index) => (
+              <FileCard
+                mode={mode}
+                onDelete={onDelete}
+                key={index}
+                item={item}
+              />
+            ))}
+          </CarouselContent>
+        )}
         {canScrollPrev && (
           <CarouselPrevious className="left-2 size-6 rounded-lg" />
         )}

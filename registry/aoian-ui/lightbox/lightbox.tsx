@@ -13,7 +13,6 @@ import {
   ZoomOut,
 } from "lucide-react"
 import { PhotoProvider, PhotoView } from "react-photo-view"
-import type { PhotoRenderParams } from "react-photo-view/dist/types"
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/registry/lib/utils"

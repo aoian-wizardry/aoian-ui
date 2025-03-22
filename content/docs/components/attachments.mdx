@@ -94,8 +94,6 @@ The file cards can be used in conjunction with the sending box.
 />
 
 
-
-
 ### UploadThing
 
 Use it together with UploadThing.
@@ -105,3 +103,49 @@ Use it together with UploadThing.
   description="Use it together with UploadThing."
 />
 
+## Props
+
+### Attachments
+
+
+| Prop             | Type                                                              | Default           | Description                                                                         |
+|------------------|-------------------------------------------------------------------|-------------------|-------------------------------------------------------------------------------------|
+| `accept`         | `DropzoneProps["accept"]`                                         | `image/*`         | File types that can be accepted. See input accept Attribute                         |
+| `maxSize`        | `DropzoneProps["maxSize"]`                                        | `1024 * 1024 * 2` | The maximum size of each file                                                       |
+| `maxFileCount`   | `DropzoneProps["maxFiles"]`                                       | `1`               | Limit the number of uploaded files. Will replace current one when maxFileCount is 1 |
+| `multiple`       | `boolean`                                                         | `false`           | Whether to support selected multiple files                                          |
+| `disabled`       | `boolean`                                                         | `false`           | Disable upload button                                                               |
+| `fullScreenDrop` | `boolean`                                                         | `false`           | enable full - screen drag                                                           |
+| `onFileChange`   | `(acceptedFiles: File[], rejectedFiles: FileRejection[]) => void` | `-`               | A callback function, can be executed when uploading state is changing.              |
+
+### FileListBox
+
+| Prop       | Type                     | Default | Description                                    |
+|------------|--------------------------|---------|------------------------------------------------|
+| `items`    | `FileCardItem[]`         | `-`     | File list. Check the FileCardItem for details. |
+| `mode`     | `"image" \| "file"`      | `file`  | Which display mode should be adopted           |
+| `onDelete` | `(uid?: string) => void` | `-`     | Deletion callback function                     |
+
+
+### FileCard
+
+| Prop       | Type                     | Default | Description                                    |
+|------------|--------------------------|---------|------------------------------------------------|
+| `item`     | `FileCardItem`           | `-`     | File list. Check the FileCardItem for details. |
+| `mode`     | `"image" \| "file"`      | `file`  | Which display mode should be adopted           |
+| `onDelete` | `(uid?: string) => void` | `-`     | Deletion callback function                     |
+
+### FileCardItem
+
+```ts
+  type FileCardItem = {
+    uid?: string
+    name: string
+    size: number
+    percent: number
+    url?: string
+    message?: string
+    contentType?: string
+    status: "error" | "done" | "uploading" | "removed"
+  }
+```
