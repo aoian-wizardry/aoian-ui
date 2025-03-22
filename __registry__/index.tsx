@@ -110,7 +110,7 @@ export const Index: Record<string, any> = {
     name: "attachments",
     description: "",
     type: "registry:ui",
-    registryDependencies: ["button"],
+    registryDependencies: ["button","carousel","tooltip","input","progress"],
     files: [{
       path: "registry/aoian-ui/attachments/attachments.tsx",
       type: "registry:ui",
@@ -118,6 +118,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/aoian-ui/attachments/attachments.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "lightbox": {
+    name: "lightbox",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["button","carousel","tooltip","input","progress"],
+    files: [{
+      path: "registry/aoian-ui/lightbox/lightbox.tsx",
+      type: "registry:ui",
+      target: "components/aoian-ui/lightbox.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/aoian-ui/lightbox/lightbox.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -518,7 +535,7 @@ export const Index: Record<string, any> = {
     name: "attachments-file-card",
     description: "",
     type: "registry:example",
-    registryDependencies: ["https://ui.aoian.chat/r/sender","https://ui.aoian.chat/r/attachments","button"],
+    registryDependencies: ["https://ui.aoian.chat/r/attachments","button"],
     files: [{
       path: "registry/examples/attachments-file-card.tsx",
       type: "registry:example",
@@ -526,6 +543,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/attachments-file-card.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "attachments-images": {
+    name: "attachments-images",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.aoian.chat/r/attachments","button"],
+    files: [{
+      path: "registry/examples/attachments-images.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/attachments-images.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -560,6 +594,23 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/examples/attachments-uploadthing-upstash.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
+  "lightbox-demo": {
+    name: "lightbox-demo",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [{
+      path: "registry/examples/lightbox-demo.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/examples/lightbox-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

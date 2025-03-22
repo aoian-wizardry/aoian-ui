@@ -5,12 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fde2a55-aa36-4280-ab5d-a9bceebd615b" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/compiled-contentlayer-config-JUWGK3VB.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/compiled-contentlayer-config-JUWGK3VB.mjs.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/data-JUWGK3VB.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/data-JUWGK3VB.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/Doc/_index.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/Doc/docs__components__attachments.mdx.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/Doc/docs__components__attachments.mdx.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.contentlayer/generated/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/index.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/uploadthing/core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/uploadthing/core.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__registry__/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/__registry__/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/docs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/docs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/components/attachments.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/components/attachments.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/r/attachments-card-sender.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/attachments-card-sender.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/r/attachments-demo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/attachments-demo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/r/attachments-file-card.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/attachments-file-card.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/r/attachments-full-drop.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/attachments-full-drop.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/r/attachments-uploadthing-upstash.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/attachments-uploadthing-upstash.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/r/attachments.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/attachments.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/r/utils.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/r/utils.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry.json" beforeDir="false" afterPath="$PROJECT_DIR$/registry.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registry/aoian-ui/attachments/attachments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/aoian-ui/attachments/attachments.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/aoian-ui/hooks/use-upload-file.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry/examples/attachments-card-sender.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/examples/attachments-card-sender.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registry/examples/attachments-uploadthing-upstash.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/examples/attachments-uploadthing-upstash.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry/registry-examples.ts" beforeDir="false" afterPath="$PROJECT_DIR$/registry/registry-examples.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry/registry-ui.ts" beforeDir="false" afterPath="$PROJECT_DIR$/registry/registry-ui.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +119,8 @@
       <workItem from="1742116306633" duration="1785000" />
       <workItem from="1742129275792" duration="7803000" />
       <workItem from="1742475480784" duration="4139000" />
-      <workItem from="1742480089404" duration="3714000" />
+      <workItem from="1742480089404" duration="3877000" />
+      <workItem from="1742622448565" duration="14761000" />
     </task>
     <servers />
   </component>

@@ -306,13 +306,38 @@ var registry_default = {
         "react-dropzone"
       ],
       registryDependencies: [
-        "button"
+        "button",
+        "carousel",
+        "tooltip",
+        "input",
+        "progress"
       ],
       files: [
         {
           path: "registry/aoian-ui/attachments/attachments.tsx",
           type: "registry:ui",
           target: "components/aoian-ui/attachments.tsx"
+        }
+      ]
+    },
+    {
+      name: "lightbox",
+      type: "registry:ui",
+      dependencies: [
+        "react-dropzone"
+      ],
+      registryDependencies: [
+        "button",
+        "carousel",
+        "tooltip",
+        "input",
+        "progress"
+      ],
+      files: [
+        {
+          path: "registry/aoian-ui/lightbox/lightbox.tsx",
+          type: "registry:ui",
+          target: "components/aoian-ui/lightbox.tsx"
         }
       ]
     },
@@ -629,13 +654,26 @@ var registry_default = {
       name: "attachments-file-card",
       type: "registry:example",
       registryDependencies: [
-        "https://ui.aoian.chat/r/sender",
         "https://ui.aoian.chat/r/attachments",
         "button"
       ],
       files: [
         {
           path: "registry/examples/attachments-file-card.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "attachments-images",
+      type: "registry:example",
+      registryDependencies: [
+        "https://ui.aoian.chat/r/attachments",
+        "button"
+      ],
+      files: [
+        {
+          path: "registry/examples/attachments-images.tsx",
           type: "registry:example"
         }
       ]
@@ -666,6 +704,19 @@ var registry_default = {
       files: [
         {
           path: "registry/examples/attachments-uploadthing-upstash.tsx",
+          type: "registry:example"
+        }
+      ]
+    },
+    {
+      name: "lightbox-demo",
+      type: "registry:example",
+      registryDependencies: [
+        "button"
+      ],
+      files: [
+        {
+          path: "registry/examples/lightbox-demo.tsx",
           type: "registry:example"
         }
       ]
@@ -1022,4 +1073,4 @@ export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-JUWGK3VB.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-7DZHJO53.mjs.map

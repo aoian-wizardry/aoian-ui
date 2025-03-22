@@ -257,14 +257,21 @@ export const examples: Registry["items"] = [
   {
     name: "attachments-file-card",
     type: "registry:example",
-    registryDependencies: [
-      registryUrl("sender"),
-      registryUrl("attachments"),
-      "button",
-    ],
+    registryDependencies: [registryUrl("attachments"), "button"],
     files: [
       {
         path: "registry/examples/attachments-file-card.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "attachments-images",
+    type: "registry:example",
+    registryDependencies: [registryUrl("attachments"), "button"],
+    files: [
+      {
+        path: "registry/examples/attachments-images.tsx",
         type: "registry:example",
       },
     ],
@@ -295,6 +302,17 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "registry/examples/attachments-uploadthing-upstash.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "lightbox-demo",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "registry/examples/lightbox-demo.tsx",
         type: "registry:example",
       },
     ],

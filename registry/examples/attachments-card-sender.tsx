@@ -82,36 +82,91 @@ export default function AttachmentsCardSender() {
     },
   ])
 
+  const [imageListBox] = React.useState<FileCardItem[]>([
+    {
+      name: "image-file.png",
+      size: 1024,
+      status: "done",
+      percent: 0,
+      url: "https://avatars.githubusercontent.com/u/9461149?s=48&v=4",
+    },
+    {
+      name: "image-file.png",
+      size: 1024,
+      status: "uploading",
+      percent: 0,
+      url: "https://avatars.githubusercontent.com/u/9461149?s=48&v=4",
+    },
+    {
+      name: "image-file.png",
+      size: 1024,
+      status: "error",
+      message: "The file is too large.",
+      percent: 0,
+      url: "https://avatars.githubusercontent.com/u/9461149?s=48&v=4",
+    },
+  ])
+
   return (
-    <Sender
-      submitType="shiftEnter"
-      placeholder="Press Shift + Enter to send message"
-      loading={isLoading}
-      value={value}
-      onChange={(e) => {
-        setValue(e?.target?.value)
-      }}
-      onSubmit={() => {
-        setIsLoading(true)
-        setTimeout(() => {
-          toast.success(value)
-          setValue("")
-          setIsLoading(false)
-        }, 3000)
-      }}
-    >
-      <SenderContent>
-        <FileListBox items={listBox} />
-        <div className="h-2"></div>
-        <SenderTextArea />
-        <SenderOperation>
-          <SenderOperationBarExtra></SenderOperationBarExtra>
-          <SenderOperationBar>
-            <Attachments />
-            <SenderButton />
-          </SenderOperationBar>
-        </SenderOperation>
-      </SenderContent>
-    </Sender>
+    <div className="w-full grow space-y-4 self-start">
+      <Sender
+        submitType="shiftEnter"
+        placeholder="Press Shift + Enter to send message"
+        loading={isLoading}
+        value={value}
+        onChange={(e) => {
+          setValue(e?.target?.value)
+        }}
+        onSubmit={() => {
+          setIsLoading(true)
+          setTimeout(() => {
+            toast.success(value)
+            setValue("")
+            setIsLoading(false)
+          }, 3000)
+        }}
+      >
+        <SenderContent>
+          <FileListBox items={listBox} />
+          <SenderTextArea />
+          <SenderOperation>
+            <SenderOperationBarExtra></SenderOperationBarExtra>
+            <SenderOperationBar>
+              <Attachments />
+              <SenderButton />
+            </SenderOperationBar>
+          </SenderOperation>
+        </SenderContent>
+      </Sender>
+      <Sender
+        submitType="shiftEnter"
+        placeholder="Press Shift + Enter to send message"
+        loading={isLoading}
+        value={value}
+        onChange={(e) => {
+          setValue(e?.target?.value)
+        }}
+        onSubmit={() => {
+          setIsLoading(true)
+          setTimeout(() => {
+            toast.success(value)
+            setValue("")
+            setIsLoading(false)
+          }, 3000)
+        }}
+      >
+        <SenderContent>
+          <FileListBox mode="image" items={imageListBox} />
+          <SenderTextArea />
+          <SenderOperation>
+            <SenderOperationBarExtra></SenderOperationBarExtra>
+            <SenderOperationBar>
+              <Attachments />
+              <SenderButton />
+            </SenderOperationBar>
+          </SenderOperation>
+        </SenderContent>
+      </Sender>
+    </div>
   )
 }

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lightbox",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-dropzone"
+  ],
+  "registryDependencies": [
+    "button",
+    "carousel",
+    "tooltip",
+    "input",
+    "progress"
+  ],
+  "files": [
+    {
+      "path": "registry/aoian-ui/lightbox/lightbox.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nfunction Lightbox() {\n  return <div>12312</div>\n}\n\nexport { Lightbox }\n",
+      "type": "registry:ui",
+      "target": "components/aoian-ui/lightbox.tsx"
+    }
+  ]
+}

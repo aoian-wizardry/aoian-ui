@@ -89,12 +89,37 @@ export const ui: Registry["items"] = [
     name: "attachments",
     type: "registry:ui",
     dependencies: ["react-dropzone"],
-    registryDependencies: ["button"],
+    registryDependencies: [
+      "button",
+      "carousel",
+      "tooltip",
+      "input",
+      "progress",
+    ],
     files: [
       {
         path: "registry/aoian-ui/attachments/attachments.tsx",
         type: "registry:ui",
         target: "components/aoian-ui/attachments.tsx",
+      },
+    ],
+  },
+  {
+    name: "lightbox",
+    type: "registry:ui",
+    dependencies: ["react-photo-view"],
+    registryDependencies: [
+      "button",
+      "carousel",
+      "tooltip",
+      "input",
+      "progress",
+    ],
+    files: [
+      {
+        path: "registry/aoian-ui/lightbox/lightbox.tsx",
+        type: "registry:ui",
+        target: "components/aoian-ui/lightbox.tsx",
       },
     ],
   },

@@ -1,12 +1,14 @@
 "use client"
 
 import * as React from "react"
-import { CircleX, Info, Upload } from "lucide-react"
+import Image from "next/image"
+import { Info, LoaderPinwheel, Upload, X } from "lucide-react"
 import Dropzone, {
   type DropzoneProps,
   type FileRejection,
 } from "react-dropzone"
 
+import { Button } from "@/components/ui/button"
 import {
   Carousel,
   CarouselContent,
@@ -15,6 +17,12 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel"
 import { Progress } from "@/components/ui/progress"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { DropArea } from "@/registry/aoian-ui/attachments/drop-area"
 import {
   AudioIcon,
@@ -125,6 +133,7 @@ type FileCardItem = {
   size: number
   percent: number
   url?: string
+  message?: string
   contentType?: string
   status: "error" | "done" | "uploading" | "removed"
 }
@@ -180,9 +189,11 @@ function matchExt(suffix: string, ext: string[]) {
 function FileCard({
   className,
   item,
+  mode = "file",
   onDelete,
 }: React.HTMLAttributes<HTMLDivElement> & {
   item: FileCardItem
+  mode?: "image" | "file"
   onDelete?: (uid?: string) => void
 }) {
   const { name, size, percent, status } = item
@@ -208,23 +219,68 @@ function FileCard({
     return [<TextIcon key="defaultIcon" />]
   }, [nameSuffix])
 
+  if (mode === "image" && isImg && item.url) {
+    return (
+      <div className="group relative">
+        <Image
+          src={item.url}
+          alt={item.name}
+          width={48}
+          height={48}
+          loading="lazy"
+          className="aspect-square shrink-0 rounded-lg object-cover"
+        />
+        {status === "uploading" && (
+          <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/50">
+            <LoaderPinwheel className="size-4 animate-spin text-white" />
+          </div>
+        )}
+        {status === "error" && (
+          <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/50">
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Info className="size-4 text-destructive" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{item?.message ?? "Upload failed"}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+        )}
+        {status !== "uploading" && (
+          <Button
+            onClick={(e) => {
+              e.stopPropagation()
+              onDelete?.(item?.uid)
+            }}
+            className="absolute -right-2 -top-2 z-20 flex size-4 cursor-pointer items-center justify-center rounded-full bg-foreground px-0 py-0 text-background opacity-0 shadow-md group-hover:opacity-100 [&_svg]:size-3"
+          >
+            <X />
+          </Button>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div
       className={cn(
-        "group relative flex h-[54px] w-[200px] min-w-[200px] items-center gap-1 rounded-xl bg-background p-2",
+        "group relative flex h-[52px] w-[200px] min-w-[200px] items-center gap-1 rounded-xl bg-background p-2",
         className
       )}
     >
       {status !== "uploading" && (
-        <span
+        <Button
           onClick={(e) => {
             e.stopPropagation()
             onDelete?.(item?.uid)
           }}
-          className="absolute right-px top-px cursor-pointer opacity-0 group-hover:opacity-100"
+          className="absolute right-1 top-1 z-20 flex size-4 cursor-pointer items-center justify-center rounded-full bg-foreground px-0 py-0 text-background opacity-0 shadow-md group-hover:opacity-100 [&_svg]:size-3"
         >
-          <CircleX className="size-4 text-muted-foreground hover:text-accent-foreground" />
-        </span>
+          <X />
+        </Button>
       )}
       <span
         className={cn(
@@ -242,7 +298,9 @@ function FileCard({
         {status === "error" && (
           <div className="inline-flex items-center gap-1">
             <Info className={"size-3 text-destructive"} />
-            <p className="text-xs text-destructive">Upload failed</p>
+            <p className="text-xs text-destructive">
+              {item?.message ?? "Upload failed"}
+            </p>
           </div>
         )}
         {status === "done" && (
@@ -255,11 +313,13 @@ function FileCard({
 
 function FileListBox({
   items,
+  mode = "file",
   className,
   onDelete,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
   items: FileCardItem[]
+  mode?: "image" | "file"
   onDelete?: (uid?: string) => void
 }) {
   const [api, setApi] = React.useState<CarouselApi>()
@@ -290,14 +350,14 @@ function FileListBox({
   }, [api, onSelect])
 
   return (
-    <div className={cn("", className)} {...props}>
+    <div className={cn("w-full", className)} {...props}>
       <Carousel
         setApi={setApi}
         opts={{
           align: "start",
         }}
         className={cn(
-          "w-full",
+          "w-full [&>div]:overflow-visible",
           canScrollPrev &&
             "[mask-image:linear-gradient(to_right,transparent,white_8%)]",
           canScrollNext &&
@@ -309,7 +369,7 @@ function FileListBox({
       >
         <CarouselContent className="ml-0 space-x-2">
           {items.map((item, index) => (
-            <FileCard onDelete={onDelete} key={index} item={item} />
+            <FileCard mode={mode} onDelete={onDelete} key={index} item={item} />
           ))}
         </CarouselContent>
         {canScrollPrev && (

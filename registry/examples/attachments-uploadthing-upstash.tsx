@@ -88,8 +88,6 @@ export default function AttachmentsUploadthingUpstash() {
         toast.error(`Cannot upload more than ${maxFileCount} files`)
         return
       }
-
-      console.log(rejectedFiles)
       if (rejectedFiles.length > 0) {
         rejectedFiles.forEach(({ file }) => {
           toast.error(`File ${file.name} was rejected`)

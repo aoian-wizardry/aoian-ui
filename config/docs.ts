@@ -75,6 +75,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/attachments",
           items: [],
         },
+        {
+          title: "Lightbox",
+          href: "/docs/components/lightbox",
+          items: [],
+        },
       ],
     },
   ],

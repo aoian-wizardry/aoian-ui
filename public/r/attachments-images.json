@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "attachments-images",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://ui.aoian.chat/r/attachments",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/examples/attachments-images.tsx",
+      "content": "import * as React from \"react\"\n\nimport {\n  FileCard,\n  type FileCardItem,\n} from \"@/components/aoian-ui/attachments/attachments\"\n\nexport default function AttachmentsFileCard() {\n  const [listBox] = React.useState<FileCardItem[]>([\n    {\n      name: \"image-file.png\",\n      size: 1024,\n      status: \"done\",\n      percent: 0,\n      url: \"https://avatars.githubusercontent.com/u/9461149?s=48&v=4\",\n    },\n    {\n      name: \"image-file.png\",\n      size: 1024,\n      status: \"uploading\",\n      percent: 0,\n      url: \"https://avatars.githubusercontent.com/u/9461149?s=48&v=4\",\n    },\n    {\n      name: \"image-file.png\",\n      size: 1024,\n      status: \"error\",\n      message: \"The file is too large.\",\n      percent: 0,\n      url: \"https://avatars.githubusercontent.com/u/9461149?s=48&v=4\",\n    },\n  ])\n  return (\n    <div className={\"inline-flex gap-2\"}>\n      {listBox.map((item, index) => {\n        return (\n          <div key={index}>\n            <FileCard mode=\"image\" className=\"bg-muted\" item={item} />\n          </div>\n        )\n      })}\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}
