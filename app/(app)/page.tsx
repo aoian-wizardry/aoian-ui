@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { BlockDisplay } from "@/components/block-display"
 
 const title = "Aoian AI UI library"
 const description =
@@ -106,6 +107,9 @@ export default function IndexPage() {
             </div>
           </footer>
         </div>
+      </div>
+      <div className="border-grid container border-b py-8 first:pt-6 last:border-b-0 md:py-12">
+        <BlockDisplay name={"dashboard-01"} />
       </div>
     </>
   )

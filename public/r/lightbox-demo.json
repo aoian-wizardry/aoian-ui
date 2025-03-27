@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/examples/lightbox-demo.tsx",
-      "content": "import { Lightbox } from \"@/components/aoian-ui/lightbox/lightbox\"\n\nexport default function LightboxDemo() {\n  return <Lightbox />\n}\n",
+      "content": "import { Lightbox, LightboxItem } from \"@/components/aoian-ui/lightbox/lightbox\"\n\nexport default function LightboxDemo() {\n  const itemClass = \"cursor-pointer object-cover size-20 rounded-lg\"\n  return (\n    <Lightbox>\n      <div className=\"grid grid-cols-3 gap-3\">\n        <LightboxItem src=\"https://farm4.staticflickr.com/3894/15008518202_c265dfa55f_h.jpg\">\n          <img\n            className={itemClass}\n            src=\"https://farm4.staticflickr.com/3894/15008518202_b016d7d289_m.jpg\"\n          />\n        </LightboxItem>\n        <LightboxItem src=\"https://farm6.staticflickr.com/5591/15008867125_b61960af01_h.jpg\">\n          <img\n            className={itemClass}\n            src=\"https://farm6.staticflickr.com/5591/15008867125_68a8ed88cc_m.jpg\"\n          />\n        </LightboxItem>\n      </div>\n    </Lightbox>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

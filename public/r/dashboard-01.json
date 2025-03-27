@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-01",
+  "type": "registry:block",
+  "description": "A dashboard with sidebar, charts and data table.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/blocks/dashboard-01/page.tsx",
+      "content": "export default function Page() {\n  return <div>12321321321</div>\n}\n",
+      "type": "registry:page",
+      "target": "app/dashboard/page.tsx"
+    }
+  ],
+  "categories": [
+    "dashboard"
+  ]
+}

@@ -5,6 +5,7 @@ import { rimraf } from "rimraf"
 import { registryItemSchema, type Registry } from "shadcn/registry"
 import { z } from "zod"
 
+import { blocks } from "@/registry/registry-blocks"
 import { examples } from "@/registry/registry-examples"
 import { hooks } from "@/registry/registry-hooks"
 import { lib } from "@/registry/registry-lib"
@@ -84,6 +85,7 @@ const registry = {
       ...lib,
       ...examples,
       ...hooks,
+      ...blocks,
     ].filter((item) => {
       return !DEPRECATED_ITEMS.includes(item.name)
     })
