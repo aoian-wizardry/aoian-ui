@@ -633,18 +633,18 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
-  "dashboard-01": {
-    name: "dashboard-01",
-    description: "A dashboard with sidebar, charts and data table.",
+  "dashboard": {
+    name: "dashboard",
+    description: "A comprehensive and powerful AI chatbot.",
     type: "registry:block",
     registryDependencies: [],
     files: [{
-      path: "registry/blocks/dashboard-01/page.tsx",
+      path: "registry/blocks/dashboard/page.tsx",
       type: "registry:page",
       target: "app/dashboard/page.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/blocks/dashboard-01/page.tsx")
+      const mod = await import("@/registry/blocks/dashboard/page.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

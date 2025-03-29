@@ -37,11 +37,9 @@ export const metadata: Metadata = {
 export default function IndexPage() {
   return (
     <>
-      <div className="relative h-[calc(100vh-64px)] w-full px-6 md:px-8 lg:px-12">
-        <div className="absolute inset-0 -top-[64px] h-full w-full bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:hidden"></div>
-        <div className="absolute inset-0 hidden h-full w-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] dark:flex"></div>
-        <div className="container-wrapper mt-20">
-          <div className="pt-8">
+      <div className="border-grid border-b">
+        <div className="container-wrapper">
+          <div className="container flex flex-col items-start gap-1 py-8 md:py-10 lg:py-12">
             <div className="relative mx-auto flex flex-col items-center">
               <div className="mb-8 flex">
                 <a
@@ -91,25 +89,10 @@ export default function IndexPage() {
               </div>
             </div>
           </div>
-          <footer>
-            <div className="flex items-center justify-center py-8">
-              <span className="text-sm text-neutral-800 dark:text-neutral-200">
-                Made by
-                <a
-                  href="https://github.com/petitspois"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ml-1 text-neutral-950 dark:text-neutral-100"
-                >
-                  @petitspois
-                </a>
-              </span>
-            </div>
-          </footer>
         </div>
       </div>
-      <div className="border-grid container border-b py-8 first:pt-6 last:border-b-0 md:py-12">
-        <BlockDisplay name={"dashboard-01"} />
+      <div className="border-grid">
+        <BlockDisplay name={"dashboard"} />
       </div>
     </>
   )

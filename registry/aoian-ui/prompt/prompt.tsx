@@ -3,7 +3,6 @@
 import * as React from "react"
 import { VariantProps, cva } from "class-variance-authority"
 
-import { PromptsProps } from "@/registry/aoian-ui/prompt/type"
 import { cn } from "@/registry/lib/utils"
 
 const promptVariants = cva("flex flex-col gap-3 overflow-x-scroll", {
@@ -42,7 +41,7 @@ const promptItemVariants = cva(
   {
     variants: {
       variant: {
-        filled: "bg-card text-card-foreground",
+        filled: "bg-muted text-foreground",
         outlined: "border-border border",
         borderless: "border-none px-0 py-0",
       },
@@ -88,7 +87,7 @@ function PromptLabel({ className, ...props }: React.ComponentProps<"h4">) {
   return (
     <h4
       {...props}
-      className={cn("text-sm font-medium text-accent-foreground", className)}
+      className={cn("text-sm font-medium text-foreground", className)}
     />
   )
 }
@@ -101,10 +100,7 @@ function PromptIcon({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       {...props}
-      className={cn(
-        "pt-1 text-chat-muted-foreground [&>svg]:size-4",
-        className
-      )}
+      className={cn("pt-1 text-muted-foreground [&>svg]:size-4", className)}
     />
   )
 }

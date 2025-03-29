@@ -17,23 +17,6 @@ import { PhotoProvider, PhotoView } from "react-photo-view"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/registry/lib/utils"
 
-// align-items: center;
-// bottom: 0;
-// cursor: pointer;
-// display: flex;
-// height: 100px;
-// justify-content: center;
-// margin: auto;
-// opacity: .75;
-// position: absolute;
-// top: 0;
-// transition: opacity .2s linear;
-// -webkit-user-select: none;
-// -moz-user-select: none;
-// user-select: none;
-// width: 70px;
-// z-index: 20;
-
 function Lightbox({
   toolbarButtonClass,
   ...props

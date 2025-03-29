@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard",
+  "type": "registry:block",
+  "description": "A comprehensive and powerful AI chatbot.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/blocks/dashboard/page.tsx",
+      "content": "export default function Page() {\n  return <div>12321321321</div>\n}\n",
+      "type": "registry:page",
+      "target": "app/dashboard/page.tsx"
+    }
+  ],
+  "categories": [
+    "dashboard"
+  ]
+}

@@ -176,7 +176,7 @@ BubbleWrapper.displayName = "BubbleWrapper"
 const bubbleContentVariants = cva("px-4 py-3 text-sm", {
   variants: {
     variant: {
-      filled: "bg-card text-card-foreground",
+      filled: "bg-muted text-foreground",
       outlined: "border-border border",
       shadow: "dark:bg-muted shadow",
       borderless: "border-none px-0 py-0",

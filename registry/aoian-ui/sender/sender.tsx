@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { VariantProps, cva } from "class-variance-authority"
-import { ArrowUp, Globe, Square } from "lucide-react"
+import { ArrowLeft, ArrowUp, Globe, Square } from "lucide-react"
 import Textarea, { type TextareaAutosizeProps } from "react-textarea-autosize"
 
 import { Button } from "@/components/ui/button"
@@ -85,7 +85,7 @@ function Sender({
 }
 
 const senderContentVariants = cva(
-  "relative flex px-4 py-3 w-full gap-2 rounded-2xl border border-input bg-input",
+  "relative flex px-4 py-3 w-full gap-2 rounded-2xl border border-input bg-muted",
   {
     variants: {
       vertical: {
@@ -274,11 +274,14 @@ function SenderSearchToggle({
       aria-label="Toggle search mode"
       variant="outline"
       className={cn(
-        "gap-1 border border-input bg-background px-3 text-muted-foreground",
-        "data-[state=on]:bg-primary/20",
-        "data-[state=on]:text-primary",
-        "data-[state=on]:border-primary/40",
-        "rounded-full",
+        "gap-1 border bg-background px-3 text-muted-foreground",
+        "data-[state=on]:bg-blue-100",
+        "data-[state=on]:text-blue-700",
+        "data-[state=on]:border-blue-400",
+        "data-[state=on]:dark:bg-blue-950",
+        "data-[state=on]:dark:text-blue-300",
+        "data-[state=on]:dark:border-blue-800",
+        "rounded-lg",
         className
       )}
       {...props}
@@ -298,8 +301,8 @@ function SenderAction({
     <Button
       size={"icon"}
       variant={"ghost"}
+      className={cn("rounded-lg hover:bg-background", className)}
       {...props}
-      className={cn("rounded-lg", className)}
     >
       {children}
     </Button>

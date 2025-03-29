@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import Image from "next/image"
 import Link from "next/link"
 import {
   Check,
@@ -54,7 +53,7 @@ type BlockViewerContext = {
   setView: (view: "code" | "preview") => void
   activeFile: string | null
   setActiveFile: (file: string) => void
-  resizablePanelRef: React.RefObject<ImperativePanelHandle> | null
+  resizablePanelRef: React.RefObject<ImperativePanelHandle | null>
   tree: ReturnType<typeof createFileTreeForRegistryItemFiles> | null
   highlightedFiles:
     | (z.infer<typeof registryItemFileSchema> & {
@@ -103,7 +102,7 @@ function BlockViewerProvider({
       <div
         id={item.name}
         data-view={view}
-        className="group/block-view-wrapper flex min-w-0 flex-col items-stretch gap-4"
+        className="group/block-view-wrapper flex min-w-0 flex-col items-stretch"
         style={
           {
             "--height": item.meta?.iframeHeight ?? "930px",
@@ -121,101 +120,118 @@ function BlockViewerToolbar() {
   const { copyToClipboard, isCopied } = useCopyToClipboard()
 
   return (
-    <div className="flex w-full items-center gap-2 md:pr-[14px]">
-      <Tabs
-        defaultValue="preview"
-        onValueChange={(value) => setView(value as "preview" | "code")}
-        className="hidden lg:flex"
-      >
-        <TabsList className="h-7 items-center rounded-md p-0 px-[calc(theme(spacing.1)_-_2px)] py-[theme(spacing.1)]">
-          <TabsTrigger
-            value="preview"
-            className="h-[1.45rem] rounded-sm px-2 text-xs"
-          >
-            Preview
-          </TabsTrigger>
-          <TabsTrigger
-            value="code"
-            className="h-[1.45rem] rounded-sm px-2 text-xs"
-          >
-            Code
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
-      <Separator orientation="vertical" className="mx-2 hidden h-4 lg:flex" />
-      <a
-        href={`#${item.name}`}
-        className="text-sm font-medium underline-offset-2 hover:underline"
-      >
-        {item.description}
-      </a>
-      <div className="ml-auto hidden items-center gap-2 md:flex">
-        <div className="hidden h-7 items-center gap-1.5 rounded-md border p-[2px] shadow-none lg:flex">
-          <ToggleGroup
-            type="single"
-            defaultValue="100"
-            onValueChange={(value) => {
-              if (resizablePanelRef?.current) {
-                resizablePanelRef.current.resize(parseInt(value))
-              }
-            }}
-          >
-            <ToggleGroupItem
-              value="100"
-              className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
-              title="Desktop"
+    <div className="border-grid border-b">
+      <div className="container-wrapper">
+        <div className="container">
+          <div className="flex w-full items-center gap-2 py-4 md:pr-[14px]">
+            <Tabs
+              defaultValue="preview"
+              onValueChange={(value) => setView(value as "preview" | "code")}
+              className="hidden lg:flex"
             >
-              <Monitor className="h-3.5 w-3.5" />
-            </ToggleGroupItem>
-            <ToggleGroupItem
-              value="60"
-              className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
-              title="Tablet"
+              <TabsList className="h-7 items-center rounded-md p-0 px-[calc(theme(spacing.1)_-_2px)] py-[theme(spacing.1)]">
+                <TabsTrigger
+                  value="preview"
+                  className="h-[1.45rem] rounded-sm px-2 text-xs"
+                >
+                  Preview
+                </TabsTrigger>
+                <TabsTrigger
+                  value="code"
+                  className="h-[1.45rem] rounded-sm px-2 text-xs"
+                >
+                  Code
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+            <Separator
+              orientation="vertical"
+              className="mx-2 hidden h-4 lg:flex"
+            />
+            <a
+              href={`#${item.name}`}
+              className="text-sm font-medium underline-offset-2 hover:underline"
             >
-              <Tablet className="h-3.5 w-3.5" />
-            </ToggleGroupItem>
-            <ToggleGroupItem
-              value="30"
-              className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
-              title="Mobile"
-            >
-              <Smartphone className="h-3.5 w-3.5" />
-            </ToggleGroupItem>
-            <Separator orientation="vertical" className="h-4" />
-            <Button
-              size="icon"
-              variant="ghost"
-              className="h-[22px] w-[22px] rounded-sm p-0"
-              asChild
-              title="Open in New Tab"
-            >
-              <Link href={"/"} target="_blank">
-                <span className="sr-only">Open in New Tab</span>
-                <Fullscreen className="h-3.5 w-3.5" />
-              </Link>
-            </Button>
-          </ToggleGroup>
+              {item.description}
+            </a>
+            <div className="ml-auto hidden items-center gap-2 md:flex">
+              <div className="hidden h-7 items-center gap-1.5 rounded-md border p-[2px] shadow-none lg:flex">
+                <ToggleGroup
+                  type="single"
+                  defaultValue="100"
+                  onValueChange={(value) => {
+                    if (resizablePanelRef?.current) {
+                      resizablePanelRef.current.resize(parseInt(value))
+                    }
+                  }}
+                >
+                  <ToggleGroupItem
+                    value="100"
+                    className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
+                    title="Desktop"
+                  >
+                    <Monitor className="h-3.5 w-3.5" />
+                  </ToggleGroupItem>
+                  <ToggleGroupItem
+                    value="60"
+                    className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
+                    title="Tablet"
+                  >
+                    <Tablet className="h-3.5 w-3.5" />
+                  </ToggleGroupItem>
+                  <ToggleGroupItem
+                    value="30"
+                    className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
+                    title="Mobile"
+                  >
+                    <Smartphone className="h-3.5 w-3.5" />
+                  </ToggleGroupItem>
+                  <Separator orientation="vertical" className="h-4" />
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    className="h-[22px] w-[22px] rounded-sm p-0"
+                    asChild
+                    title="Open in New Tab"
+                  >
+                    <Link href={"/"} target="_blank">
+                      <span className="sr-only">Open in New Tab</span>
+                      <Fullscreen className="h-3.5 w-3.5" />
+                    </Link>
+                  </Button>
+                </ToggleGroup>
+              </div>
+              <Separator
+                orientation="vertical"
+                className="mx-1 hidden h-4 md:flex"
+              />
+              <div className="flex h-7 items-center gap-1 rounded-md border p-[2px]">
+                <Button
+                  variant="ghost"
+                  className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto"
+                  size="sm"
+                  onClick={() => {
+                    copyToClipboard(`npx shadcn@latest add ${item.name}`)
+                  }}
+                >
+                  {isCopied ? <Check /> : <Terminal />}
+                  <span className="hidden lg:inline">
+                    npx shadcn add {item.name}
+                  </span>
+                </Button>
+              </div>
+              <Separator
+                orientation="vertical"
+                className="mx-1 hidden h-4 xl:flex"
+              />
+              {/*<V0Button*/}
+              {/*  className="hidden shadow-none sm:flex"*/}
+              {/*  id={`v0-button-${item.name}`}*/}
+              {/*  name={`${item.name}`}*/}
+              {/*/>*/}
+            </div>
+          </div>
         </div>
-        <Separator orientation="vertical" className="mx-1 hidden h-4 md:flex" />
-        <div className="flex h-7 items-center gap-1 rounded-md border p-[2px]">
-          <Button
-            variant="ghost"
-            className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto"
-            size="sm"
-            onClick={() => {
-              copyToClipboard(`npx shadcn@latest add ${item.name}`)
-            }}
-          >
-            {isCopied ? <Check /> : <Terminal />}
-            <span className="hidden lg:inline">npx shadcn add {item.name}</span>
-          </Button>
-        </div>
-        <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />
-        {/*<V0Button*/}
-        {/*  className="hidden shadow-none sm:flex"*/}
-        {/*  id={`v0-button-${item.name}`}*/}
-        {/*  name={`${item.name}`}*/}
-        {/*/>*/}
       </div>
     </div>
   )
@@ -225,40 +241,42 @@ function BlockViewerView() {
   const { item, resizablePanelRef } = useBlockViewer()
 
   return (
-    <div className="group-data-[view=code]/block-view-wrapper:hidden md:h-[--height]">
-      <div className="grid w-full gap-4">
-        <ResizablePanelGroup direction="horizontal" className="relative z-10">
-          <ResizablePanel
-            ref={resizablePanelRef}
-            className="relative aspect-[4/2.5] rounded-xl border bg-background md:aspect-auto"
-            defaultSize={100}
-            minSize={30}
-          >
-            {/*<Image*/}
-            {/*  src={`/r/styles/${style}/${item.name}-light.png`}*/}
-            {/*  alt={item.name}*/}
-            {/*  data-block={item.name}*/}
-            {/*  width={1440}*/}
-            {/*  height={900}*/}
-            {/*  className="object-cover dark:hidden md:hidden md:dark:hidden"*/}
-            {/*/>*/}
-            {/*<Image*/}
-            {/*  src={`/r/styles/${style}/${item.name}-dark.png`}*/}
-            {/*  alt={item.name}*/}
-            {/*  data-block={item.name}*/}
-            {/*  width={1440}*/}
-            {/*  height={900}*/}
-            {/*  className="hidden object-cover dark:block md:hidden md:dark:hidden"*/}
-            {/*/>*/}
-            <iframe
-              src={`/registry/blocks/${item.name}`}
-              height={item.meta?.iframeHeight ?? 930}
-              className="relative z-20 hidden w-full bg-background md:block"
-            />
-          </ResizablePanel>
-          <ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
-          <ResizablePanel defaultSize={0} minSize={0} />
-        </ResizablePanelGroup>
+    <div className="container-wrapper">
+      <div className="group-data-[view=code]/block-view-wrapper:hidden md:h-[--height]">
+        <div className="grid w-full">
+          <ResizablePanelGroup direction="horizontal" className="relative z-10">
+            <ResizablePanel
+              ref={resizablePanelRef}
+              className="relative aspect-[4/2.5] border-r border-dashed bg-background md:aspect-auto"
+              defaultSize={100}
+              minSize={30}
+            >
+              {/*<Image*/}
+              {/*  src={`/r/styles/${style}/${item.name}-light.png`}*/}
+              {/*  alt={item.name}*/}
+              {/*  data-block={item.name}*/}
+              {/*  width={1440}*/}
+              {/*  height={900}*/}
+              {/*  className="object-cover dark:hidden md:hidden md:dark:hidden"*/}
+              {/*/>*/}
+              {/*<Image*/}
+              {/*  src={`/r/styles/${style}/${item.name}-dark.png`}*/}
+              {/*  alt={item.name}*/}
+              {/*  data-block={item.name}*/}
+              {/*  width={1440}*/}
+              {/*  height={900}*/}
+              {/*  className="hidden object-cover dark:block md:hidden md:dark:hidden"*/}
+              {/*/>*/}
+              <iframe
+                src={`/view/${item.name}`}
+                height={item.meta?.iframeHeight ?? 930}
+                className="relative z-20 hidden w-full bg-background md:block"
+              />
+            </ResizablePanel>
+            <ResizableHandle className="relative hidden w-1.5 bg-red-300 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-10 after:w-[4px] after:-translate-y-1/2 after:translate-x-[-2px] after:rounded-full after:bg-border after:transition-all after:hover:h-16 md:block" />
+            <ResizablePanel defaultSize={0} minSize={0} />
+          </ResizablePanelGroup>
+        </div>
       </div>
     </div>
   )
@@ -276,24 +294,28 @@ function BlockViewerCode() {
   }
 
   return (
-    <div className="mr-[14px] flex overflow-hidden rounded-xl bg-zinc-950 text-white group-data-[view=preview]/block-view-wrapper:hidden md:h-[--height]">
-      <div className="w-[280px]">
-        <BlockViewerFileTree />
-      </div>
-      <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex h-12 items-center gap-2 border-b border-zinc-700 bg-zinc-900 px-4 text-sm font-medium">
-          <File className="size-4" />
-          {file.target}
-          <div className="ml-auto flex items-center gap-2">
-            <BlockCopyCodeButton />
-          </div>
+    <div className="container-wrapper">
+      <div className="flex overflow-hidden bg-zinc-950 text-white group-data-[view=preview]/block-view-wrapper:hidden md:h-[--height]">
+        <div className="w-[280px]">
+          <BlockViewerFileTree />
         </div>
-        <div
-          key={file?.path}
-          data-rehype-pretty-code-fragment
-          dangerouslySetInnerHTML={{ __html: file?.highlightedContent ?? "" }}
-          className="relative flex-1 overflow-hidden after:absolute after:inset-y-0 after:left-0 after:w-10 after:bg-zinc-950 [&_.line:before]:sticky [&_.line:before]:left-2 [&_.line:before]:z-10 [&_.line:before]:translate-y-[-1px] [&_.line:before]:pr-1 [&_pre]:h-[--height] [&_pre]:overflow-auto [&_pre]:!bg-transparent [&_pre]:pb-20 [&_pre]:pt-4 [&_pre]:font-mono [&_pre]:text-sm [&_pre]:leading-relaxed"
-        />
+        <div className="flex min-w-0 flex-1 flex-col">
+          <div className="border-grid flex h-12 items-center gap-2 border-b bg-zinc-900 px-4 text-sm font-medium">
+            <File className="size-4" />
+            {file.target}
+            <div className="ml-auto flex items-center gap-2">
+              <BlockCopyCodeButton />
+            </div>
+          </div>
+          <div
+            key={file?.path}
+            data-rehype-pretty-code-fragment
+            dangerouslySetInnerHTML={{
+              __html: file?.highlightedContent ?? "",
+            }}
+            className="relative flex-1 overflow-hidden after:absolute after:inset-y-0 after:left-0 after:w-10 after:bg-zinc-950 [&_.line:before]:sticky [&_.line:before]:left-2 [&_.line:before]:z-10 [&_.line:before]:translate-y-[-1px] [&_.line:before]:pr-1 [&_pre]:h-[--height] [&_pre]:overflow-auto [&_pre]:!bg-transparent [&_pre]:pb-20 [&_pre]:pt-4 [&_pre]:font-mono [&_pre]:text-sm [&_pre]:leading-relaxed"
+          />
+        </div>
       </div>
     </div>
   )
@@ -310,9 +332,9 @@ export function BlockViewerFileTree() {
     <SidebarProvider className="flex !min-h-full flex-col">
       <Sidebar
         collapsible="none"
-        className="w-full flex-1 border-r border-zinc-700 bg-zinc-900 text-white"
+        className="border-grid w-full flex-1 border-r bg-zinc-900 text-white"
       >
-        <SidebarGroupLabel className="h-12 rounded-none border-b border-zinc-700 px-4 text-sm text-white">
+        <SidebarGroupLabel className="border-grid h-12 rounded-none border-b px-4 text-sm text-white">
           Files
         </SidebarGroupLabel>
         <SidebarGroup className="p-0">

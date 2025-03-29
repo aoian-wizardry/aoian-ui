@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Exquisite and comprehensive AI UI library, meticulous in every detail.",
   links: {
-    twitter: "https://twitter.com/aoian",
+    twitter: "https://github.com/petitspois",
     github: "https://github.com/petitspois/aoian-ai",
   },
 }

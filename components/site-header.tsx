@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
@@ -12,14 +11,10 @@ import { MainNav } from "@/components/main-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
 
 export function SiteHeader() {
-  const pathname = usePathname()
-
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full backdrop-blur dark:bg-black/80",
-        pathname.startsWith("/docs") &&
-          "border-b border-border dark:bg-transparent"
+        "border-grid sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
       )}
     >
       <div className="container-wrapper">
