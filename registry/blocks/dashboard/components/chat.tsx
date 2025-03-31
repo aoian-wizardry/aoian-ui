@@ -4,11 +4,12 @@ import { useEffect } from "react"
 import { Message, useChat } from "@ai-sdk/react"
 import { toast } from "sonner"
 
-import { CHAT_ID } from "@/lib/constants"
-import { Model } from "@/registry/lib/types/models"
+import { CHAT_ID } from "@/registry/blocks/dashboard/lib/constants"
+import { Model } from "@/registry/blocks/dashboard/lib/types/models"
 
-import { ChatMessages } from "./chat-messages"
-import { ChatPanel } from "./chat-panel"
+import { SenderPanel } from "@/registry/blocks/dashboard/components/sender-panel"
+import { Messages } from "@/registry/blocks/dashboard/components/messages"
+import { cn } from "@/registry/lib/utils"
 
 export function Chat({
   id,
@@ -65,24 +66,15 @@ export function Chat({
   }
 
   return (
-    <div className="stretch mx-auto flex w-full max-w-3xl flex-col pb-60 pt-14">
-      <ChatMessages
-        messages={messages}
-        data={data}
-        onQuerySelect={onQuerySelect}
-        isLoading={isLoading}
-        chatId={id}
-      />
-      <ChatPanel
+    <div className={cn("mx-auto max-w-3xl w-full h-full flex flex-col")}>
+      <Messages />
+      <SenderPanel
         input={input}
         handleInputChange={handleInputChange}
         handleSubmit={onSubmit}
         isLoading={isLoading}
         messages={messages}
-        setMessages={setMessages}
         stop={stop}
-        query={query}
-        append={append}
         models={models}
       />
     </div>

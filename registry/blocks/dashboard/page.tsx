@@ -1,3 +1,4 @@
+"use server"
 import { generateId } from "ai"
 
 import {
@@ -7,7 +8,7 @@ import {
 } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/registry/blocks/dashboard/components/app-sidebar"
 import { Chat } from "@/registry/blocks/dashboard/components/chat"
-import { getModels } from "@/registry/lib/config/models"
+import { getModels } from "@/registry/blocks/dashboard/lib/config/models"
 
 export default async function Page() {
   const id = generateId()
@@ -21,7 +22,7 @@ export default async function Page() {
             <SidebarTrigger className="-ml-1" />
           </div>
         </header>
-        <div className="stretch mx-auto flex w-full max-w-3xl flex-col pb-60 pt-14">
+        <div className="p-4 h-[calc(100vh-64px)]">
           <Chat id={id} models={models} />
         </div>
       </SidebarInset>

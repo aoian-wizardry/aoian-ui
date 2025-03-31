@@ -1,6 +1,6 @@
 import { headers } from "next/headers"
 
-import { Model } from "@/registry/lib/types/models"
+import { Model } from "@/registry/blocks/dashboard/lib/types/models"
 
 import defaultModels from "./default-models.json"
 

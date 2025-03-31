@@ -20,7 +20,7 @@ function useSender() {
   return context
 }
 
-const senderVariants = cva("mx-auto w-full max-w-3xl px-2 py-4 space-y-2", {
+const senderVariants = cva("w-full max-w-3xl px-2 py-4 space-y-2", {
   variants: {},
   defaultVariants: {},
 })

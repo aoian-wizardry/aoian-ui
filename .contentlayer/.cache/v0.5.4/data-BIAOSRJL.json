@@ -24,7 +24,7 @@
         "slug": "/docs/changelog",
         "slugAsParams": "changelog"
       },
-      "documentHash": "1740235966482",
+      "documentHash": "1740388292348",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     },
@@ -52,7 +52,7 @@
         "slug": "/docs/cli",
         "slugAsParams": "cli"
       },
-      "documentHash": "1740137202089",
+      "documentHash": "1740388292348",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     },
@@ -80,7 +80,7 @@
         "slug": "/docs",
         "slugAsParams": ""
       },
-      "documentHash": "1740810957486",
+      "documentHash": "1741315517185",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     },
@@ -108,7 +108,7 @@
         "slug": "/docs/components/attachments",
         "slugAsParams": "components/attachments"
       },
-      "documentHash": "1742646925383",
+      "documentHash": "1743151806244",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     },
@@ -136,7 +136,7 @@
         "slug": "/docs/components/bubble",
         "slugAsParams": "components/bubble"
       },
-      "documentHash": "1740810957455",
+      "documentHash": "1741315517184",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     },
@@ -170,7 +170,7 @@
         "slug": "/docs/components/lightbox",
         "slugAsParams": "components/lightbox"
       },
-      "documentHash": "1742645425942",
+      "documentHash": "1743151806245",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     },
@@ -198,7 +198,7 @@
         "slug": "/docs/components/prompt",
         "slugAsParams": "components/prompt"
       },
-      "documentHash": "1740829508371",
+      "documentHash": "1741315517185",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     },
@@ -226,7 +226,7 @@
         "slug": "/docs/components/sender",
         "slugAsParams": "components/sender"
       },
-      "documentHash": "1741872385703",
+      "documentHash": "1743151806245",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     },
@@ -254,7 +254,7 @@
         "slug": "/docs/installation",
         "slugAsParams": "installation"
       },
-      "documentHash": "1740810957524",
+      "documentHash": "1741315517186",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     }
