@@ -65,8 +65,10 @@ export function Chat({
     handleSubmit(e)
   }
 
+
+
   return (
-    <div className={cn("mx-auto max-w-3xl w-full h-full flex flex-col")}>
+    <div className={cn("flex flex-col min-h-0 w-full grow")}>
       <Messages />
       <SenderPanel
         input={input}

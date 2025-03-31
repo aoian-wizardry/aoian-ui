@@ -31,7 +31,7 @@ export function SenderPanel({
 }: SenderPanelProps) {
   const [isSearchMode, setIsSearchMode] = React.useState(true)
   return (
-    <div className={cn('flex flex-col')}>
+    <div className={cn('flex flex-col items-center m-4')}>
       {/*{messages.length === 0 && (*/}
       {/*  <div className="mb-6 text-center flex flex-col items-center gap-4">*/}
       {/*    <Icons.logo className="size-12 text-accent-foreground" />*/}
