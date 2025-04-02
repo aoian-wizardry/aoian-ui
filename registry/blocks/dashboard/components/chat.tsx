@@ -66,7 +66,7 @@ export function Chat({
 
   return (
     <div className={cn("flex min-h-0 w-full grow flex-col")}>
-      {/*<Messages />*/}
+      <Messages />
       <SenderPanel
         input={input}
         handleInputChange={handleInputChange}
