@@ -92,12 +92,16 @@ export const Index: Record<string, any> = {
   "sender": {
     name: "sender",
     description: "",
-    type: "registry:ui",
-    registryDependencies: undefined,
+    type: "registry:component",
+    registryDependencies: ["toggle","button"],
     files: [{
       path: "registry/aoian-ui/sender/sender.tsx",
       type: "registry:ui",
-      target: "components/aoian-ui/sender.tsx"
+      target: "components/aoian-ui/sender/sender.tsx"
+    },{
+      path: "registry/aoian-ui/sender/types.ts",
+      type: "registry:ui",
+      target: "components/aoian-ui/sender/types.ts"
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/aoian-ui/sender/sender.tsx")

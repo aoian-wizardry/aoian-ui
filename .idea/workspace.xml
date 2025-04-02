@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fde2a55-aa36-4280-ab5d-a9bceebd615b" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/data-BIAOSRJL.json" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/.cache/v0.5.4/data-BIAOSRJL.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.contentlayer/generated/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/.contentlayer/generated/index.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/aoian-ui/sender/sender.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/aoian-ui/sender/sender.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registry/blocks/dashboard/components/chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/blocks/dashboard/components/chat.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/blocks/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/blocks/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/lib/config/default-models.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/lib/config/models.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/lib/constants/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/lib/types/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/lib/types/models.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry/blocks/dashboard/components/sender-panel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/registry/blocks/dashboard/components/sender-panel.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,22 +26,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jonny/github/aoian-ui/registry/blocks/dashboard",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/jonny/develop/aoian-ai/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.sourceCode.TypeScript",
-    "ts.external.directory.path": "/Users/jonny/github/aoian-ui/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jonny/github/aoian-ui/registry/blocks/dashboard&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/jonny/develop/aoian-ai/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.tailwindcss&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/jonny/github/aoian-ui/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/registry/blocks/dashboard" />
@@ -110,6 +104,10 @@
       <workItem from="1743387753453" duration="12000" />
       <workItem from="1743406876332" duration="91000" />
       <workItem from="1743407809694" duration="7180000" />
+      <workItem from="1743425458186" duration="16316000" />
+      <workItem from="1743452641969" duration="819000" />
+      <workItem from="1743577873541" duration="16000" />
+      <workItem from="1743578148843" duration="1629000" />
     </task>
     <servers />
   </component>
@@ -135,7 +133,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/registry/blocks/dashboard/components/sender-panel.tsx</url>
           <line>30</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

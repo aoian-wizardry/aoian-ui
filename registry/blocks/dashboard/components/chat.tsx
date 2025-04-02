@@ -4,11 +4,10 @@ import { useEffect } from "react"
 import { Message, useChat } from "@ai-sdk/react"
 import { toast } from "sonner"
 
+import { Messages } from "@/registry/blocks/dashboard/components/messages"
+import { SenderPanel } from "@/registry/blocks/dashboard/components/sender-panel"
 import { CHAT_ID } from "@/registry/blocks/dashboard/lib/constants"
 import { Model } from "@/registry/blocks/dashboard/lib/types/models"
-
-import { SenderPanel } from "@/registry/blocks/dashboard/components/sender-panel"
-import { Messages } from "@/registry/blocks/dashboard/components/messages"
 import { cn } from "@/registry/lib/utils"
 
 export function Chat({
@@ -65,11 +64,9 @@ export function Chat({
     handleSubmit(e)
   }
 
-
-
   return (
-    <div className={cn("flex flex-col min-h-0 w-full grow")}>
-      <Messages />
+    <div className={cn("flex min-h-0 w-full grow flex-col")}>
+      {/*<Messages />*/}
       <SenderPanel
         input={input}
         handleInputChange={handleInputChange}

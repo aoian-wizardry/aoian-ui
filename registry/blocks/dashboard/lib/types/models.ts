@@ -4,6 +4,6 @@ export interface Model {
   provider: string
   providerId: string
   enabled: boolean
-  toolCallType: 'native' | 'manual'
+  toolCallType: "native" | "manual"
   toolCallModel?: string
 }

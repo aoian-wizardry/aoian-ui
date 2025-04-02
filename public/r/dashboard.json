@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/blocks/dashboard/page.tsx",
-      "content": "export default function Page() {\n  return <div>12321321321</div>\n}\n",
+      "content": "\"use server\"\n\nimport { generateId } from \"ai\"\n\nimport {\n  SidebarInset,\n  SidebarProvider,\n  SidebarTrigger,\n} from \"@/components/ui/sidebar\"\nimport { AppSidebar } from \"@/registry/blocks/dashboard/components/app-sidebar\"\nimport { Chat } from \"@/registry/blocks/dashboard/components/chat\"\nimport { getModels } from \"@/registry/blocks/dashboard/lib/config/models\"\n\nexport default async function Page() {\n  const id = generateId()\n  const models = await getModels()\n  return (\n    <SidebarProvider>\n      <AppSidebar />\n      <SidebarInset className=\"h-screen\">\n        <header className=\"flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12\">\n          <div className=\"flex items-center gap-2 px-4\">\n            <SidebarTrigger className=\"-ml-1\" />\n          </div>\n        </header>\n        <div className=\"flex min-h-0 grow flex-col\">\n          <Chat id={id} models={models} />\n        </div>\n      </SidebarInset>\n    </SidebarProvider>\n  )\n}\n",
       "type": "registry:page",
       "target": "app/dashboard/page.tsx"
     }

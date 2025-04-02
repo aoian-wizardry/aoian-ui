@@ -5,10 +5,10 @@ import { VariantProps, cva } from "class-variance-authority"
 import { ArrowLeft, ArrowUp, Globe, Square } from "lucide-react"
 import Textarea, { type TextareaAutosizeProps } from "react-textarea-autosize"
 
+import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Toggle } from "@/components/ui/toggle"
 import type { SenderProps } from "@/registry/aoian-ui/sender/types"
-import { cn } from "@/registry/lib/utils"
 
 const SenderContext = React.createContext<SenderProps | null>(null)
 

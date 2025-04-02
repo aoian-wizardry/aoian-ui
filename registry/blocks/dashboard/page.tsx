@@ -1,4 +1,5 @@
 "use server"
+
 import { generateId } from "ai"
 
 import {
@@ -16,13 +17,13 @@ export default async function Page() {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset  className="h-screen">
+      <SidebarInset className="h-screen">
         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
           </div>
         </header>
-        <div className="flex flex-col min-h-0 grow">
+        <div className="flex min-h-0 grow flex-col">
           <Chat id={id} models={models} />
         </div>
       </SidebarInset>
